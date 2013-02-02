@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683C16BD9CB500265767 /* UIKit.framework */; };
+		EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683E16BD9CB500265767 /* Foundation.framework */; };
+		EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7684016BD9CB500265767 /* CoreGraphics.framework */; };
+		EFF7684716BD9CB500265767 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFF7684516BD9CB500265767 /* InfoPlist.strings */; };
+		EFF7684916BD9CB500265767 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7684816BD9CB500265767 /* main.m */; };
+		EFF7684D16BD9CB500265767 /* RTHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */; };
+		EFF7684F16BD9CB500265767 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7684E16BD9CB500265767 /* Default.png */; };
+		EFF7685116BD9CB500265767 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685016BD9CB500265767 /* Default@2x.png */; };
+		EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685216BD9CB500265767 /* Default-568h@2x.png */; };
+		EFF7685616BD9CB500265767 /* RTHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7685516BD9CB500265767 /* RTHViewController.m */; };
+		EFF7685916BD9CB500265767 /* RTHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */; };
+		EFF7685C16BD9CB500265767 /* RTHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EFF7683816BD9CB500265767 /* Color Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFF7683C16BD9CB500265767 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EFF7683E16BD9CB500265767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EFF7684016BD9CB500265767 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EFF7684416BD9CB500265767 /* Color Search-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Color Search-Info.plist"; sourceTree = "<group>"; };
+		EFF7684616BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EFF7684816BD9CB500265767 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EFF7684A16BD9CB500265767 /* Color Search-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color Search-Prefix.pch"; sourceTree = "<group>"; };
+		EFF7684B16BD9CB500265767 /* RTHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHAppDelegate.h; sourceTree = "<group>"; };
+		EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHAppDelegate.m; sourceTree = "<group>"; };
+		EFF7684E16BD9CB500265767 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EFF7685016BD9CB500265767 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EFF7685216BD9CB500265767 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EFF7685416BD9CB500265767 /* RTHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHViewController.h; sourceTree = "<group>"; };
+		EFF7685516BD9CB500265767 /* RTHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHViewController.m; sourceTree = "<group>"; };
+		EFF7685816BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHViewController_iPhone.xib; sourceTree = "<group>"; };
+		EFF7685B16BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFF7683516BD9CB500265767 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */,
+				EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */,
+				EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFF7682D16BD9CB500265767 = {
+			isa = PBXGroup;
+			children = (
+				EFF7684216BD9CB500265767 /* Color Search */,
+				EFF7683B16BD9CB500265767 /* Frameworks */,
+				EFF7683916BD9CB500265767 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFF7683916BD9CB500265767 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7683816BD9CB500265767 /* Color Search.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFF7683B16BD9CB500265767 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7683C16BD9CB500265767 /* UIKit.framework */,
+				EFF7683E16BD9CB500265767 /* Foundation.framework */,
+				EFF7684016BD9CB500265767 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFF7684216BD9CB500265767 /* Color Search */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7684B16BD9CB500265767 /* RTHAppDelegate.h */,
+				EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */,
+				EFF7685416BD9CB500265767 /* RTHViewController.h */,
+				EFF7685516BD9CB500265767 /* RTHViewController.m */,
+				EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */,
+				EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */,
+				EFF7684316BD9CB500265767 /* Supporting Files */,
+			);
+			path = "Color Search";
+			sourceTree = "<group>";
+		};
+		EFF7684316BD9CB500265767 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7684416BD9CB500265767 /* Color Search-Info.plist */,
+				EFF7684516BD9CB500265767 /* InfoPlist.strings */,
+				EFF7684816BD9CB500265767 /* main.m */,
+				EFF7684A16BD9CB500265767 /* Color Search-Prefix.pch */,
+				EFF7684E16BD9CB500265767 /* Default.png */,
+				EFF7685016BD9CB500265767 /* Default@2x.png */,
+				EFF7685216BD9CB500265767 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFF7683716BD9CB500265767 /* Color Search */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Color Search" */;
+			buildPhases = (
+				EFF7683416BD9CB500265767 /* Sources */,
+				EFF7683516BD9CB500265767 /* Frameworks */,
+				EFF7683616BD9CB500265767 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Color Search";
+			productName = "Color Search";
+			productReference = EFF7683816BD9CB500265767 /* Color Search.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFF7682F16BD9CB500265767 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RTH;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Robert Tolar Haining";
+			};
+			buildConfigurationList = EFF7683216BD9CB500265767 /* Build configuration list for PBXProject "Color Search" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EFF7682D16BD9CB500265767;
+			productRefGroup = EFF7683916BD9CB500265767 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFF7683716BD9CB500265767 /* Color Search */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFF7683616BD9CB500265767 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF7684716BD9CB500265767 /* InfoPlist.strings in Resources */,
+				EFF7684F16BD9CB500265767 /* Default.png in Resources */,
+				EFF7685116BD9CB500265767 /* Default@2x.png in Resources */,
+				EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */,
+				EFF7685916BD9CB500265767 /* RTHViewController_iPhone.xib in Resources */,
+				EFF7685C16BD9CB500265767 /* RTHViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFF7683416BD9CB500265767 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF7684916BD9CB500265767 /* main.m in Sources */,
+				EFF7684D16BD9CB500265767 /* RTHAppDelegate.m in Sources */,
+				EFF7685616BD9CB500265767 /* RTHViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EFF7684516BD9CB500265767 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFF7684616BD9CB500265767 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFF7685816BD9CB500265767 /* en */,
+			);
+			name = RTHViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFF7685B16BD9CB500265767 /* en */,
+			);
+			name = RTHViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFF7685D16BD9CB500265767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFF7685E16BD9CB500265767 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFF7686016BD9CB500265767 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
+				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EFF7686116BD9CB500265767 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
+				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFF7683216BD9CB500265767 /* Build configuration list for PBXProject "Color Search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFF7685D16BD9CB500265767 /* Debug */,
+				EFF7685E16BD9CB500265767 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Color Search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFF7686016BD9CB500265767 /* Debug */,
+				EFF7686116BD9CB500265767 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFF7682F16BD9CB500265767 /* Project object */;
+}
