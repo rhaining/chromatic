@@ -1,0 +1,119 @@
+//
+//  ECListingFilter.h
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  assignright (c) 2010, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above assignright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above assignright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+
+#import <Foundation/Foundation.h>
+#import "ECFilter.h"
+
+@class ECUserFilter;
+@class ECShopFilter;
+@class ECListingImageFilter;
+@class ECListingPaymentFilter;
+@class ECShopSectionFilter;
+@class ECShippingInfoFilter;
+
+@interface ECListingFilter : ECFilter <ECFilterDefinition> {
+	
+	BOOL		listingId;
+	BOOL		state;
+	BOOL		userId;
+	BOOL		title;
+	BOOL		description;
+	BOOL		creationTsz;
+	BOOL		endingTsz;
+	BOOL		originalCreationTsz;
+	BOOL		lastModifiedTsz;
+	BOOL		price;
+	BOOL		currencyCode;
+	BOOL		quantity;
+	BOOL		tags;
+	BOOL		materials;
+	BOOL		featuredRank;
+	BOOL		stateTsz;
+	BOOL		hue;
+	BOOL		saturation;
+	BOOL		brightness;
+	BOOL		isBlackAndWhite;
+	BOOL		url;
+	BOOL		views;
+	BOOL		numFavorers;
+	
+	/* Associations */
+	
+	ECUserFilter			*user;
+	ECShopFilter			*shop;
+	ECUserFilter			*favouredBy;
+	ECListingImageFilter	*mainImage;
+	ECListingPaymentFilter	*paymentInfo;
+	ECShopSectionFilter		*shopSection;
+	ECShippingInfoFilter	*shippingInfo;
+	ECListingImageFilter	*images;
+	
+}
+
+@property (nonatomic, assign) BOOL listingId;
+@property (nonatomic, assign) BOOL state;
+@property (nonatomic, assign) BOOL userId;
+@property (nonatomic, assign) BOOL title;
+@property (nonatomic, assign) BOOL description;
+@property (nonatomic, assign) BOOL creationTsz;
+@property (nonatomic, assign) BOOL endingTsz;
+@property (nonatomic, assign) BOOL originalCreationTsz;
+@property (nonatomic, assign) BOOL lastModifiedTsz;
+@property (nonatomic, assign) BOOL price;
+@property (nonatomic, assign) BOOL currencyCode;
+@property (nonatomic, assign) BOOL quantity;
+@property (nonatomic, assign) BOOL tags;
+@property (nonatomic, assign) BOOL materials;
+@property (nonatomic, assign) BOOL featuredRank;
+@property (nonatomic, assign) BOOL stateTsz;
+@property (nonatomic, assign) BOOL hue;
+@property (nonatomic, assign) BOOL saturation;
+@property (nonatomic, assign) BOOL brightness;
+@property (nonatomic, assign) BOOL isBlackAndWhite;
+@property (nonatomic, assign) BOOL url;
+@property (nonatomic, assign) BOOL views;
+@property (nonatomic, assign) BOOL numFavorers;
+
+/* Associations */
+
+@property (nonatomic, retain) ECUserFilter *user;
+@property (nonatomic, retain) ECShopFilter *shop;
+@property (nonatomic, retain) ECUserFilter *favouredBy;
+@property (nonatomic, retain) ECListingImageFilter *mainImage;
+@property (nonatomic, retain) ECListingPaymentFilter *paymentInfo;
+@property (nonatomic, retain) ECShopSectionFilter *shopSection;
+@property (nonatomic, retain) ECShippingInfoFilter *shippingInfo;
+@property (nonatomic, retain) ECListingImageFilter *images;
+
+@end

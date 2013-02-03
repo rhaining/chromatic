@@ -1,0 +1,114 @@
+//
+//  ECFilter.h
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import <Foundation/Foundation.h>
+
+/*!
+ @protocol ECFilterDefinition 
+ @abstract Filter definition protocol used by the ECRequest instance to create
+ meaningful query strings.
+ */ 
+@protocol ECFilterDefinition
+
+/*!
+ @function fieldList 
+ @abstract Returns a list of field names to be used for the fields list.
+ */
+
+- (NSArray *) fieldList;
+
+/*!
+ @function includesList 
+ @abstract Returns a list of fields to be intterogated for the include string.
+ */
+- (NSArray *) includesList;
+
+@end
+
+#pragma mark -
+#pragma mark ECFilter Base Class
+
+/*!
+ @class ECFilter 
+ @abstract All filters extend from this class to inherit implementations of fieldQueryString and includesQueryString.
+ @discussion Each filter class can choose to implement their own fields and includes query string
+ ECFilter provides a base implementaiton of the messages, inherniting classes can simply implement
+ fieldList and includesList messages to retun a list of fields that should be included in the list.
+ */
+
+@interface ECFilter : NSObject <ECFilterDefinition> {
+	
+	NSInteger	offset;
+	NSInteger	limit;
+	NSString	*resourceState;
+	
+}
+
+@property (nonatomic, assign) NSInteger offset;
+@property (nonatomic, assign) NSInteger limit;
+@property (nonatomic, retain) NSString *resourceState;
+
+
+/*!
+ @function fieldsQueryString 
+ @abstract Returns a list of fields names for the query
+ */
+
+- (NSString *) fieldsQueryString;
+
+/*!
+ @function includesQueryString
+ @abstract Returns the includes = string for requests placed to the API.
+ @discussion The top level call should set traverse to YES if they want the third level
+ */
+
+- (NSString *) includesQueryString;
+
+/*!
+ @function includesQueryChildStringForAssociation 
+ @abstract Returns chidlren Includes if there are sub filters
+ @discussion Used to support the three level of query strings for the API calls.
+ @param parentAssociationName is the key that we are search for values
+ */
+
+- (NSString *) includesQueryChildStringForAssociation:(NSString *) parentAssociationName;
+
+/*!
+ @function hasAnyChildrenAssociations 
+ @abstract Helper assists includesQueryString to determine if there are any children.
+ */
+- (BOOL) hasAnyChildrenAssociations:(NSString *) associationName;
+
+- (NSString *) includesParameterForAssociationName:(NSString *) associationName;
+
+@end

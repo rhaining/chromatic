@@ -1,0 +1,164 @@
+//
+//  ECFilter.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECFilter.h"
+
+@implementation ECFilter
+
+@synthesize resourceState;
+@synthesize offset;
+@synthesize limit;
+
+- (id) init {
+	self = [super init];
+	if(self) {
+		self.resourceState = @"";
+		self.offset = -1;
+		self.limit = -1;
+	}
+	return self;
+}
+
+- (void)dealloc {
+	[resourceState release];
+    [super dealloc];
+}
+
+- (NSArray *) fieldList { return nil; }
+- (NSArray *) includesList { return nil; }
+
+/*!
+ @function fieldsQueryString 
+ @abstract Returns a list of fields names for the query
+ */
+
+- (NSString *) fieldsQueryString {
+	
+	NSArray *fieldNames = [self fieldList];
+	
+	/* Final composed string sent to Etsy */
+	NSMutableString *fieldString = [[[NSMutableString alloc] init] autorelease];
+
+	/* Characters that we replace with _lowerCase */
+	NSArray *replaceableChars = [NSArray arrayWithObjects:
+								 @"Q", @"W", @"E", @"R", @"T", @"Y", @"U", @"I", @"O", @"P", 
+								 @"A", @"S", @"D", @"F", @"G", @"H", @"J", @"K", @"L",
+								 @"Z", @"X", @"C", @"V", @"B", @"N", @"M", nil];
+
+	/* Reusable pointer for string replacements */
+	NSMutableString *fieldNameString = nil;
+	
+	/* Loop through the array returned by the filter and change the names */
+	for(NSString *fieldName in fieldNames) {
+		/* Loop if the field is to be omited */
+		if ([[self valueForKey:fieldName] boolValue] == NO) continue;
+		/* Otherwise change the name to a field and add it */
+		fieldNameString = [fieldName mutableCopy];
+		for(NSString *replaceableChar in replaceableChars) {
+			[fieldNameString replaceOccurrencesOfString:replaceableChar 
+											 withString:[NSString stringWithFormat:@"_%@", [replaceableChar lowercaseString]] 
+												options:0 
+												  range:NSMakeRange(0, [fieldNameString length])];
+		}
+		[fieldString appendFormat:@"%@,", fieldNameString];
+		[fieldNameString release];
+	}
+	fieldNames = nil;
+	
+	/* Return the string without the last comma */
+	return [fieldString substringToIndex:[fieldString length] - 1];
+}
+
+/*!
+ @function includesQueryString 
+ @abstract Returns the includes = string for requests placed to the API.
+ @discussion The top level call should set traverse to YES if they want the third level
+ */
+- (NSString *) includesQueryString {
+
+	NSArray *associationNames = [self includesList];
+	
+	NSMutableString *includesString = [[[NSMutableString alloc] init] autorelease];
+	for(NSString *associationName in associationNames) {
+		if([self valueForKey:associationName] != nil) {
+			if(![self hasAnyChildrenAssociations:associationName])
+				[includesString appendFormat:@"%@,", [self includesParameterForAssociationName:associationName]];
+			else
+				[includesString appendFormat:@"%@", [self includesQueryChildStringForAssociation:associationName]];
+		}
+	}
+	return includesString;	
+
+}
+
+/* Resource(field_list,):status:limit:offset/SubResource */
+
+- (NSString *) includesQueryChildStringForAssociation:(NSString *) parentAssociationName {
+	
+	NSMutableString *childrenAssociationString = [[[NSMutableString alloc] init] autorelease];
+	ECFilter *subFilter = (ECFilter *) [self valueForKey:parentAssociationName];
+
+	for(NSString *subSubFilterName in [subFilter includesList]) {
+		if([subFilter valueForKey:subSubFilterName] != nil) {
+			//ECFilter *subSubFilter = (ECFilter *)[subFilter valueForKey:subSubFilterName];
+			[childrenAssociationString appendFormat:@"%@(%@)/%@,",
+			 [self includesParameterForAssociationName:parentAssociationName],
+			 [subFilter fieldsQueryString],
+			 [self includesParameterForAssociationName:subSubFilterName]];			
+		}
+	}
+	
+	subFilter = nil;
+	return childrenAssociationString;
+	
+}
+
+- (NSString *) includesParameterForAssociationName:(NSString *) associationName {
+	NSMutableString *modifiedAssociationName = [NSMutableString stringWithString:associationName];
+	[modifiedAssociationName replaceCharactersInRange:NSMakeRange(0, 1) withString:[[modifiedAssociationName substringToIndex:1] capitalizedString]];
+	return modifiedAssociationName;
+}
+
+- (BOOL) hasAnyChildrenAssociations:(NSString *) associationName {
+	ECFilter *subFilter = (ECFilter *) [self valueForKey:associationName];
+	for(NSString *associationName in [subFilter includesList]) {
+		if([subFilter valueForKey:associationName] != nil) {
+			subFilter = nil;
+			return YES;
+		}
+	}
+	subFilter = nil;
+	return NO;
+}
+
+@end

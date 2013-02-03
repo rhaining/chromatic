@@ -1,0 +1,38 @@
+//
+//  ECAPIProtocols.h
+//  Etsy Touch
+//
+//  Created by Devraj Mukherjee on 9/04/11.
+//  Copyright 2011 Eternity Technologies Pty Limited. All rights reserved.
+//
+
+@class ECResponse;
+
+/* Error codes that might be returned by the server */
+typedef	NSInteger	ECHTTPErrorCode;
+
+enum {
+	ECHTTPErrorCodeBadRequest = 400,
+	ECHTTPErrorCodeForbidden = 403,
+	ECHTTPErrorCodeNotFound = 404,
+	ECHTTPErrorCodeServerError = 500,
+	ECHTTPErrorCodeServiceUnavailable = 503
+};
+
+@protocol ECResponseDelegate
+
+/* Called if all went well, this fires the parse method */
+- (void) etsyAPIRequestFinishedWithResponse:(ECResponse *) response;
+/* Called if the API request didn't finish */
+- (void) etsyAPIRequestFailedWithResponse:(ECResponse *) response;
+/* Called if the API request returned an error */
+- (void) etsyAPIReturnedError:(ECHTTPErrorCode) errorCode resposneString:(ECResponse *) response;
+
+@end
+
+@protocol ECResponseParser
+
++ (id) parseProtocolJSONResponse:(id) jsonResponse;
+- (id) initWithJSONString:(id) jsonString;
+
+@end

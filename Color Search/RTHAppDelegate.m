@@ -7,7 +7,7 @@
 //
 
 #import "RTHAppDelegate.h"
-
+#import "AFNetworkActivityIndicatorManager.h"
 #import "RTHViewController.h"
 
 @implementation RTHAppDelegate
@@ -21,8 +21,15 @@
 	} else {
 	    self.viewController = [[RTHViewController alloc] initWithNibName:@"RTHViewController_iPad" bundle:nil];
 	}
-	self.window.rootViewController = self.viewController;
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+	self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+	
+	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+	NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
+	[NSURLCache setSharedURLCache:URLCache];
+	
+
     return YES;
 }
 

@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTHColorUtil.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface RTHViewController : UIViewController
+@interface RTHViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+	BOOL hasPresented;
+	UIImageView *imageView;
+	RTHColorUtil *colorUtil;
+	
+	UIColor *currentColor;
+//	CAGradientLayer *gradient;
+}
 
 @end

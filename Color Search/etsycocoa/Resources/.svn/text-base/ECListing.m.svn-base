@@ -1,0 +1,215 @@
+//
+//  ECListing.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+
+#import "ECListing.h"
+
+#import "ECUser.h"
+#import "ECListing.h"
+#import "ECShop.h"
+#import "ECFavoriteListing.h"
+
+#import "ECListingImage.h"
+#import "ECUser.h"
+#import "ECShop.h"
+#import "ECListingImage.h"
+#import "ECListingPayment.h"
+#import "ECShopSection.h"
+#import "ECShippingInfo.h"
+
+@implementation ECListing
+
+@synthesize listingId;
+@synthesize state;
+@synthesize userId;
+@synthesize title;
+@synthesize description;
+@synthesize creationTsz;
+@synthesize endingTsz;
+@synthesize originalCreationTsz;
+@synthesize lastModifiedTsz;
+@synthesize price;
+@synthesize currencyCode;
+@synthesize quantity;
+@synthesize tags;
+@synthesize materials;
+@synthesize shopSectionId;
+@synthesize featuredRank;
+@synthesize stateTsz;
+@synthesize hue;
+@synthesize saturation;
+@synthesize brightness;
+@synthesize isBlackAndWhite;
+@synthesize url;
+@synthesize views;
+@synthesize numFavorers;
+
+@synthesize user;
+@synthesize shop;
+@synthesize images;
+
+@synthesize mainImage;
+@synthesize paymentInfo;
+@synthesize shopSection;
+@synthesize shippingInfo;
+
+- (id) initWithJSONString:(id) jsonString {
+	
+	self = [super init];
+	if(self) {
+		
+		self.listingId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"listing_id"];
+		self.state = [self stringOrNilFromJSONObject:jsonString jsonKey:@"state"];
+		self.userId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"user_id"];
+		self.title = [self stringOrNilFromJSONObject:jsonString jsonKey:@"title"];
+		self.description = [self stringOrNilFromJSONObject:jsonString jsonKey:@"description"];
+		self.creationTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"creation_Tsz"];
+		self.endingTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"ending_Tsz"];
+		self.originalCreationTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"original_creation_Tsz"];
+		self.lastModifiedTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"last_modified_Tsz"];
+		self.price = [self doubleOrNilFromJSONObject:jsonString jsonKey:@"price"];
+		self.currencyCode = [self stringOrNilFromJSONObject:jsonString jsonKey:@"currency_code"];
+		self.quantity = [self integerOrNilFromJSONObject:jsonString jsonKey:@"quantity"];
+
+		if([jsonString valueForKey:@"tags"] != [NSNull null] && ![[jsonString valueForKey:@"tags"] isEqual:@""]) {
+			tags = [[NSMutableArray alloc] init];
+			for(id tag in [jsonString valueForKey:@"tags"]) {
+				[tags addObject:tag];
+			}
+		}
+		
+		if([jsonString valueForKey:@"materials"] != [NSNull null] && ![[jsonString valueForKey:@"materials"] isEqual:@""]) {
+			materials = [[NSMutableArray alloc] init];
+			for(id material in [jsonString valueForKey:@"materials"]) {
+				[materials addObject:material];
+			}			
+		}
+		
+		self.shopSectionId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"shop_section_id"];
+		self.featuredRank = [self integerOrNilFromJSONObject:jsonString jsonKey:@"featured_rank"];
+		self.stateTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"state_Tsz"];
+		self.hue = [self integerOrNilFromJSONObject:jsonString jsonKey:@"hue"];
+		self.saturation = [self integerOrNilFromJSONObject:jsonString jsonKey:@"saturation"];
+		self.brightness = [self integerOrNilFromJSONObject:jsonString jsonKey:@"brightness"];
+		self.isBlackAndWhite = [self boolOrNilFromJSONObject:jsonString jsonKey:@"is_black_and_white"];
+		self.url = [self stringOrNilFromJSONObject:jsonString jsonKey:@"url"];
+		self.views = [self integerOrNilFromJSONObject:jsonString jsonKey:@"views"];
+		self.numFavorers = [self integerOrNilFromJSONObject:jsonString jsonKey:@"num_favorers"];
+
+		/* Parse associations */
+		
+		if([jsonString valueForKey:@"User"] == [NSNull null]) user = nil;
+		else {
+			user = [[ECUser alloc] initWithJSONString:[jsonString valueForKey:@"User"]];
+		}
+		
+		if([jsonString valueForKey:@"Shop"] == [NSNull null]) shop = nil;
+		else {
+			shop = [[ECShop alloc] initWithJSONString:[jsonString valueForKey:@"Shop"]];
+		}
+		
+		/* For whatever reason we may not have a Main Image, check for array length */
+		if([jsonString valueForKey:@"MainImage"] == [NSNull null] || [[jsonString valueForKey:@"MainImage"] count] == 0) mainImage = nil;
+		else {
+			mainImage = [[ECListingImage alloc] initWithJSONString:[jsonString valueForKey:@"MainImage"]];
+		}
+		
+		if([jsonString valueForKey:@"PaymentInfo"] == [NSNull null]) paymentInfo = nil;
+		else {
+			paymentInfo = [[ECListingPayment alloc] initWithJSONString:[jsonString valueForKey:@"PaymentInfo"]];
+		}
+
+		if([jsonString valueForKey:@"ShopSection"] == [NSNull null]) shopSection = nil;
+		else {
+			shopSection = [[ECShopSection alloc] initWithJSONString:[jsonString valueForKey:@"ShopSection"]];
+		}
+		
+		if([jsonString valueForKey:@"Images"] != [NSNull null]) {
+			NSMutableArray *listingImages = [[NSMutableArray alloc] init];
+			ECListingImage *listingImage = nil;
+			for(id imageJSON in [jsonString valueForKey:@"Images"]) {
+				listingImage = [[ECListingImage alloc] initWithJSONString:imageJSON];
+				[listingImages addObject:listingImage];
+				[listingImage release];
+			}
+			images = [listingImages retain];
+			[listingImages release];
+		}
+		else images = nil;
+		
+
+		if([jsonString valueForKey:@"ShippingInfo"] != [NSNull null]) {
+			NSMutableArray *shippingInfoObjects = [[NSMutableArray alloc] init];
+			ECShippingInfo *shippingInfoObject = nil;
+			for(id shippingInfoJSON in [jsonString valueForKey:@"ShippingInfo"]) {
+				shippingInfoObject = [[ECShippingInfo alloc] initWithJSONString:shippingInfoJSON];
+				[shippingInfoObjects addObject:shippingInfoObject];
+				[shippingInfoObject release];
+			}
+			shippingInfo = [shippingInfoObjects retain];
+			[shippingInfoObjects release];			
+		}
+		else shippingInfo = nil;
+		
+	}
+	return self;
+}
+
+- (id) init {
+	self = [super init];
+	if(self) {
+		
+		
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[state release];
+	[title release];
+	[description release];
+	[tags release];
+	[materials release];
+	[url release];
+	[shop release];
+	[user release];
+	[images release];
+	[mainImage release];
+	[paymentInfo release];
+	[shopSection release];
+	[shippingInfo release];
+	[currencyCode release];
+	[super dealloc];
+}
+
+@end

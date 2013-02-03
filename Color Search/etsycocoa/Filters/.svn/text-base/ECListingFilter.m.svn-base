@@ -1,0 +1,139 @@
+//
+//  ECListingFilter.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECListingFilter.h"
+#import "ECUserFilter.h"
+#import "ECShopFilter.h"
+#import "ECListingImageFilter.h"
+#import "ECShopFilter.h"
+#import "ECShopSectionFilter.h"
+#import "ECShopSectionFilter.h"
+
+@implementation ECListingFilter
+
+@synthesize listingId;
+@synthesize state;
+@synthesize userId;
+@synthesize title;
+@synthesize description;
+@synthesize creationTsz;
+@synthesize endingTsz;
+@synthesize originalCreationTsz;
+@synthesize lastModifiedTsz;
+@synthesize price;
+@synthesize currencyCode;
+@synthesize quantity;
+@synthesize tags;
+@synthesize materials;
+@synthesize featuredRank;
+@synthesize stateTsz;
+@synthesize hue;
+@synthesize saturation;
+@synthesize brightness;
+@synthesize isBlackAndWhite;
+@synthesize url;
+@synthesize views;
+@synthesize numFavorers;
+
+@synthesize user;
+@synthesize shop;
+@synthesize images;
+@synthesize favouredBy;
+
+@synthesize mainImage;
+@synthesize paymentInfo;
+@synthesize shopSection;
+@synthesize shippingInfo;
+
+- (id) init {
+	self = [super init];
+	if(self) {
+		self.listingId = YES;
+		self.state = YES;
+		self.userId = YES;
+		self.title = YES;
+		self.description = YES;
+		self.creationTsz = YES;
+		self.endingTsz = YES;
+		self.originalCreationTsz = YES;
+		self.lastModifiedTsz = YES;
+		self.price = YES;
+		self.currencyCode = YES;
+		self.quantity = YES;
+		self.tags = YES;
+		self.materials = YES;
+		self.featuredRank = YES;
+		self.stateTsz = YES;
+		self.hue = YES;
+		self.saturation = YES;
+		self.brightness = YES;
+		self.isBlackAndWhite = YES;
+		self.url = YES;
+		self.views = YES;
+		self.numFavorers = YES;
+		
+		self.user = nil;
+		self.shop = nil;
+		self.images = nil;
+		self.favouredBy = nil;
+		
+		self.mainImage = nil;
+		self.paymentInfo = nil;
+		self.shopSection = nil;
+		self.shippingInfo = nil;	
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[user release];
+	[shop release];
+	[images release];
+	[favouredBy release];
+	[mainImage release];
+	[shopSection release];
+	[shippingInfo release];
+	[super dealloc];
+}
+
+- (NSArray *) fieldList {
+	return [NSArray arrayWithObjects:@"listingId", @"state", @"userId", @"title", @"description", @"creationTsz", @"endingTsz", @"originalCreationTsz",
+			@"lastModifiedTsz", @"price", @"currencyCode", @"quantity", @"tags", @"materials", @"featuredRank", @"stateTsz", @"hue", @"saturation",
+			@"brightness", @"isBlackAndWhite", @"url", @"views", @"numFavorers", nil];
+}
+
+- (NSArray *) includesList {
+	return [NSArray arrayWithObjects:@"user", @"shop", @"images", @"favouredBy", @"mainImage", @"paymentInfo", @"shopSection", @"shippingInfo", nil];
+}
+
+@end

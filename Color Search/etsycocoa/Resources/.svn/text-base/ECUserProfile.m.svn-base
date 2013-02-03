@@ -1,0 +1,114 @@
+//
+//  ECUserProfile.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+
+#import "ECUserProfile.h"
+
+
+@implementation ECUserProfile
+
+@synthesize userProfileId;
+@synthesize userId;
+@synthesize loginName;
+@synthesize firstName;
+@synthesize lastName;
+@synthesize bio;
+@synthesize gender;
+@synthesize birthMonth;
+@synthesize birthDay;
+@synthesize birthYear;
+@synthesize joinTsz;
+@synthesize materials;
+@synthesize countryId;
+@synthesize city;
+@synthesize location;
+@synthesize avatarId;
+@synthesize lat;
+@synthesize lon;
+@synthesize transactionBuyCount;
+@synthesize transactionSoldCount;
+@synthesize isSeller;
+@synthesize imageURL75x75;
+
+@synthesize country;
+
+- (id) initWithJSONString:(id) jsonString 
+{
+	self = [super init];
+	if(self) {
+		
+		self.userProfileId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"user_profile_id"];
+		self.userId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"user_id"];
+		self.loginName = [self stringOrNilFromJSONObject:jsonString jsonKey:@"login_name"];
+		self.firstName = [self stringOrNilFromJSONObject:jsonString jsonKey:@"first_name"];
+		self.bio = [self stringOrNilFromJSONObject:jsonString jsonKey:@"bio"];
+		self.gender = [self stringOrNilFromJSONObject:jsonString jsonKey:@"gender"];
+		self.birthMonth = [self stringOrNilFromJSONObject:jsonString jsonKey:@"birth_month"];
+		self.birthDay = [self stringOrNilFromJSONObject:jsonString jsonKey:@"birth_day"];
+		self.birthYear = [self stringOrNilFromJSONObject:jsonString jsonKey:@"birth_year"];
+		self.joinTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"join_Tsz"];
+		self.materials = [self stringOrNilFromJSONObject:jsonString jsonKey:@"materials"];
+		self.countryId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"country_id"];
+		self.city = [self stringOrNilFromJSONObject:jsonString jsonKey:@"city"];
+		self.location = [self stringOrNilFromJSONObject:jsonString jsonKey:@"location"];
+		self.avatarId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"avatar_id"];
+		self.lat = [self floatOrNilFromJSONObject:jsonString jsonKey:@"lat"];
+		self.lon = [self floatOrNilFromJSONObject:jsonString jsonKey:@"lon"];
+		self.transactionBuyCount = [self integerOrNilFromJSONObject:jsonString jsonKey:@"transaction_buy_count"];
+		self.transactionSoldCount = [self integerOrNilFromJSONObject:jsonString jsonKey:@"transaction_sold_count"];
+		self.isSeller = [self boolOrNilFromJSONObject:jsonString jsonKey:@"is_seller"];
+		self.imageURL75x75 = [self stringOrNilFromJSONObject:jsonString jsonKey:@"image_url_75x75"];
+		
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[loginName release];
+	[firstName release];
+	[lastName release];
+	[bio release];
+	[gender release];
+	[birthMonth release];
+	[birthDay release];
+	[birthYear release];
+	[materials release];
+	[city release];
+	[location release];
+	[imageURL75x75 release];
+
+	[country release];
+	[super dealloc];
+}
+
+@end

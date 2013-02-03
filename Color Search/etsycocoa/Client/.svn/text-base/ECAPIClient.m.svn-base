@@ -1,0 +1,206 @@
+//
+//  ECAPIClient.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECAPIClient.h"
+
+#import "GDataOAuthAuthentication.h"
+#import "GDataOAuthViewControllerTouch.h"
+
+#import "ECRequest.h"
+#import "ECResponse.h"
+
+@implementation ECAPIClient
+
+@synthesize useSandbox;
+@synthesize authenticated;
+
+- (id) initWithAppIdentifier:(NSString *) inAppIdentifier 
+						 key:(NSString *) inAPIKey 
+				sharedSecret:(NSString *) inSharedSecret 
+{
+	
+	/* Client state */
+	useSandbox		= NO;
+	authenticated	= NO;
+	
+	/* API users can't see this */
+	appIdentifier	= [inAppIdentifier copy];
+	apiKey			= [inAPIKey copy];
+	sharedSecret	= [inSharedSecret copy];
+	
+	/* Init Authentication handler */
+	
+	etsyOAuthHandler = [GDataOAuthViewControllerTouch authForGoogleFromKeychainForName:sharedSecret];
+
+	/**
+	 * http://code.google.com/p/gdata-objectivec-client/wiki/OAuthSignInControllers
+	 * If handler can't authorise then create a new one 
+	 */
+	if(![etsyOAuthHandler canAuthorize]) {
+		etsyOAuthHandler = [[GDataOAuthAuthentication alloc] initWithSignatureMethod:kGDataOAuthSignatureMethodHMAC_SHA1
+																		 consumerKey:apiKey
+																		  privateKey:sharedSecret];
+	
+		etsyOAuthHandler.serviceProvider = appIdentifier;
+	}
+	
+	etsyOAuthHandler.shouldUseParamsToAuthorize = YES;
+	etsyOAuthHandler.callback = @"etsycocoa://oauth-callback";
+	
+	authenticated = [GDataOAuthViewControllerTouch authorizeFromKeychainForName:appIdentifier
+																 authentication:etsyOAuthHandler];
+	
+
+	NSLog(@"[ECAPIClient] started with API Key = %@, Shared Secret = %@, Key Chain name = %@,", 
+		  etsyOAuthHandler.consumerKey, 
+		  etsyOAuthHandler.privateKey, 
+		  appIdentifier);
+	
+	return self;
+
+}
+
+#pragma mark -
+#pragma mark Memory Management
+
+/**
+ * Memory Management 
+ */
+
+- (void) dealloc {
+	
+	[appIdentifier release];
+	[apiKey release];
+	[sharedSecret release];
+	
+	[etsyOAuthHandler release];
+
+	[super dealloc];
+
+}
+
+#pragma mark -
+#pragma mark Authentication
+
+- (void) signInUsing:(id <ECOAuthUIPresenter>) uiPresenter {
+	
+	if(!authenticated) {
+				
+		GDataOAuthViewControllerTouch *authViewController;
+		authViewController = [[[GDataOAuthViewControllerTouch alloc] initWithScope:ETSY_V2_OAUTH_URL_SCOPE
+																		  language:nil
+																   requestTokenURL:[NSURL URLWithString:ETSY_V2_OAUTH_URL_REQUEST_TOKEN]
+																 authorizeTokenURL:[NSURL URLWithString:ETSY_V2_OAUTH_URL_AUTH]
+																	accessTokenURL:[NSURL URLWithString:ETSY_V2_OAUTH_ACCESS_TOKEN]
+																	authentication:etsyOAuthHandler
+																	appServiceName:appIdentifier
+																		  delegate:self
+																  finishedSelector:@selector(viewController:finishedWithAuth:error:)] autorelease];
+		
+		authViewController.title = NSLocalizedString(@"EtsyLogin", @"");
+		[uiPresenter presentOAuthViewController:authViewController];
+		
+	}
+	
+}
+
+- (void) signOut {
+	[GDataOAuthViewControllerTouch removeParamsFromKeychainForName:appIdentifier];
+	[GDataOAuthViewControllerTouch revokeTokenForGoogleAuthentication:etsyOAuthHandler];
+	authenticated = NO;
+}
+
+#pragma mark -
+#pragma mark GData OAuth Delegate
+
+- (void)viewController:(GDataOAuthViewControllerTouch *)windowController 
+	  finishedWithAuth:(GDataOAuthAuthentication *)auth 
+				 error:(NSError *)error 
+{
+	/**
+	 * Authentication was successful
+	 */
+	if(error == nil) {
+		[etsyOAuthHandler release];
+		etsyOAuthHandler = [auth retain];
+		authenticated = YES;
+	}
+	else {
+		
+	    NSData *responseData = [[error userInfo] objectForKey:@"data"];
+		if ([responseData length] > 0) {
+			NSString *failureResponse = [[NSString alloc] initWithData:responseData
+															  encoding:NSUTF8StringEncoding];
+			NSLog(@"Authentication failure with reason = %@", failureResponse);
+			[failureResponse release];
+		}
+		
+		authenticated = NO;
+		
+	}
+}
+
+- (void) makeAPIRequest:(ECRequest *) request delegate:(id) delegate 
+{
+
+	/* Add API key */
+	[request setParamValue:apiKey forKey:@"api_key"];
+	
+	/* Sandbox */
+	request.useSandbox = useSandbox;
+
+	ECResponse *response = [[ECResponse alloc] init];
+	response.delegate = delegate;
+	response.parserClass = request.parserClass;
+	response.identifier = request.identifier;
+
+	/* Authorize request if required */
+	NSMutableURLRequest *urlRequest = [request urlRequest];
+	if(request.needsAuthorization) [etsyOAuthHandler authorizeRequest:urlRequest];
+	
+	/* Syncronous URL connection */
+	NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest 
+																   delegate:response];
+
+
+	/* Fetch */
+	[urlConnection start];
+	
+	/* Memory management */
+	urlRequest = nil;				// Gathered from the Request object
+	urlConnection = nil;			// URL nullify the pointer, release it in delegate
+	[response release];				// Release the reponse, pointer passed to the delegate
+
+}
+
+@end

@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF5B57A816BDB09B008626BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */; };
+		EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */; };
+		EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */; };
+		EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */; };
+		EF5B58D016BDBA18008626BA /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C116BDBA18008626BA /* AFJSONRequestOperation.m */; };
+		EF5B58D116BDBA18008626BA /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C316BDBA18008626BA /* AFNetworkActivityIndicatorManager.m */; };
+		EF5B58D216BDBA18008626BA /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C616BDBA18008626BA /* AFPropertyListRequestOperation.m */; };
+		EF5B58D316BDBA18008626BA /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C816BDBA18008626BA /* AFURLConnectionOperation.m */; };
+		EF5B58D416BDBA18008626BA /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58CA16BDBA18008626BA /* AFXMLRequestOperation.m */; };
+		EF5B58D516BDBA18008626BA /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */; };
+		EF5B58D916BDBA3D008626BA /* RTHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */; };
+		EF5B58E516BDBB6A008626BA /* RTHListing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E416BDBB6A008626BA /* RTHListing.m */; };
+		EF5B58E916BDBBCB008626BA /* RTHEtsyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E816BDBBCB008626BA /* RTHEtsyClient.m */; };
+		EF5B58EB16BDBEA0008626BA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B58EA16BDBEA0008626BA /* MobileCoreServices.framework */; };
+		EF5B58EE16BDC568008626BA /* RTHListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58ED16BDC568008626BA /* RTHListingCell.m */; };
+		EF5B58F116BDD8F0008626BA /* RTHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F016BDD8F0008626BA /* RTHCategory.m */; };
+		EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */; };
+		EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B591016BDE06E008626BA /* RTHPriceViewController.m */; };
+		EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B591716BDE456008626BA /* QuartzCore.framework */; };
 		EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683C16BD9CB500265767 /* UIKit.framework */; };
 		EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683E16BD9CB500265767 /* Foundation.framework */; };
 		EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7684016BD9CB500265767 /* CoreGraphics.framework */; };
@@ -19,9 +38,47 @@
 		EFF7685616BD9CB500265767 /* RTHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7685516BD9CB500265767 /* RTHViewController.m */; };
 		EFF7685916BD9CB500265767 /* RTHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */; };
 		EFF7685C16BD9CB500265767 /* RTHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */; };
+		EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7686316BDA0C800265767 /* RTHColorUtil.m */; };
+		EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7686516BDA6EE00265767 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		EF5B58BC16BDBA18008626BA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		EF5B58BE16BDBA18008626BA /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		EF5B58C016BDBA18008626BA /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		EF5B58C116BDBA18008626BA /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		EF5B58C216BDBA18008626BA /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		EF5B58C316BDBA18008626BA /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		EF5B58C416BDBA18008626BA /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		EF5B58C516BDBA18008626BA /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		EF5B58C616BDBA18008626BA /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		EF5B58C716BDBA18008626BA /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		EF5B58C816BDBA18008626BA /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		EF5B58C916BDBA18008626BA /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		EF5B58CA16BDBA18008626BA /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		EF5B58CB16BDBA18008626BA /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		EF5B58D716BDBA3D008626BA /* RTHSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHSearchViewController.h; sourceTree = "<group>"; };
+		EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHSearchViewController.m; sourceTree = "<group>"; };
+		EF5B58E316BDBB6A008626BA /* RTHListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListing.h; sourceTree = "<group>"; };
+		EF5B58E416BDBB6A008626BA /* RTHListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHListing.m; sourceTree = "<group>"; };
+		EF5B58E716BDBBCB008626BA /* RTHEtsyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHEtsyClient.h; sourceTree = "<group>"; };
+		EF5B58E816BDBBCB008626BA /* RTHEtsyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHEtsyClient.m; sourceTree = "<group>"; };
+		EF5B58EA16BDBEA0008626BA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EF5B58EC16BDC567008626BA /* RTHListingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListingCell.h; sourceTree = "<group>"; };
+		EF5B58ED16BDC568008626BA /* RTHListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHListingCell.m; sourceTree = "<group>"; };
+		EF5B58EF16BDD8F0008626BA /* RTHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCategory.h; sourceTree = "<group>"; };
+		EF5B58F016BDD8F0008626BA /* RTHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCategory.m; sourceTree = "<group>"; };
+		EF5B58F416BDD9B1008626BA /* RTHCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCategoryViewController.h; sourceTree = "<group>"; };
+		EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCategoryViewController.m; sourceTree = "<group>"; };
+		EF5B590F16BDE06E008626BA /* RTHPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHPriceViewController.h; sourceTree = "<group>"; };
+		EF5B591016BDE06E008626BA /* RTHPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHPriceViewController.m; sourceTree = "<group>"; };
+		EF5B591716BDE456008626BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EFF7683816BD9CB500265767 /* Color Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7683C16BD9CB500265767 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFF7683E16BD9CB500265767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +96,9 @@
 		EFF7685516BD9CB500265767 /* RTHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHViewController.m; sourceTree = "<group>"; };
 		EFF7685816BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHViewController_iPhone.xib; sourceTree = "<group>"; };
 		EFF7685B16BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHViewController_iPad.xib; sourceTree = "<group>"; };
+		EFF7686216BDA0C800265767 /* RTHColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorUtil.h; sourceTree = "<group>"; };
+		EFF7686316BDA0C800265767 /* RTHColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorUtil.m; sourceTree = "<group>"; };
+		EFF7686516BDA6EE00265767 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +106,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */,
+				EF5B58EB16BDBEA0008626BA /* MobileCoreServices.framework in Frameworks */,
+				EF5B57A816BDB09B008626BA /* SystemConfiguration.framework in Frameworks */,
+				EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */,
 				EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */,
 				EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */,
 				EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */,
@@ -55,9 +119,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF5B58B916BDBA18008626BA /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */,
+				EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */,
+				EF5B58BC16BDBA18008626BA /* AFHTTPRequestOperation.h */,
+				EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */,
+				EF5B58BE16BDBA18008626BA /* AFImageRequestOperation.h */,
+				EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */,
+				EF5B58C016BDBA18008626BA /* AFJSONRequestOperation.h */,
+				EF5B58C116BDBA18008626BA /* AFJSONRequestOperation.m */,
+				EF5B58C216BDBA18008626BA /* AFNetworkActivityIndicatorManager.h */,
+				EF5B58C316BDBA18008626BA /* AFNetworkActivityIndicatorManager.m */,
+				EF5B58C416BDBA18008626BA /* AFNetworking.h */,
+				EF5B58C516BDBA18008626BA /* AFPropertyListRequestOperation.h */,
+				EF5B58C616BDBA18008626BA /* AFPropertyListRequestOperation.m */,
+				EF5B58C716BDBA18008626BA /* AFURLConnectionOperation.h */,
+				EF5B58C816BDBA18008626BA /* AFURLConnectionOperation.m */,
+				EF5B58C916BDBA18008626BA /* AFXMLRequestOperation.h */,
+				EF5B58CA16BDBA18008626BA /* AFXMLRequestOperation.m */,
+				EF5B58CB16BDBA18008626BA /* UIImageView+AFNetworking.h */,
+				EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		EF5B58D616BDBA20008626BA /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */,
+				EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */,
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		EF5B58E216BDBB58008626BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B58E316BDBB6A008626BA /* RTHListing.h */,
+				EF5B58E416BDBB6A008626BA /* RTHListing.m */,
+				EF5B58EF16BDD8F0008626BA /* RTHCategory.h */,
+				EF5B58F016BDD8F0008626BA /* RTHCategory.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EF5B58E616BDBBB4008626BA /* networking */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B58E716BDBBCB008626BA /* RTHEtsyClient.h */,
+				EF5B58E816BDBBCB008626BA /* RTHEtsyClient.m */,
+			);
+			name = networking;
+			sourceTree = "<group>";
+		};
+		EF5B58F216BDD998008626BA /* search */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B58D716BDBA3D008626BA /* RTHSearchViewController.h */,
+				EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */,
+				EF5B58EC16BDC567008626BA /* RTHListingCell.h */,
+				EF5B58ED16BDC568008626BA /* RTHListingCell.m */,
+				EF5B591216BDE073008626BA /* price */,
+				EF5B58F316BDD9A0008626BA /* categories */,
+			);
+			name = search;
+			sourceTree = "<group>";
+		};
+		EF5B58F316BDD9A0008626BA /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B58F416BDD9B1008626BA /* RTHCategoryViewController.h */,
+				EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */,
+			);
+			name = categories;
+			sourceTree = "<group>";
+		};
+		EF5B591216BDE073008626BA /* price */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B590F16BDE06E008626BA /* RTHPriceViewController.h */,
+				EF5B591016BDE06E008626BA /* RTHPriceViewController.m */,
+			);
+			name = price;
+			sourceTree = "<group>";
+		};
 		EFF7682D16BD9CB500265767 = {
 			isa = PBXGroup;
 			children = (
+				EF5B591716BDE456008626BA /* QuartzCore.framework */,
 				EFF7684216BD9CB500265767 /* Color Search */,
 				EFF7683B16BD9CB500265767 /* Frameworks */,
 				EFF7683916BD9CB500265767 /* Products */,
@@ -75,6 +226,9 @@
 		EFF7683B16BD9CB500265767 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF5B58EA16BDBEA0008626BA /* MobileCoreServices.framework */,
+				EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */,
+				EFF7686516BDA6EE00265767 /* CoreImage.framework */,
 				EFF7683C16BD9CB500265767 /* UIKit.framework */,
 				EFF7683E16BD9CB500265767 /* Foundation.framework */,
 				EFF7684016BD9CB500265767 /* CoreGraphics.framework */,
@@ -89,8 +243,13 @@
 				EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */,
 				EFF7685416BD9CB500265767 /* RTHViewController.h */,
 				EFF7685516BD9CB500265767 /* RTHViewController.m */,
-				EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */,
-				EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */,
+				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
+				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
+				EF5B58F216BDD998008626BA /* search */,
+				EF5B58E616BDBBB4008626BA /* networking */,
+				EF5B58E216BDBB58008626BA /* Model */,
+				EF5B58B916BDBA18008626BA /* AFNetworking */,
+				EF5B58D616BDBA20008626BA /* xibs */,
 				EFF7684316BD9CB500265767 /* Supporting Files */,
 			);
 			path = "Color Search";
@@ -146,6 +305,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = EFF7682D16BD9CB500265767;
 			productRefGroup = EFF7683916BD9CB500265767 /* Products */;
@@ -181,6 +341,23 @@
 				EFF7684916BD9CB500265767 /* main.m in Sources */,
 				EFF7684D16BD9CB500265767 /* RTHAppDelegate.m in Sources */,
 				EFF7685616BD9CB500265767 /* RTHViewController.m in Sources */,
+				EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */,
+				EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */,
+				EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */,
+				EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */,
+				EF5B58D016BDBA18008626BA /* AFJSONRequestOperation.m in Sources */,
+				EF5B58D116BDBA18008626BA /* AFNetworkActivityIndicatorManager.m in Sources */,
+				EF5B58D216BDBA18008626BA /* AFPropertyListRequestOperation.m in Sources */,
+				EF5B58D316BDBA18008626BA /* AFURLConnectionOperation.m in Sources */,
+				EF5B58D416BDBA18008626BA /* AFXMLRequestOperation.m in Sources */,
+				EF5B58D516BDBA18008626BA /* UIImageView+AFNetworking.m in Sources */,
+				EF5B58D916BDBA3D008626BA /* RTHSearchViewController.m in Sources */,
+				EF5B58E516BDBB6A008626BA /* RTHListing.m in Sources */,
+				EF5B58E916BDBBCB008626BA /* RTHEtsyClient.m in Sources */,
+				EF5B58EE16BDC568008626BA /* RTHListingCell.m in Sources */,
+				EF5B58F116BDD8F0008626BA /* RTHCategory.m in Sources */,
+				EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */,
+				EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +446,10 @@
 		EFF7686016BD9CB500265767 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
@@ -280,6 +461,10 @@
 		EFF7686116BD9CB500265767 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
@@ -307,6 +492,7 @@
 				EFF7686116BD9CB500265767 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

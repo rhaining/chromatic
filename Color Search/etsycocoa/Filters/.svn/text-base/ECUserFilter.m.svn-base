@@ -1,0 +1,142 @@
+//
+//  ECUserFilter.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECUserFilter.h"
+
+#import "ECUserAddressFilter.h"
+#import "ECTransactionFilter.h"
+#import "ECReceiptFilter.h"
+#import "ECShopFilter.h"
+#import "ECUserProfileFilter.h"
+#import "ECPaymentsFilter.h"
+#import "ECFeedbackFilter.h"
+#import "ECOrderFilter.h"
+#import "ECFavoriteUserFilter.h"
+#import "ECFavoriteListingFilter.h"
+#import "ECUserAddressFilter.h"
+#import "ECReceiptFilter.h"
+#import "ECTransactionFilter.h"
+#import "ECBillChargeFilter.h"
+
+@implementation ECUserFilter
+
+@synthesize userId;
+@synthesize loginName;
+@synthesize primaryEmail;
+@synthesize creationTsz;
+@synthesize referredByUserId;
+@synthesize feedbackInfo;
+
+@synthesize addresses;
+@synthesize buyerReciepts;
+@synthesize buyerTransactions;
+@synthesize charges;
+@synthesize favoredBy;
+@synthesize favoriteListings;
+@synthesize favoriteUsers;
+@synthesize feedbackAsAuthor;
+@synthesize feedbackAsBuyer;
+@synthesize feedbackAsSeller;
+@synthesize feedbackAsSubject;
+@synthesize orders;
+@synthesize payments;
+
+@synthesize profile;
+@synthesize shops;
+
+
+- (id)init 
+{
+	self = [super init];
+	if(self) {
+		
+		self.userId = YES;
+		self.loginName = YES;
+		self.primaryEmail = YES;
+		self.creationTsz = YES;
+		self.referredByUserId = YES;
+		self.feedbackInfo = YES;
+		
+		self.addresses = nil;
+		self.buyerReciepts = nil;
+		self.buyerTransactions = nil;
+		self.charges = nil;
+		self.favoredBy = nil;
+		self.favoriteListings = nil;
+		self.favoriteUsers = nil;
+		self.feedbackAsAuthor = nil;
+		self.feedbackAsBuyer = nil;
+		self.feedbackAsSeller = nil;
+		self.feedbackAsSubject = nil;
+		self.orders = nil;
+		self.payments = nil;
+		
+		self.profile = nil;
+		self.shops = nil;
+	}
+	
+	return self;	
+}
+
+
+- (void)dealloc {
+	[addresses release];
+	[buyerReciepts release];
+	[buyerTransactions release];
+	[charges release];
+	[favoredBy release];
+	[favoriteListings release];
+	[favoriteUsers release];
+	[feedbackAsSubject release];
+	[feedbackAsAuthor release];
+	[feedbackAsSeller release];
+	[feedbackAsBuyer release];
+	[orders release];
+	[payments release];
+	[profile release];
+    [shops release];
+    [super dealloc];
+}
+
+
+- (NSArray *) fieldList {
+	return [NSArray arrayWithObjects:@"userId", @"loginName", @"primaryEmail", @"creationTsz", @"referredByUserId", @"feedbackInfo", nil];
+}
+
+- (NSArray *) includesList {
+	return [NSArray arrayWithObjects:@"addresses", @"buyerReciepts", @"buyerTransactions", @"charges", @"favoredBy",
+			@"favoriteListings", @"favoriteUsers", @"feedbackAsAuthor", @"feedbackAsBuyer", @"feedbackAsSeller",
+			@"feedbackAsSubject", @"orders", @"payments", @"profile", @"shops", nil];
+}
+
+@end

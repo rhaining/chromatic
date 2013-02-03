@@ -1,0 +1,131 @@
+//
+//  ECRequest.h
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import <Foundation/Foundation.h>
+#import "ECFilter.h"
+
+#define	ETSY_V2_API_PUBLIC_BASE_URL				@"http://openapi.etsy.com/v2/public"
+#define ETSY_V2_API_PRIVATE_BASE_URL			@"http://openapi.etsy.com/v2/private"
+
+#define	ETSY_V2_API_SANDBOX_PUBLIC_BASE_URL		@"http://openapi.etsy.com/v2/sandbox/public"
+#define ETSY_V2_API_SANDBOX_PRIVATE_BASE_URL	@"http://openapi.etsy.com/v2/sandbox/private"
+
+/* Limit parameter for Etsy Requests */
+typedef		NSInteger	ECLimit;
+typedef		NSInteger	ECOffset;
+
+/* Default limit for Etsy Requests */
+enum {
+	ECLimitDefault	= 25,
+	ECOffsetDefault = 0
+};
+
+/* Sort On */
+typedef	NSInteger		ECSortOn;
+
+enum {
+	ECSortOnDefault = -1,
+	ECSortOnCreated = 1,
+	ECSortOnPrice = 2,
+	ECSortOnScore = 3
+};
+
+/* Sort Order */
+typedef NSInteger		ECSortOrder;
+
+enum {
+	ECSortOrderDefault = -1,
+	ECSortOrderUp = 1,
+	ECSortOrderDown = 2
+};
+
+typedef NSInteger		ECColor;
+
+typedef	NSInteger		ECDetailLevel;
+
+enum {
+	ECDetailLevelDefault = -1,
+	ECDetailLevelLow = 1,
+	ECDetailLevelHigh = 2
+};
+
+/* HTTP methods */
+typedef		NSInteger	ECHTTPMethod;
+
+enum {
+	ECHTTPMethodGET = 1,
+	ECHTTPMethodPOST = 2,
+	ECHTTPMethodPUT = 3,
+	ECHTTPMethodDELETE = 4,
+	ECHTTPMethodNotSet = -1
+};
+
+@class ECFilter;
+
+@interface ECRequest : NSObject {
+	
+	ECHTTPMethod			httpMethod;
+	BOOL					needsAuthorization;
+	BOOL					useSandbox;
+	
+	Class					parserClass;
+	NSString				*identifier;
+	
+	NSString				*partialURL;
+	
+	ECFilter				*filter;
+	
+@private 
+	
+	NSMutableDictionary		*parameters;
+	NSMutableDictionary		*postData;
+
+}
+
+@property (nonatomic, assign) ECHTTPMethod httpMethod;
+
+@property (nonatomic, assign) BOOL needsAuthorization;
+@property (nonatomic, assign) BOOL useSandbox;
+
+@property (nonatomic, assign) Class parserClass;
+@property (nonatomic, copy) NSString *identifier;
+
+@property (nonatomic, copy) NSString *partialURL;
+@property (nonatomic, retain) ECFilter *filter;
+
+- (void) setParamValue:(id) value forKey:(NSString *) key;
+- (void) setPOSTValue:(id) value forKey:(NSString *) key;
+
+- (NSMutableURLRequest *) urlRequest;
+
+@end

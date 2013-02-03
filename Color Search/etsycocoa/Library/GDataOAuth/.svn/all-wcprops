@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth
+END
+GDataOAuthSignIn.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthSignIn.h
+END
+GDataOAuthViewTouch.xib
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthViewTouch.xib
+END
+GDataOAuthWindowController.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthWindowController.h
+END
+GDataOAuthSignIn.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthSignIn.m
+END
+GDataOAuthAuthentication.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthAuthentication.h
+END
+GDataHTTPFetcher.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataHTTPFetcher.h
+END
+GDataOAuthWindowController.m
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthWindowController.m
+END
+GDataOAuthViewControllerTouch.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthViewControllerTouch.h
+END
+GDataOAuthWindow.xib
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthWindow.xib
+END
+GDataOAuthAuthentication.m
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthAuthentication.m
+END
+GDataHTTPFetcher.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataHTTPFetcher.m
+END
+GDataOAuthViewControllerTouch.m
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/164/tags/v2-snapshot/Library/GDataOAuth/GDataOAuthViewControllerTouch.m
+END

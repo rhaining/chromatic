@@ -1,0 +1,111 @@
+//
+//  ECReceipt.h
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must copy the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import <Foundation/Foundation.h>
+#import "ECResource.h"
+
+@class ECOrder;
+@class ECUser;
+@class ECCountry;
+
+@interface ECReceipt : ECResource  {
+	
+	NSNumber		*receiptId;
+	NSNumber		*orderId;
+	NSNumber		*sellerUserId;
+	NSNumber		*buyerUserId;
+	NSNumber		*creationTsz;
+	NSString		*name;
+	NSString		*firstLine;
+	NSString		*secondLine;
+	NSString		*city;
+	NSString		*state;
+	NSString		*zip;
+	NSNumber		*countryId;
+	NSString		*paymentMethod;
+	NSString		*paymentEmail;
+	NSString		*messageFromSeller;
+	NSString		*messageFromBuyer;
+	BOOL			wasPaid;
+	NSNumber		*totalPrice;
+	NSNumber		*totalShippingCost;
+	NSString		*currencyCode;
+	NSString		*messageFromPayment;
+	BOOL			wasShipped;
+	
+	
+	/* Associations */
+	
+	ECUser			*buyer;
+	ECCountry		*country;
+	NSArray			*listings;
+	ECOrder			*order;
+	ECUser			*seller;
+	NSArray			*transactions;
+
+}
+
+
+@property (nonatomic, copy) NSNumber *receiptId;
+@property (nonatomic, copy) NSNumber *orderId;
+@property (nonatomic, copy) NSNumber *sellerUserId;
+@property (nonatomic, copy) NSNumber *buyerUserId;
+@property (nonatomic, copy) NSNumber *creationTsz;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *firstLine;
+@property (nonatomic, copy) NSString *secondLine;
+@property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *state;
+@property (nonatomic, copy) NSString *zip;
+@property (nonatomic, copy) NSNumber *countryId;
+@property (nonatomic, copy) NSString *paymentMethod;
+@property (nonatomic, copy) NSString *paymentEmail;
+@property (nonatomic, copy) NSString *messageFromSeller;
+@property (nonatomic, copy) NSString *messageFromBuyer;
+@property (nonatomic, assign) BOOL 	wasPaid;
+@property (nonatomic, copy) NSNumber *totalPrice;
+@property (nonatomic, copy) NSNumber *totalShippingCost;
+@property (nonatomic, copy) NSString *currencyCode;
+@property (nonatomic, copy) NSString *messageFromPayment;
+@property (nonatomic, assign) BOOL 	wasShipped;
+
+@property (nonatomic, copy) ECUser *buyer;
+@property (nonatomic, copy) ECCountry *country;
+@property (nonatomic, copy) NSArray *listings;
+@property (nonatomic, copy) ECOrder *order;
+@property (nonatomic, copy) ECUser *seller;
+@property (nonatomic, copy) NSArray *transactions;
+
+
+
+@end

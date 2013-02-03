@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework
+END
+SBJsonBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/SBJsonBase.h
+END
+JSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/JSON.h
+END
+SBJsonWriter.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/SBJsonWriter.h
+END
+SBJsonParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/SBJsonParser.h
+END
+SBJsonBase.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/SBJsonBase.m
+END
+SBJsonParser.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/SBJsonParser.m
+END
+SBJsonWriter.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/SBJsonWriter.m
+END
+NSString+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/NSString+SBJSON.h
+END
+NSObject+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/NSObject+SBJSON.h
+END
+NSString+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/NSString+SBJSON.m
+END
+NSObject+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/164/tags/v2-snapshot/Library/JSONFramework/NSObject+SBJSON.m
+END

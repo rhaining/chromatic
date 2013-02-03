@@ -1,0 +1,122 @@
+//
+//  ECMiscellaneousRequest.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECMiscellaneousRequest.h"
+#import "ECRequest.h"
+#import "ECCountry.h"
+#import "ECRegion.h"
+
+#import "ECCountryFilter.h"
+
+@implementation ECMiscellaneousRequest
+
+/*!
+ @function findAllCountryRequest
+ @abstract Finds all Country.
+ @discussion GET - /countries
+ */
+
++ (ECRequest *) findAllCountryRequestWithFilter:(ECCountryFilter *) filter
+{
+	ECRequest *request = [[[ECRequest alloc] init] autorelease];
+	
+	request.identifier = @"findAllCountryRequest";
+	request.httpMethod = ECHTTPMethodGET;
+	request.partialURL = @"/countries";
+	request.needsAuthorization = NO;
+	request.filter = filter;
+	request.parserClass = [ECCountry class];
+	
+	return request;
+}
+
+/*!
+ @function getCountryRequestForCountryId
+ @abstract Retrieves a Country by id.
+ @discussion GET - /countries/:country_id
+ @param countryId Country Identifier for the request.
+ */
+
++ (ECRequest *) getCountryRequestForCountryId:(NSInteger) countryId
+{
+	ECRequest *request = [[[ECRequest alloc] init] autorelease];
+	
+	request.identifier = @"getCountryRequestForCountryId";
+	request.httpMethod = ECHTTPMethodGET;
+	request.partialURL = [NSString stringWithFormat:@"/countries/%i", countryId];
+	request.needsAuthorization = NO;
+	request.parserClass = [ECCountry class];
+	
+	return request;	
+}
+
+/*!
+ @function findAllRegionRequest
+ @abstract Finds all Region.
+ @discussion GET - /regions
+ */
+
++ (ECRequest *) findAllRegionRequest
+{
+	ECRequest *request = [[[ECRequest alloc] init] autorelease];
+	
+	request.identifier = @"findAllRegionRequest";
+	request.httpMethod = ECHTTPMethodGET;
+	request.partialURL = @"/regions";
+	request.needsAuthorization = NO;
+	request.parserClass = [ECRegion class];
+	
+	return request;	
+}
+
+/*!
+ @function getRegionRequestForRequestId
+ @abstract Retrieves a Region by id.
+ @discussion GET - /regions/:region_id
+ @param regionId Region Identifier for the request
+ */
+
++ (ECRequest *) getRegionRequestForRequestId:(NSInteger) regionId
+{
+	ECRequest *request = [[[ECRequest alloc] init] autorelease];
+	
+	request.identifier = @"getRegionRequestForRequestId";
+	request.httpMethod = ECHTTPMethodGET;
+	request.partialURL = [NSString stringWithFormat:@"/regions/%i", regionId];
+	request.needsAuthorization = NO;
+	request.parserClass = [ECCountry class];
+	
+	return request;	
+}
+
+@end

@@ -1,0 +1,90 @@
+//
+//  ECResource.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECResource.h"
+
+@implementation ECResource
+
++ (id) parseProtocolJSONResponse:(id)jsonResponse {
+	id resourceObject = nil;
+	if([jsonResponse count] == 1) {
+		/* Returns a resourceObject object */
+		resourceObject = [[[self alloc] initWithJSONString:[jsonResponse objectAtIndex:0]] autorelease];
+		return resourceObject;
+	}
+	else if([jsonResponse count] > 1) {
+		/* Multiple resourceObject objects, send back an array */
+		NSMutableArray *resourceObjects = [[[NSMutableArray alloc] init] autorelease];
+		for(id resourceObjectJSON in jsonResponse) {
+			resourceObject = [[self alloc] initWithJSONString:resourceObjectJSON];
+			[resourceObjects addObject:resourceObject];
+			[resourceObject release], resourceObject = nil;
+		}		
+		return resourceObjects;
+	}
+	return nil;
+}
+
+- (id) initWithJSONString:(id)jsonString {
+	return nil;	
+}
+
+#pragma mark - Helper Messages
+
+- (BOOL) boolOrNilFromJSONObject:(id) jsonObject jsonKey:(NSString *) jsonKey
+{
+	return [jsonObject valueForKey:jsonKey] == [NSNull null] ? NO:[[jsonObject valueForKey:jsonKey] boolValue];	
+}
+
+- (double) doubleOrNilFromJSONObject:(id) jsonObject jsonKey:(NSString *) jsonKey 
+{
+	return [jsonObject valueForKey:jsonKey] == [NSNull null] ? -1:[[jsonObject valueForKey:jsonKey] doubleValue];
+}
+
+- (float) floatOrNilFromJSONObject:(id) jsonObject jsonKey:(NSString *) jsonKey 
+{
+	return [jsonObject valueForKey:jsonKey] == [NSNull null] ? 0.0:[[jsonObject valueForKey:jsonKey] floatValue];
+}
+
+- (NSInteger) integerOrNilFromJSONObject:(id) jsonObject jsonKey:(NSString *) jsonKey 
+{
+	return [jsonObject valueForKey:jsonKey] == [NSNull null] ? -1:[[jsonObject valueForKey:jsonKey] integerValue];
+}
+
+- (NSString *) stringOrNilFromJSONObject:(id) jsonObject jsonKey:(NSString *) jsonKey
+{
+	return [jsonObject valueForKey:jsonKey] == [NSNull null] ? nil:[jsonObject valueForKey:jsonKey];
+}
+
+
+@end

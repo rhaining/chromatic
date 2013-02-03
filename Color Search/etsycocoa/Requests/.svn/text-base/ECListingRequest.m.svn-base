@@ -1,0 +1,382 @@
+//
+//  ECListingRequest.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES { return nil; }
+//  LOSS OF USE, DATA, OR PROFITS { return nil; } OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECListingRequest.h"
+#import "ECListing.h"
+
+#import "ECListingFilter.h"
+
+@implementation ECListingRequest
+
+/*!
+ @function createListingRequest
+ @abstract Creates a new Listing
+ @discussion POST - /listings
+ */
+
++ (ECRequest *) createListingRequestWithTitle:(NSString *) title 
+							  withDescription:(NSString *) description 
+									 quantity:(NSInteger) quantity price:(float) price 
+									materials:(NSArray *) materials 
+										 tags:(NSArray *) tags 
+						   shippingTemplateId:(NSInteger) shippingTemplateId 
+								shopSectionId:(NSInteger) shopSectionId { return nil; }
+
+/*!
+ @function getListingRequest
+ @abstract Retrieves a Listing by id.
+ @discussion GET - /listings/:listing_id
+ */
+
++ (ECRequest *) getListingRequest:(NSInteger) listingId { return nil; }
+
+
+/*!
+ @function updateListingRequestForListingId
+ @abstract Updates a Listing
+ @discussion PUT - /listings/:listing_id
+ */
+
++ (ECRequest *) updateListingRequestForListingId:(NSInteger) listingId
+										   title:(NSString *) title 
+								 withDescription:(NSString *) description 
+										quantity:(NSInteger) quantity price:(float) price 
+									   materials:(NSArray *) materials 
+											tags:(NSArray *) tags 
+							  shippingTemplateId:(NSInteger) shippingTemplateId 
+								   shopSectionId:(NSInteger) shopSectionId { return nil; }
+
+/*!
+ @function deleteListingRequest
+ @abstract Deletes a Listing
+ @discussion DELETE - /listings/:listing_id
+ */
+
++ (ECRequest *) deleteListingRequest:(NSInteger) listingId { return nil; }
+
+/*!
+ @function findAllListingFavoredByRequest
+ @absract Retrieves a set of FavoriteListing objects associated to a Listing.
+ @discussion GET - /listings/:listing_id/favored-by
+ */
+
++ (ECRequest *) findAllListingFavoredByRequest:(NSInteger) listingId 
+										 limit:(NSInteger) limit 
+										offset:(NSInteger) offset { return nil; }
+
+/*!
+ @function findAllListingImagesRequest
+ @abstract Retrieves a set of ListingImage objects associated to a Listing.
+ @discussion GET - /listings/:listing_id/images
+ */
+
++ (ECRequest *) findAllListingImagesRequest:(NSInteger) listingId { return nil; }
+
+/*!
+ @function uploadListingImageRequest
+ @abstract Upload a new listing image
+ @discussion POST - /listings/:listing_id/images
+ */
+
++ (ECRequest *) uploadListingImageRequest:(NSInteger) listingId 
+								imageData:(NSData *) imageData { return nil; }
+
+/*!
+ @function getListingImageRequest
+ @abstract Retrieves a ListingImage by id.
+ @discussion GET - /listings/:listing_id/images/:listing_image_id
+ */
+
++ (ECRequest *) getListingImageRequest:(NSArray *) listingImageIds 
+							 listingId:(NSInteger) listingId { return nil; }
+
+/*!
+ @function deleteListingImageRequest
+ @abstract Deletes a listing image
+ @discussion DELETE - /listings/:listing_id/images/:listing_image_id
+ */
+
++ (ECRequest *) deleteListingImageRequest:(NSInteger) listingId 
+						   listingImageId:(NSInteger) listingImageId { return nil; }
+
+/*!
+ @function getListingPaymentInfoRequest
+ @abstract Retrieves a set of ListingPayment objects associated to a Listing.
+ @discussion GET - /listings/:listing_id/payments
+ */
+
++ (ECRequest *) getListingPaymentInfoRequest:(NSInteger) listingId { return nil; }
+
+/*!
+ @function findAllListingShippingInfoRequest
+ @abstract Retrieves a set of ShippingInfo objects associated to a Listing.
+ @discussion GET - /listings/:listing_id/shipping/info
+ */
+
++ (ECRequest *) findAllListingShippingInfoRequest:(NSInteger) listingId { return nil; }
+
+/*!
+ @function createShippingInfoRequest
+ @abstract Creates a new ShippingInfo.
+ @discussion POST - /listings/:listing_id/shipping/info
+ */
+
++ (ECRequest *) createShippingInfoRequest:(NSInteger) listingId 
+						  originCountryId:(NSInteger) originCountryId 
+					 destinationCountryId:(NSInteger) destinationCountryId 
+							  primaryCost:(float) primaryCost 
+							secondaryCost:(float) secondaryCost 
+								 regionId:(NSInteger) regionId { return nil; }
+
+/*!
+ @function findAllListingActive
+ @abstract Finds all active Listing
+ @discussion GET - /listings/active
+ */
+
++ (ECRequest *) findAllListingActiveRequest:(NSString *) category 
+									  limit:(NSInteger) limit 
+									 offset:(NSInteger) offset 
+								   keywords:(NSString *) keywords 
+									 sortOn:(ECSortOn) sortOn 
+								  sortOrder:(ECSortOrder) sortOrder 
+								   minPrice:(float) minPrice 
+								   maxPrice:(float) maxPrice 
+									  color:(ECColor) colorTriplet 
+							  colorAccuracy:(NSInteger) colorAccuracy 
+									   tags:(NSArray *) tags 
+								  materials:(NSArray *) materials 
+									 filter:(ECListingFilter *) filter;
+
+{ 
+	ECRequest *request = [[[ECRequest alloc] init] autorelease];
+	request.httpMethod = ECHTTPMethodGET;
+	request.parserClass = [ECListing class];
+	request.partialURL = @"/listings/active";
+	request.identifier = @"findAllListingActive";
+	request.filter = filter;
+	
+	if(category != nil) [request setParamValue:category forKey:@"category"];
+	if(limit != ECLimitDefault) [request setParamValue:[NSString stringWithFormat:@"%i", limit] forKey:@"limit"];
+	if(offset != ECOffsetDefault) [request setParamValue:[NSString stringWithFormat:@"%i", offset] forKey:@"offset"];
+	if(keywords != nil) [request setParamValue:keywords forKey:@"keywords"];
+	
+	if(sortOrder != ECSortOrderDefault) [request setParamValue:sortOrder == ECSortOrderUp ? @"up":@"down" 
+														forKey:@"sort_order"];
+
+	if(sortOn == ECSortOnCreated) [request setParamValue:@"created" forKey:@"sort_on"];
+	else if(sortOn == ECSortOnPrice) [request setParamValue:@"price" forKey:@"sort_on"];
+	else if(sortOn == ECSortOnScore) [request setParamValue:@"score" forKey:@"sort_on"];
+	
+	/* Price, Color, Accuracy */
+
+	if(tags != nil) [request setParamValue:tags forKey:@"tags"];
+	if(materials != nil) [request setParamValue:materials forKey:@"materials"];
+
+	return request;
+}
+
+/*! 
+ @function getListingPayment
+ @abstract Retrieves a LisitingPayment by Id.
+ @discussion GET - /payments/:listing_payment_id
+ */
+
++ (ECRequest *) getListingPaymentRequest:(NSInteger) listingPaymentId { return nil; }
+
+/*!
+ @function createPaymentTemplate
+ @abstract Creates a new PaymentTemplate
+ @discussion POST - /payments/templates
+ */
+
++ (ECRequest *) createPaymentTemplateRequest:(NSString *) name 
+								   firstLine:(NSString *) firstLine 
+								  secondLine:(NSString *) secondLine 
+										city:(NSString *) city 
+									   state:(NSString *) state 
+										 zip:(NSString *) zip 
+								   countryId:(NSInteger) countryId 
+								  allowCheck:(BOOL) allowCheck 
+							 allowMoneyOrder:(BOOL) allowMoneyOrder 
+								  allowOther:(BOOL) allowOther 
+								 allowPaypal:(BOOL) allowPaypal 
+								 payPalEmail:(NSString *) payPalEmail { return nil; }
+
+/*!
+ @function getPaymentTemplate
+ @abstract Terrieves a PaymentTemplate by Id.
+ @discussion GET - /payments/templates/:payment_template_id
+ */
+
++ (ECRequest *) getPaymentTemplateRequest:(NSArray *) paymentTemplateIds { return nil; }
+
+/*!
+ @function updatePaymentTemplate
+ @abstract Updates a PaymentTemplate
+ @discussion PUT - /payments/templates/:payment_template_id
+ */
+
++ (ECRequest *) updatePaymentTemplateRequest:(NSInteger) paymentTemplateId 
+										name:(NSString *) name 
+								   firstLine:(NSString *) firstLine 
+								  secondLine:(NSString *) secondLine 
+										city:(NSString *) city 
+									   state:(NSString *) state 
+										 zip:(NSString *) zip 
+								   countryId:(NSInteger) countryId 
+								  allowCheck:(BOOL) allowCheck 
+							 allowMoneyOrder:(BOOL) allowMoneyOrder 
+								  allowOther:(BOOL) allowOther 
+								 allowPaypal:(BOOL) allowPaypal 
+								 payPalEmail:(NSString *) payPalEmail { return nil; }
+/*!
+ @function getShippingInfo
+ @abstract Retrieves a ShippingInfo by Id.
+ @discussion GET - /shipping/info/:shipping_info_id
+ */
+
++ (ECRequest *) getShippingInfoRequest:(NSInteger) shippingInfoId { return nil; }
+
+/*!
+ @function updateShippingInfo
+ @abstract Updates a ShippingInfo
+ @discussion GET - /shipping/info/:shipping_info_id
+ */
+
++ (ECRequest *) updateShippingInfoRequest:(NSInteger) shippingInfoId 
+						  originCountryId:(NSInteger) originCountryId 
+					 destinationCountryId:(NSInteger) destinationCountryId 
+							  primaryCost:(float) primaryCost 
+							secondaryCost:(float) secondaryCost 
+								listingId:(NSInteger) listingId 
+								 regionId:(NSInteger) regionId { return nil; }
+
+/*!
+ @function deleteShippingInfo
+ @abstract Deletes the ShippingInfo with the given Id.
+ @discussion DELETE - /shipping/info/:shipping_info_id
+ */
+
++ (ECRequest *) deleteShippingInfoRequest:(NSInteger) shippingInfoId { return nil; }
+
+/*!
+ @function createShippingTemplate
+ @abstract Creates a new ShippingTemplate
+ @discussion POST - /shipping/templates
+ */
+
++ (ECRequest *) createShippingTemplateRequest:(NSString *) title 
+							  originCountryId:(NSInteger) originCountryId
+						  destiationCountryId:(NSInteger) destiationCountryId
+								  primaryCost:(float) primaryCost
+								secondaryCost:(float) secondaryCost
+						  destinationRegionId:(float) destinationRegionId { return nil; }
+
+/*!
+ @function getShippingTemplateRequest
+ @abstract Retrieves a ShippingTemplate by Id.
+ @discussion GET - /shipping/templates/:shipping_template_id
+ */
+
++ (ECRequest *) getShippingTemplateRequest:(NSInteger) shippingTemplateId { return nil; }
+
+/*!
+ @function updateShippingTemplate
+ @abstract Updates a Shipping Template.
+ @discussion PUT - /shipping/templates/:shipping_template_id
+ */
+
++ (ECRequest *) updateShippingTemplate:(NSInteger) shippingTemplateId
+								 title:(NSString *) title
+					   originCountryId:(NSInteger) originCountryId { return nil; }
+
+/*!
+ @function deleteShippingTemplate
+ @abstract Delete the ShippingTemplate with the given Id.
+ @discussion DELETE - /shipping/templates/:shipping_template_id
+ */
+
++ (ECRequest *) deleteShippingTemplateRequest:(NSInteger) shippingTemplateId { return nil; }
+
+/*!
+ @function findAllShippingTemplateEntries
+ @abstract Reterieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate
+ @discussion GET - /shipping/templates/:shipping_template_id/entries
+ */
+
++ (ECRequest *) findAllShippingTemplateEntriesRequest:(NSInteger) shippingTemplateId
+												limit:(NSInteger) limit
+											   offset:(NSInteger) offset { return nil; }
+
+
+/*!
+ @function createShippingTemplateEntry
+ @abstract Creates a new ShippingTemplateEntry
+ @discussion POST - /shipping/templates/entries
+ */
+
++ (ECRequest *) createShippingTemplateEntryRequest:(NSInteger) shippingTemplateId
+							  destinationCountryId:(NSInteger) destiationCountryId
+									   primaryCost:(float) primaryCost
+									 secondaryCost:(float) secondaryCost
+							   destinationRegionId:(NSInteger) destinationRegionId { return nil; }
+
+/*!
+ @function getShippingTemplateEntry
+ @abstract Retrieves a ShippingTemplateEntry by Id/
+ @discussion GET - /shipping/templates/entries/:shipping_template_entry_id
+ */
+
++ (ECRequest *) getShippingTemplateEntryRequest:(NSInteger) shippingTemplateEntryId { return nil; }
+
+/*!
+ @function updateShippingTemplateEntry
+ @abstract Updates a ShippingTemplateEntry
+ @discussion GET - /shipping/templates/entries/:shipping_template_entry_id
+ */
+
++ (ECRequest *) updateShippingTemplateEntryRequest:(NSInteger) shippingTemplateEntryId
+							  destinationCountryId:(NSInteger) destinationCountryId
+									   primaryCost:(float) primaryCost
+									  secondarCost:(float) secondaryCost { return nil; }
+
+/*!
+ @function deleteShippingTemplateEntry
+ @abstract Deletes a ShippingTemplateEntry
+ @discussion DELETE - /shipping/templates/entrries/:shipping_template_entry_id
+ */
+
++ (ECRequest *) deleteShippingTemplateEntryRequest:(NSInteger) shippingTemplateEntryId { return nil; }
+
+@end

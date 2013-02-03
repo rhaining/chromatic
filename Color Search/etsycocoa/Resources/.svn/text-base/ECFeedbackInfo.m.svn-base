@@ -1,0 +1,28 @@
+//
+//  ECFeedbackInfo.m
+//  Etsy Touch
+//
+//  Created by Devraj Mukherjee on 10/04/11.
+//  Copyright 2011 Eternity Technologies Pty Limited. All rights reserved.
+//
+
+#import "ECFeedbackInfo.h"
+
+
+@implementation ECFeedbackInfo
+
+@synthesize count;
+@synthesize score;
+
+- (id)initWithJSONString:(id)jsonString 
+{
+	self = [super init];
+	if(self) {
+		self.count = [self integerOrNilFromJSONObject:jsonString jsonKey:@"count"];
+		self.score = [self integerOrNilFromJSONObject:jsonString jsonKey:@"score"];
+	}
+	return self;
+}
+
+
+@end

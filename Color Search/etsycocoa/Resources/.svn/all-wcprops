@@ -1,0 +1,401 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/164/tags/v2-snapshot/Resources
+END
+ECTransaction.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTransaction.h
+END
+ECTransaction.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTransaction.m
+END
+ECReceipt.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECReceipt.h
+END
+ECShopBanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShopBanner.h
+END
+ECUserProfile.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECUserProfile.h
+END
+ECReceipt.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECReceipt.m
+END
+ECCountry.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECCountry.h
+END
+ECShopBanner.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShopBanner.m
+END
+ECUserProfile.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECUserProfile.m
+END
+ECListingPayment.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECListingPayment.h
+END
+ECCountry.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECCountry.m
+END
+ECShop.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShop.h
+END
+ECListingPayment.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECListingPayment.m
+END
+ECUser.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECUser.h
+END
+ECFavoriteUser.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFavoriteUser.h
+END
+ECShop.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShop.m
+END
+ECFavoriteUser.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFavoriteUser.m
+END
+ECUser.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECUser.m
+END
+ECUserAddress.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECUserAddress.h
+END
+ECFeaturedListingPicker.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeaturedListingPicker.h
+END
+ECUserAddress.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECUserAddress.m
+END
+ECFeaturedListingPicker.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeaturedListingPicker.m
+END
+ECShippingInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShippingInfo.h
+END
+ECShippingTemplateEntry.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShippingTemplateEntry.h
+END
+ECShippingInfo.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShippingInfo.m
+END
+ECTreasuryListingData.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasuryListingData.h
+END
+ECShippingTemplateEntry.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShippingTemplateEntry.m
+END
+ECTreasuryListingData.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasuryListingData.m
+END
+ECPaymentTemplate.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECPaymentTemplate.h
+END
+ECTag.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTag.h
+END
+ECCategory.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECCategory.h
+END
+ECPaymentTemplate.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECPaymentTemplate.m
+END
+ECTag.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTag.m
+END
+ECBillPayment.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECBillPayment.h
+END
+ECCategory.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECCategory.m
+END
+ECFeedback.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeedback.h
+END
+ECBillPayment.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECBillPayment.m
+END
+ECFeaturedListing.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeaturedListing.h
+END
+ECFeedback.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeedback.m
+END
+ECFeaturedListing.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeaturedListing.m
+END
+ECTreasuryCounts.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasuryCounts.h
+END
+ECOrder.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECOrder.h
+END
+ECListingImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECListingImage.h
+END
+ECShippingTemplate.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShippingTemplate.h
+END
+ECTreasury.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasury.h
+END
+ECTreasuryCounts.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasuryCounts.m
+END
+ECOrder.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECOrder.m
+END
+ECListingImage.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECListingImage.m
+END
+ECShippingTemplate.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShippingTemplate.m
+END
+ECRegion.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECRegion.h
+END
+ECTreasury.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasury.m
+END
+ECResource.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECResource.h
+END
+ECRegion.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECRegion.m
+END
+ECBillCharge.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECBillCharge.h
+END
+ECResource.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECResource.m
+END
+ECShopSection.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShopSection.h
+END
+ECFeedbackInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeedbackInfo.h
+END
+ECBillCharge.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECBillCharge.m
+END
+ECShopSection.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECShopSection.m
+END
+ECFeedbackInfo.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFeedbackInfo.m
+END
+ECTreasuryListing.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasuryListing.h
+END
+ECFavoriteListing.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFavoriteListing.h
+END
+ECListing.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECListing.h
+END
+ECTreasuryListing.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECTreasuryListing.m
+END
+ECListing.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECListing.m
+END
+ECFavoriteListing.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/164/tags/v2-snapshot/Resources/ECFavoriteListing.m
+END

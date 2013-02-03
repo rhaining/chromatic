@@ -1,0 +1,87 @@
+//
+//  ECAPIClient.h
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import <Foundation/Foundation.h>
+#import "ECOAuthUIPresenter.h"
+
+#define ETSY_V2_OAUTH_URL_SCOPE					@"http://openapi.etsy.com/v2"
+#define ETSY_V2_OAUTH_URL_REQUEST_TOKEN			@"http://openapi.etsy.com/v2/oauth/request_token"
+#define ETSY_V2_OAUTH_URL_AUTH					@"https://www.etsy.com/oauth/signin"
+#define ETSY_V2_OAUTH_ACCESS_TOKEN				@"http://openapi.etsy.com/v2/oauth/access_token"
+
+@class ECRequest;
+
+@interface ECAPIClient : NSObject {
+
+	NSString					*appIdentifier;
+	NSString					*apiKey;
+	NSString					*sharedSecret;
+
+	BOOL						useSandbox;
+	BOOL						authenticated;
+	
+	GDataOAuthAuthentication	*etsyOAuthHandler;
+	
+}
+
+@property (assign) BOOL useSandbox;
+@property (nonatomic, readonly) BOOL authenticated;
+
+/**
+ * Inits with an identifier, an Etsy Consumer Key and Shared Secret provided via the 
+ * Etsy Portal. All applications must provide ethe following details even for access
+ * to public messages.
+ *
+ */
+- (id) initWithAppIdentifier:(NSString *) inAppIdentifier 
+						 key:(NSString *) inAPIKey 
+				sharedSecret:(NSString *) inSharedSecret;
+
+/**
+ * Runs the OAuth authentication cycle using GData OAuth client, included with EtsyCocoa
+ *
+ */
+- (void) signInUsing:(id <ECOAuthUIPresenter>) uiPresenter;
+
+/**
+ * Renounces the authentication tokens
+ *
+ */ 
+- (void) signOut;
+
+/**
+ *
+ */
+- (void) makeAPIRequest:(ECRequest *) request delegate:(id) delegate;
+
+@end

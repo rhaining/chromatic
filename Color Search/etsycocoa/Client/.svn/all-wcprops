@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/164/tags/v2-snapshot/Client
+END
+ECAPIClient.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/164/tags/v2-snapshot/Client/ECAPIClient.h
+END
+ECAPIClient.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/164/tags/v2-snapshot/Client/ECAPIClient.m
+END
+ECAPIProtocols.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/164/tags/v2-snapshot/Client/ECAPIProtocols.h
+END

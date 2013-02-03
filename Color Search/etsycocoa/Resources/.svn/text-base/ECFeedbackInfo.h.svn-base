@@ -1,0 +1,23 @@
+//
+//  ECFeedbackInfo.h
+//  Etsy Touch
+//
+//  Created by Devraj Mukherjee on 10/04/11.
+//  Copyright 2011 Eternity Technologies Pty Limited. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "ECAPIProtocols.h"
+#import "ECResource.h"
+
+@interface ECFeedbackInfo : ECResource {
+	
+	NSInteger		score;
+	NSInteger		count;
+    
+}
+
+@property (nonatomic, assign) NSInteger score;
+@property (nonatomic, assign) NSInteger count;
+
+@end

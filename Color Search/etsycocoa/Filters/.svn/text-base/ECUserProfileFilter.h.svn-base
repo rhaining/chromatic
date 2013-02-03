@@ -1,0 +1,97 @@
+//
+//  ECUserProfileFilter.h
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import <Foundation/Foundation.h>
+#import "ECFilter.h"
+
+@class ECCountryFilter;
+
+@interface ECUserProfileFilter : ECFilter <ECFilterDefinition> {
+	
+	BOOL			userProfileId;
+	BOOL			userId;
+	BOOL			loginName;
+	BOOL			bio;
+	BOOL			gender;
+	BOOL			birthMonth;
+	BOOL			birthDay;
+	BOOL			birthYear;
+	BOOL			joinTsz;
+	BOOL			materials;
+	BOOL			countryId;
+	BOOL			city;
+	BOOL			location;
+	BOOL			avatarId;
+	BOOL			lat;
+	BOOL			lon;
+	BOOL			transactionBuyCount;
+	BOOL			transactionSoldCount;
+	BOOL			isSeller;
+	BOOL			imageURL75x75;
+	BOOL			firstName;
+	BOOL			lastName;
+	
+	/* Associations */
+	
+	ECCountryFilter	*country;
+    
+}
+
+
+@property (nonatomic, assign) BOOL userProfileId;
+@property (nonatomic, assign) BOOL userId;
+@property (nonatomic, assign) BOOL loginName;
+@property (nonatomic, assign) BOOL bio;
+@property (nonatomic, assign) BOOL gender;
+@property (nonatomic, assign) BOOL birthMonth;
+@property (nonatomic, assign) BOOL birthDay;
+@property (nonatomic, assign) BOOL birthYear;
+@property (nonatomic, assign) BOOL joinTsz;
+@property (nonatomic, assign) BOOL materials;
+@property (nonatomic, assign) BOOL countryId;
+@property (nonatomic, assign) BOOL city;
+@property (nonatomic, assign) BOOL location;
+@property (nonatomic, assign) BOOL avatarId;
+@property (nonatomic, assign) BOOL lat;
+@property (nonatomic, assign) BOOL lon;
+@property (nonatomic, assign) BOOL transactionBuyCount;
+@property (nonatomic, assign) BOOL transactionSoldCount;
+@property (nonatomic, assign) BOOL isSeller;
+@property (nonatomic, assign) BOOL imageURL75x75;
+@property (nonatomic, assign) BOOL firstName;
+@property (nonatomic, assign) BOOL lastName;
+
+@property (nonatomic, assign) ECCountryFilter *country;
+
+
+@end

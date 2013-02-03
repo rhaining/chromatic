@@ -1,0 +1,102 @@
+//
+//  ECListingImage.m
+//  Etsy Cocoa, Version 2.0
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+
+#import "ECListingImage.h"
+#import "ECListing.h"
+
+@implementation ECListingImage
+
+@synthesize listingImageId;
+@synthesize hexCode;
+@synthesize red;
+@synthesize green;
+@synthesize blue;
+@synthesize hue;
+@synthesize saturation;
+@synthesize brightness;
+@synthesize isBlackAndWhite;
+@synthesize creationTsz;
+@synthesize listingId;
+@synthesize rank;
+@synthesize url75x75;
+@synthesize url170x135;
+@synthesize url570xN;
+@synthesize urlFullxFull;
+@synthesize listing;
+
+- (id) initWithJSONString:(id) jsonString {
+	self = [super init];
+	if(self) {
+		
+		self.listingImageId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"listing_image_id"];
+		self.hexCode = [self stringOrNilFromJSONObject:jsonString jsonKey:@"hex_code"];
+		self.red = [self integerOrNilFromJSONObject:jsonString jsonKey:@"red"];
+		self.green = [self integerOrNilFromJSONObject:jsonString jsonKey:@"green"];
+		self.blue = [self integerOrNilFromJSONObject:jsonString jsonKey:@"blue"];
+		self.hue = [self integerOrNilFromJSONObject:jsonString jsonKey:@"hue"];
+		self.saturation = [self integerOrNilFromJSONObject:jsonString jsonKey:@"saturation"];
+		self.brightness = [self integerOrNilFromJSONObject:jsonString jsonKey:@"brightness"];
+
+		self.isBlackAndWhite = [self boolOrNilFromJSONObject:jsonString jsonKey:@"is_black_and_white"];
+		self.creationTsz = [self integerOrNilFromJSONObject:jsonString jsonKey:@"creation_Tsz"];
+		self.listingId = [self integerOrNilFromJSONObject:jsonString jsonKey:@"listing_id"];
+		self.rank = [self integerOrNilFromJSONObject:jsonString jsonKey:@"rank"];
+		
+		self.url75x75 = [self stringOrNilFromJSONObject:jsonString jsonKey:@"url_75x75"];
+		self.url170x135 = [self stringOrNilFromJSONObject:jsonString jsonKey:@"url_170x135"];
+		self.url570xN = [self stringOrNilFromJSONObject:jsonString jsonKey:@"url_570xN"];
+		self.urlFullxFull = [self stringOrNilFromJSONObject:jsonString jsonKey:@"url_fullxfull"];
+
+		/* Associations */
+		
+		if([jsonString valueForKey:@"listing"] == [NSNull null]) self.listing = nil;
+		else {
+			listing = [[ECListing alloc] initWithJSONString:[jsonString valueForKey:@"listing"]];
+		}
+		
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[hexCode release];
+	[url570xN release];
+	[url170x135 release];
+	[url75x75 release];
+	[urlFullxFull release];
+	[listing release];
+	[super dealloc];
+}
+
+@end

@@ -1,0 +1,81 @@
+//
+//  ECTreasuryListingData.m
+//  Etsy Touch
+//
+//  http://etsycocoa.googlecode.com/
+//
+//  Copyright (c) 2011, Eternity Technologies.
+//  All rights reserved.
+// 
+//  Redistribution and use in source and binary forms, with or without
+//  modification, are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must copy the above copyright
+//      notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright
+//      notice, this list of conditions and the following disclaimer in the
+//      documentation and/or other materials provided with the distribution.
+//    * Neither the name of the Eternity Technologies nor the
+//      names of its contributors may be used to endorse or promote products
+//      derived from this software without specific prior written permission.
+//
+//  THIS SOFTWARE IS PROVIDED BY ETERNITY TECHNOLOGIES ''AS IS'' AND ANY
+//  EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+//  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+//  DISCLAIMED. IN NO EVENT SHALL ETERNITY TECHNOLOGIES BE LIABLE FOR ANY
+//  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+//  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+//  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+//  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+//  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+
+#import "ECTreasuryListingData.h"
+
+@implementation ECTreasuryListingData
+
+@synthesize userId;
+@synthesize title;
+@synthesize price;
+@synthesize listingId;
+@synthesize state;
+@synthesize shopName;
+@synthesize imageId;
+
+- (id) init {
+	self = [super init];
+	if(self) {
+		self.userId = -1;
+		self.title = nil;
+		self.price = 0;
+		self.listingId = -1;
+		self.state = nil;
+		self.shopName = nil;
+		self.imageId = -1;		
+	}
+	return self;
+}
+
+- (id) initWithJSONString:(id)jsonString {
+	self = [super init];
+	if(self) {
+		self.userId = [jsonString valueForKey:@"user_id"] == [NSNull null] ? -1:[[jsonString valueForKey:@"user_id"] integerValue];
+		self.title = [jsonString valueForKey:@"title"] == [NSNull null] ? @"":[jsonString valueForKey:@"title"];
+		self.price = [jsonString valueForKey:@"price"] == [NSNull null] ? 0:[[jsonString valueForKey:@"price"] floatValue];
+		self.listingId = [jsonString valueForKey:@"listing_id"] == [NSNull null] ? -1:[[jsonString valueForKey:@"listing_id"] integerValue];
+		self.state = [jsonString valueForKey:@"state"] == [NSNull null] ? @"":[jsonString valueForKey:@"state"];
+		self.shopName = [jsonString valueForKey:@"shop_name"] == [NSNull null] ? @"":[jsonString valueForKey:@"shop_name"];
+		self.imageId = [jsonString valueForKey:@"image_id"] == [NSNull null] ? -1:[[jsonString valueForKey:@"image_id"] integerValue];		
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[title release];
+	[state release];
+	[shopName release];
+	[super dealloc];
+}
+
+@end
