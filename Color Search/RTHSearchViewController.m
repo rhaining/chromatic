@@ -70,6 +70,8 @@
 	RTHListing *listing = [_listings objectAtIndex:indexPath.row];
 	cell.textLabel.text = listing.title;
 	
+	cell.imageURL = listing.imageURL;
+	/*
 	if(listing.imageURL){
 		cell.imageURL = listing.imageURL;
 	}else{
@@ -80,6 +82,7 @@
 			}];
 		});
 	}
+	 */
 	
 	return cell;
 }

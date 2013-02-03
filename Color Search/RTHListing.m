@@ -24,7 +24,15 @@
 	self.listingId = attributes[@"listing_id"];
 	self.url = [NSURL URLWithString:attributes[@"url"]];
 	
-//	self.imageURL = 
+	NSArray *images = attributes[@"Images"];
+	if(images.count > 0){
+		NSDictionary *imgAttributes = images[0];
+		NSString *imageURLString = imgAttributes[@"url_170x135"];
+		self.imageURL = [NSURL URLWithString:imageURLString];
+	}
+
+	
+//	self.imageURL =
 //    _postID = [[attributes valueForKeyPath:@"id"] integerValue];
 //    _text = [attributes valueForKeyPath:@"text"];
 //    
@@ -37,12 +45,13 @@
 
 + (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice withBlock:(void (^)(NSArray *listings, NSError *error))block {
 	NSMutableDictionary *params = [@{
-	@"sort_on" : @"created",
-	@"sort_order" : @"down",
-	@"color" : hexColor,
-	@"color_accuracy" : @"30",
-	@"api_key" : @"0a42i6k1byiu1cwde9fexmut"
-	} mutableCopy];
+								   @"sort_on" : @"created",
+								   @"sort_order" : @"down",
+								   @"color" : hexColor,
+								   @"color_accuracy" : @"30",
+								   @"api_key" : @"0a42i6k1byiu1cwde9fexmut",
+								   @"includes" : @"Images"
+								   } mutableCopy];
 	if(category){
 		params[@"category"] = category.name;
 	}
@@ -73,7 +82,7 @@
         }
     }];
 }
-
+/*
 - (void)imageWithBlock:(void (^)(NSURL *imageURL, NSError *error))block {
 	NSDictionary *params = @{@"api_key" : @"0a42i6k1byiu1cwde9fexmut"};
 	NSString *path = [NSString stringWithFormat:@"v2/private/listings/%@/images/", self.listingId];
@@ -94,5 +103,5 @@
         }
     }];
 }
-
+*/
 @end

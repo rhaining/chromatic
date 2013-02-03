@@ -19,6 +19,6 @@
 
 
 + (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice withBlock:(void (^)(NSArray *posts, NSError *error))block ;
-- (void)imageWithBlock:(void (^)(NSURL *imageURL, NSError *error))block;
+//- (void)imageWithBlock:(void (^)(NSURL *imageURL, NSError *error))block;
 
 @end
