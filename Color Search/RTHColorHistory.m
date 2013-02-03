@@ -22,7 +22,7 @@
 	if(colors.count > COLOR_LIST_LIMIT){
 		[colors removeObjectAtIndex:0];
 	}
-	NSLog(@"colors = %@", colors);
+//	NSLog(@"colors = %@", colors);
 	[self saveColors:colors];
 }
 +(void)saveColors:(NSArray *)colors{

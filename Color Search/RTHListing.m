@@ -10,6 +10,7 @@
 #import "RTHEtsyClient.h"
 #import "AFImageRequestOperation.h"
 #import "RTHCategory.h"
+#import "RTHEtsyConfig.h"
 
 @implementation RTHListing
 
@@ -18,7 +19,7 @@
     if (!self) {
         return nil;
     }
-    NSLog(@"attributes = %@", attributes);
+//    NSLog(@"attributes = %@", attributes);
 	
 	self.title = attributes[@"title"];
 	self.listingId = attributes[@"listing_id"];
@@ -49,7 +50,7 @@
 								   @"sort_order" : @"down",
 								   @"color" : hexColor,
 								   @"color_accuracy" : @"30",
-								   @"api_key" : @"0a42i6k1byiu1cwde9fexmut",
+								   @"api_key" : [RTHEtsyConfig etsyAPIKey],
 								   @"includes" : @"Images"
 								   } mutableCopy];
 	if(category){
@@ -84,7 +85,7 @@
 }
 /*
 - (void)imageWithBlock:(void (^)(NSURL *imageURL, NSError *error))block {
-	NSDictionary *params = @{@"api_key" : @"0a42i6k1byiu1cwde9fexmut"};
+	NSDictionary *params = @{@"api_key" : @""};
 	NSString *path = [NSString stringWithFormat:@"v2/private/listings/%@/images/", self.listingId];
     [[RTHEtsyClient sharedClient] getPath:path parameters:params success:^(AFHTTPRequestOperation *operation, id JSON) {
         NSArray *postsFromResponse = [JSON valueForKeyPath:@"results"];

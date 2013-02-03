@@ -28,6 +28,8 @@
 		EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B591716BDE456008626BA /* QuartzCore.framework */; };
 		EF78EB6B16BE9CAA006D8048 /* RTHColorHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */; };
 		EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */; };
+		EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA6A6BD16BEAE4C0073D719 /* config.plist */; };
+		EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */; };
 		EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683C16BD9CB500265767 /* UIKit.framework */; };
 		EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683E16BD9CB500265767 /* Foundation.framework */; };
 		EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7684016BD9CB500265767 /* CoreGraphics.framework */; };
@@ -85,6 +87,9 @@
 		EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorHistory.m; sourceTree = "<group>"; };
 		EF78EB6C16BE9ED1006D8048 /* RTHColorHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorHistoryViewController.h; sourceTree = "<group>"; };
 		EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorHistoryViewController.m; sourceTree = "<group>"; };
+		EFA6A6BD16BEAE4C0073D719 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = SOURCE_ROOT; };
+		EFA6A6BF16BEAEBA0073D719 /* RTHEtsyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHEtsyConfig.h; sourceTree = "<group>"; };
+		EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHEtsyConfig.m; sourceTree = "<group>"; };
 		EFF7683816BD9CB500265767 /* Color Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7683C16BD9CB500265767 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFF7683E16BD9CB500265767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,6 +172,8 @@
 				EF5B58E416BDBB6A008626BA /* RTHListing.m */,
 				EF5B58EF16BDD8F0008626BA /* RTHCategory.h */,
 				EF5B58F016BDD8F0008626BA /* RTHCategory.m */,
+				EFA6A6BF16BEAEBA0073D719 /* RTHEtsyConfig.h */,
+				EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -277,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF7684416BD9CB500265767 /* Color Search-Info.plist */,
+				EFA6A6BD16BEAE4C0073D719 /* config.plist */,
 				EFF7684516BD9CB500265767 /* InfoPlist.strings */,
 				EFF7684816BD9CB500265767 /* main.m */,
 				EFF7684A16BD9CB500265767 /* Color Search-Prefix.pch */,
@@ -346,6 +354,7 @@
 				EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */,
 				EFF7685916BD9CB500265767 /* RTHViewController_iPhone.xib in Resources */,
 				EFF7685C16BD9CB500265767 /* RTHViewController_iPad.xib in Resources */,
+				EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +387,7 @@
 				EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */,
 				EF78EB6B16BE9CAA006D8048 /* RTHColorHistory.m in Sources */,
 				EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */,
+				EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

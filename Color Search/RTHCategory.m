@@ -8,6 +8,7 @@
 
 #import "RTHCategory.h"
 #import "RTHEtsyClient.h"
+#import "RTHEtsyConfig.h"
 
 @implementation RTHCategory
 
@@ -30,7 +31,7 @@
 
 + (void)categoriesWithBlock:(void (^)(NSArray *categories, NSError *error))block{
 	NSDictionary *params = @{
-	@"api_key" : @"0a42i6k1byiu1cwde9fexmut"
+	@"api_key" : [RTHEtsyConfig etsyAPIKey]
 	};
 	
     [[RTHEtsyClient sharedClient] getPath:@"v2/private/taxonomy/categories" parameters:params success:^(AFHTTPRequestOperation *operation, id JSON) {
