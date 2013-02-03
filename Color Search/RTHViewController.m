@@ -8,6 +8,7 @@
 
 #import "RTHViewController.h"
 #import "RTHSearchViewController.h"
+#import "RTHColorHistory.h"
 
 @interface RTHViewController ()
 
@@ -21,9 +22,15 @@
 	
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New Image" style:UIBarButtonItemStyleBordered target:self action:@selector(selectNewImage)];
 
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStyleDone target:self action:@selector(searchForColor)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleBordered target:self action:@selector(presentHistory)];
 
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[button addTarget:self action:@selector(searchForColor) forControlEvents:UIControlEventTouchUpInside];
+	[button setTitle:@"Search »" forState:UIControlStateNormal];
+	button.frame = CGRectMake((self.view.frame.size.width - 100)/2.0, 300, 100, 44);
+	[self.view addSubview:button];
 }
+
 -(void)selectNewImage{
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
 	imagePicker.delegate = self;
@@ -75,6 +82,12 @@
 //	[colorUtil parseColors];
 	 */
 }
+-(void)setCurrentColor:(UIColor *)color{
+	currentColor = color;
+	self.view.backgroundColor = currentColor;
+	self.navigationController.navigationBar.tintColor = currentColor;
+
+}
 -(void)updateWithColorAtPoint:(CGPoint)point{
 //	NSLog(@"imageview: %@", NSStringFromCGSize(imageView.frame.size));
 //	NSLog(@"img size = %@", NSStringFromCGSize(colorUtil.image.size));
@@ -88,8 +101,7 @@
 	point.x *= horizontalScale;
 	point.y *= verticalScale;
 //	NSLog(@"updated: %@", NSStringFromCGPoint(point));
-	currentColor = [colorUtil getPixelColorAtLocation:point];
-	self.view.backgroundColor = currentColor;
+	[self setCurrentColor:[colorUtil getPixelColorAtLocation:point]];
 /*
 	if(!gradient){
 		gradient = [CAGradientLayer layer];
@@ -102,7 +114,6 @@
 	}
 	gradient.colors = @[(id)[self minimumColor].CGColor, (id)[self maximumColor].CGColor];
 	*/
-	self.navigationController.navigationBar.tintColor = currentColor;
 }
 -(void)didTap:(UITapGestureRecognizer *)recog{
 	[self updateWithColorAtPoint:[recog locationInView:imageView]];
@@ -147,6 +158,8 @@
 	NSString *hex = [RTHColorUtil getHexStringForColor:currentColor];
 	RTHSearchViewController *vc = [[RTHSearchViewController alloc] initWithColorHex:hex];
 	[self.navigationController pushViewController:vc animated:YES];
+	
+	[RTHColorHistory addColorHex:hex];
 }
 
 #pragma mark - uiimagepickercontrollerdelegate
@@ -160,5 +173,21 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
 	
 }
+
+
+-(void)presentHistory{
+	RTHColorHistoryViewController *vc = [[RTHColorHistoryViewController alloc] initWithStyle:UITableViewStylePlain];
+	vc.delegate = self;
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+	[self presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark color history delegate
+-(void)colorHistoryViewController:(RTHColorHistoryViewController *)viewController didSelectColor:(UIColor *)color{
+	[viewController dismissViewControllerAnimated:YES completion:nil];
+	[self setCurrentColor:color];
+	[self searchForColor];
+}
+
 
 @end

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RTHColorUtil.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RTHColorHistoryViewController.h"
 
-@interface RTHViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+@interface RTHViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, RTHColorHistoryViewControllerDelegate>{
 	BOOL hasPresented;
 	UIImageView *imageView;
 	RTHColorUtil *colorUtil;
