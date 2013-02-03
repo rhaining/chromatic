@@ -205,6 +205,17 @@
 			name = price;
 			sourceTree = "<group>";
 		};
+		EF78EB6716BE0048006D8048 /* color selection */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7685416BD9CB500265767 /* RTHViewController.h */,
+				EFF7685516BD9CB500265767 /* RTHViewController.m */,
+				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
+				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
+			);
+			name = "color selection";
+			sourceTree = "<group>";
+		};
 		EFF7682D16BD9CB500265767 = {
 			isa = PBXGroup;
 			children = (
@@ -241,10 +252,7 @@
 			children = (
 				EFF7684B16BD9CB500265767 /* RTHAppDelegate.h */,
 				EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */,
-				EFF7685416BD9CB500265767 /* RTHViewController.h */,
-				EFF7685516BD9CB500265767 /* RTHViewController.m */,
-				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
-				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
+				EF78EB6716BE0048006D8048 /* color selection */,
 				EF5B58F216BDD998008626BA /* search */,
 				EF5B58E616BDBBB4008626BA /* networking */,
 				EF5B58E216BDBB58008626BA /* Model */,

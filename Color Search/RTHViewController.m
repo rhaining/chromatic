@@ -76,13 +76,18 @@
 	 */
 }
 -(void)updateWithColorAtPoint:(CGPoint)point{
+//	NSLog(@"imageview: %@", NSStringFromCGSize(imageView.frame.size));
+//	NSLog(@"img size = %@", NSStringFromCGSize(colorUtil.image.size));
+//	NSLog(@"point = %@", NSStringFromCGPoint(point));
+	
 	CGFloat horizontalScale = colorUtil.image.size.width / imageView.frame.size.width;
 	CGFloat verticalScale = colorUtil.image.size.height / imageView.frame.size.height;
 //	NSLog(@"scale = %f, %f", horizontalScale, verticalScale);
 	
-	CGFloat scale = MAX(horizontalScale, verticalScale);
-	point.x *= scale;
-	point.y *= scale;
+//	CGFloat scale = MAX(horizontalScale, verticalScale);
+	point.x *= horizontalScale;
+	point.y *= verticalScale;
+//	NSLog(@"updated: %@", NSStringFromCGPoint(point));
 	currentColor = [colorUtil getPixelColorAtLocation:point];
 	self.view.backgroundColor = currentColor;
 /*
