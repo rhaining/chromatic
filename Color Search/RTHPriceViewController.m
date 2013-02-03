@@ -19,14 +19,17 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissSelf)];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(clear)];
 		
 		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Update" style:UIBarButtonItemStyleDone target:self action:@selector(updatePrice)];
     }
     return self;
 }
--(void)dismissSelf{
+-(void)clear{
 	[self.delegate priceViewControllerDidClearPrice:self];
+	[self dismissSelf];
+}
+-(void)dismissSelf{
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)updatePrice{

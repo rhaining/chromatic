@@ -95,7 +95,7 @@
 	NSString *title = _category ? _category.shortName : @"Category";
 	[categoryButton setTitle:title forState:UIControlStateNormal];
 
-	title = _keyword ? _keyword : @"Keyword";
+	title = _keyword ? [NSString stringWithFormat:@"“%@”", _keyword] : @"Keyword";
 	[keywordButton setTitle:title forState:UIControlStateNormal];
 
 	title = _maximumPrice ? [NSString stringWithFormat:@"$%d-%d", _minimumPrice, _maximumPrice] : @"Price";
