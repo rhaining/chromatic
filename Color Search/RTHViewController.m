@@ -20,22 +20,49 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New Image" style:UIBarButtonItemStyleBordered target:self action:@selector(selectNewImage)];
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New Image" style:UIBarButtonItemStyleBordered target:self action:@selector(presentImageOptions)];
 
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleBordered target:self action:@selector(presentHistory)];
 
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[button addTarget:self action:@selector(searchForColor) forControlEvents:UIControlEventTouchUpInside];
 	[button setTitle:@"Search »" forState:UIControlStateNormal];
-	button.frame = CGRectMake((self.view.frame.size.width - 100)/2.0, 300, 100, 44);
+	button.frame = CGRectMake((self.view.frame.size.width - 100)/2.0, self.view.frame.size.height - 100, 100, 44);
 	[self.view addSubview:button];
 }
 
--(void)selectNewImage{
+-(void)selectNewImage:(UIImagePickerControllerSourceType)sourceType{
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.sourceType = sourceType;
 	imagePicker.delegate = self;
 	[self presentViewController:imagePicker animated:YES completion:nil];
-
+}
+-(void)presentPhotoAlbum{
+	[self selectNewImage:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+-(void)presentCamera{
+	[self selectNewImage:UIImagePickerControllerSourceTypeCamera];
+}
+-(void)presentImageOptions{
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+		UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Select your option" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Album", nil];
+		[sheet showInView:self.view];
+	}else{
+		[self presentPhotoAlbum];
+	}
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	switch (buttonIndex) {
+		case 0:
+			[self presentCamera];
+			break;
+		case 1:
+			[self presentPhotoAlbum];
+			break;
+		default:
+			[self presentImageOptions];
+			break;
+	}
 }
 -(void)viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
@@ -44,7 +71,7 @@
 		return;
 	}
 	hasPresented = YES;
-	[self selectNewImage];
+	[self presentImageOptions];
 }
 
 - (void)didReceiveMemoryWarning

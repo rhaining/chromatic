@@ -234,7 +234,6 @@
 		EFF7682D16BD9CB500265767 = {
 			isa = PBXGroup;
 			children = (
-				EF5B591716BDE456008626BA /* QuartzCore.framework */,
 				EFF7684216BD9CB500265767 /* Color Search */,
 				EFF7683B16BD9CB500265767 /* Frameworks */,
 				EFF7683916BD9CB500265767 /* Products */,
@@ -252,6 +251,7 @@
 		EFF7683B16BD9CB500265767 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF5B591716BDE456008626BA /* QuartzCore.framework */,
 				EF5B58EA16BDBEA0008626BA /* MobileCoreServices.framework */,
 				EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */,
 				EFF7686516BDA6EE00265767 /* CoreImage.framework */,
@@ -484,6 +484,7 @@
 				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
 				PRODUCT_NAME = Chromatic;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -499,6 +500,7 @@
 				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
 				PRODUCT_NAME = Chromatic;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
