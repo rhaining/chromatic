@@ -90,7 +90,7 @@
 		EFA6A6BD16BEAE4C0073D719 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = SOURCE_ROOT; };
 		EFA6A6BF16BEAEBA0073D719 /* RTHEtsyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHEtsyConfig.h; sourceTree = "<group>"; };
 		EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHEtsyConfig.m; sourceTree = "<group>"; };
-		EFF7683816BD9CB500265767 /* Color Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFF7683816BD9CB500265767 /* Chromatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chromatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7683C16BD9CB500265767 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFF7683E16BD9CB500265767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EFF7684016BD9CB500265767 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,7 +244,7 @@
 		EFF7683916BD9CB500265767 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EFF7683816BD9CB500265767 /* Color Search.app */,
+				EFF7683816BD9CB500265767 /* Chromatic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 			);
 			name = "Color Search";
 			productName = "Color Search";
-			productReference = EFF7683816BD9CB500265767 /* Color Search.app */;
+			productReference = EFF7683816BD9CB500265767 /* Chromatic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -483,7 +483,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Chromatic;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -498,7 +498,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Chromatic;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
