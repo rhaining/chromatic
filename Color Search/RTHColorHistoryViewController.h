@@ -12,6 +12,7 @@
 
 @interface RTHColorHistoryViewController : UITableViewController{
 	NSArray *colors;
+	NSDateFormatter *dateFormatter;
 }
 @property (nonatomic, weak) id<RTHColorHistoryViewControllerDelegate> delegate;
 

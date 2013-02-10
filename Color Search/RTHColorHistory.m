@@ -15,12 +15,28 @@
 
 +(void)addColorHex:(NSString *)colorHex{
 	NSMutableArray *colors = [[self recentColorHexList] mutableCopy];
-	if(!colors){
+	NSMutableDictionary *newEntry = nil;
+	NSDictionary *oldEntry = nil;
+	if(colors){
+		for(NSDictionary *attributes in colors){
+			if([attributes[@"color"] isEqualToString:colorHex]){
+				oldEntry = attributes;
+				newEntry = [attributes mutableCopy];
+				newEntry[@"date"] = @([[NSDate date] timeIntervalSince1970]);
+			}
+		}
+	}else{
 		colors = [NSMutableArray arrayWithCapacity:1];
 	}
-	[colors addObject:colorHex];
+	if(oldEntry){
+		[colors removeObject:oldEntry];
+	}
+	if(!newEntry){
+		newEntry = [@{@"color": colorHex, @"date" : @([[NSDate date] timeIntervalSince1970])} mutableCopy];
+	}
+	[colors insertObject:newEntry atIndex:0];
 	if(colors.count > COLOR_LIST_LIMIT){
-		[colors removeObjectAtIndex:0];
+		[colors removeLastObject];
 	}
 //	NSLog(@"colors = %@", colors);
 	[self saveColors:colors];
@@ -36,9 +52,11 @@
 +(NSArray *)recentColors{
 	NSArray *colorHexList = [self recentColorHexList];
 	NSMutableArray *colors = [NSMutableArray arrayWithCapacity:colorHexList.count];
-	for(NSString *colorHex in colorHexList){
-		UIColor *color = [self colorWithHexString:colorHex];
-		[colors addObject:color];
+	for(NSDictionary *attributes in colorHexList){
+		UIColor *color = [self colorWithHexString:attributes[@"color"]];
+		NSDate *date = [NSDate dateWithTimeIntervalSince1970:[attributes[@"date"] intValue]];
+		NSDictionary *objectAttributes = @{@"color" : color, @"date" : date};
+		[colors addObject:objectAttributes];
 	}
 	return [NSArray arrayWithArray:colors];
 }

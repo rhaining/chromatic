@@ -26,6 +26,9 @@
 		EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */; };
 		EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B591016BDE06E008626BA /* RTHPriceViewController.m */; };
 		EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B591716BDE456008626BA /* QuartzCore.framework */; };
+		EF768EA416C84BED00DCB1ED /* RTHLocaleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */; };
+		EF768EA716C8532200DCB1ED /* RTHImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EA616C8532200DCB1ED /* RTHImageUtil.m */; };
+		EF768EAB16C855B300DCB1ED /* RTHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EAA16C855B300DCB1ED /* RTHAboutViewController.m */; };
 		EF78EB6B16BE9CAA006D8048 /* RTHColorHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */; };
 		EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */; };
 		EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA6A6BD16BEAE4C0073D719 /* config.plist */; };
@@ -83,6 +86,12 @@
 		EF5B590F16BDE06E008626BA /* RTHPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHPriceViewController.h; sourceTree = "<group>"; };
 		EF5B591016BDE06E008626BA /* RTHPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHPriceViewController.m; sourceTree = "<group>"; };
 		EF5B591716BDE456008626BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EF768EA216C84BEC00DCB1ED /* RTHLocaleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHLocaleHelper.h; sourceTree = "<group>"; };
+		EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHLocaleHelper.m; sourceTree = "<group>"; };
+		EF768EA516C8532200DCB1ED /* RTHImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHImageUtil.h; sourceTree = "<group>"; };
+		EF768EA616C8532200DCB1ED /* RTHImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHImageUtil.m; sourceTree = "<group>"; };
+		EF768EA916C855B300DCB1ED /* RTHAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHAboutViewController.h; sourceTree = "<group>"; };
+		EF768EAA16C855B300DCB1ED /* RTHAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHAboutViewController.m; sourceTree = "<group>"; };
 		EF78EB6916BE9CAA006D8048 /* RTHColorHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorHistory.h; sourceTree = "<group>"; };
 		EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorHistory.m; sourceTree = "<group>"; };
 		EF78EB6C16BE9ED1006D8048 /* RTHColorHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorHistoryViewController.h; sourceTree = "<group>"; };
@@ -218,6 +227,15 @@
 			name = price;
 			sourceTree = "<group>";
 		};
+		EF768EA816C855A700DCB1ED /* about */ = {
+			isa = PBXGroup;
+			children = (
+				EF768EA916C855B300DCB1ED /* RTHAboutViewController.h */,
+				EF768EAA16C855B300DCB1ED /* RTHAboutViewController.m */,
+			);
+			name = about;
+			sourceTree = "<group>";
+		};
 		EF78EB6716BE0048006D8048 /* color selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +243,8 @@
 				EFF7685516BD9CB500265767 /* RTHViewController.m */,
 				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
 				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
+				EF768EA516C8532200DCB1ED /* RTHImageUtil.h */,
+				EF768EA616C8532200DCB1ED /* RTHImageUtil.m */,
 				EF78EB6C16BE9ED1006D8048 /* RTHColorHistoryViewController.h */,
 				EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */,
 			);
@@ -269,6 +289,9 @@
 				EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */,
 				EF78EB6916BE9CAA006D8048 /* RTHColorHistory.h */,
 				EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */,
+				EF768EA216C84BEC00DCB1ED /* RTHLocaleHelper.h */,
+				EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */,
+				EF768EA816C855A700DCB1ED /* about */,
 				EF78EB6716BE0048006D8048 /* color selection */,
 				EF5B58F216BDD998008626BA /* search */,
 				EF5B58E616BDBBB4008626BA /* networking */,
@@ -388,6 +411,9 @@
 				EF78EB6B16BE9CAA006D8048 /* RTHColorHistory.m in Sources */,
 				EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */,
 				EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */,
+				EF768EA416C84BED00DCB1ED /* RTHLocaleHelper.m in Sources */,
+				EF768EA716C8532200DCB1ED /* RTHImageUtil.m in Sources */,
+				EF768EAB16C855B300DCB1ED /* RTHAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

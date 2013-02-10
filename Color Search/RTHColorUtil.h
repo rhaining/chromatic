@@ -10,17 +10,8 @@
 
 @interface RTHColorUtil : NSObject
 
-@property (nonatomic, strong) UIImage *image;
-
--(id)initWithImage:(UIImage *)image;
--(void)parseColors;
-- (UIColor *)averageColor;
-
-- (UIColor*) getDominantColor;
-
-- (UIColor*) getPixelColorAtLocation:(CGPoint)point ;
-
-
 + (NSString *)getHexStringForColor:(UIColor *)color;
++(UIColor *)colorAtPoint:(CGPoint)point inView:(UIView *)view;
++(UIColor *)inverseColorFromColor:(UIColor *)color;
 
 @end

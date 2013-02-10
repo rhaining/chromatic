@@ -23,6 +23,8 @@
 	UIButton *keywordButton;
 	UIButton *priceButton;
 //	UIButton *updateButton;
+	
+	NSNumberFormatter *numberFormatter;
 }
 
 @property (nonatomic, copy) NSString *hexString;

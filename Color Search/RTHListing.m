@@ -32,6 +32,8 @@
 		self.imageURL = [NSURL URLWithString:imageURLString];
 	}
 
+	self.price = attributes[@"price"];
+	self.currencyCode = attributes[@"currency_code"];
 	
 //	self.imageURL =
 //    _postID = [[attributes valueForKeyPath:@"id"] integerValue];

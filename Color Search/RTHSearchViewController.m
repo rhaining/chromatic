@@ -10,6 +10,8 @@
 #import "RTHListing.h"
 #import "RTHListingCell.h"
 #import "RTHCategory.h"
+#import "RTHColorUtil.h"
+#import "RTHLocaleHelper.h"
 
 @interface RTHSearchViewController ()
 
@@ -26,8 +28,19 @@
 		self.tableView.rowHeight = 235;
 		
 		self.navigationItem.title = @"Results";
+				
+		numberFormatter = [[NSNumberFormatter alloc] init];
+		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+
 	}
 	return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+	
+	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:self.navigationController.navigationBar.tintColor];
+	[self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeTextColor : inverseColor}];
 }
 
 -(void)search{
@@ -44,6 +57,8 @@
 				[[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"No results found" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil] show];
 			}
             [self.tableView reloadData];
+			[self.tableView beginUpdates];
+			[self.tableView endUpdates];
         }
         
 //        [_activityIndicatorView stopAnimating];
@@ -64,11 +79,16 @@
 	static NSString *CellId = @"ListingCell";
 	RTHListingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellId];
 	if(!cell){
-		cell = [[RTHListingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
+		cell = [[RTHListingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellId];
 	}
 	
 	RTHListing *listing = [_listings objectAtIndex:indexPath.row];
+	
+	[numberFormatter setLocale:[RTHLocaleHelper findLocaleByCurrencyCode:listing.currencyCode]];
+	NSString *priceValue = [numberFormatter stringFromNumber:@(listing.price.floatValue)];
+	
 	cell.textLabel.text = listing.title;
+	cell.detailTextLabel.text = priceValue;
 	
 	cell.imageURL = listing.imageURL;
 	/*

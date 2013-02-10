@@ -9,6 +9,8 @@
 #import "RTHViewController.h"
 #import "RTHSearchViewController.h"
 #import "RTHColorHistory.h"
+#import "RTHImageUtil.h"
+#import "RTHAboutViewController.h"
 
 @interface RTHViewController ()
 
@@ -22,13 +24,28 @@
 	
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New Image" style:UIBarButtonItemStyleBordered target:self action:@selector(presentImageOptions)];
 
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleBordered target:self action:@selector(presentHistory)];
+	self.navigationItem.rightBarButtonItems = @[
+											   [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleBordered target:self action:@selector(presentHistory)],
+											   [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStyleBordered target:self action:@selector(presentAbout)]]
+											   ;
 
-	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[button addTarget:self action:@selector(searchForColor) forControlEvents:UIControlEventTouchUpInside];
-	[button setTitle:@"Search »" forState:UIControlStateNormal];
-	button.frame = CGRectMake((self.view.frame.size.width - 100)/2.0, self.view.frame.size.height - 100, 100, 44);
-	[self.view addSubview:button];
+	searchSelectedColorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[searchSelectedColorButton addTarget:self action:@selector(searchForSelectedColor) forControlEvents:UIControlEventTouchUpInside];
+	[searchSelectedColorButton setTitle:@"Search »" forState:UIControlStateNormal];
+	searchSelectedColorButton.enabled = NO;
+	[self.view addSubview:searchSelectedColorButton];
+	
+	searchComplementaryColorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[searchComplementaryColorButton addTarget:self action:@selector(searchForComplementaryColor) forControlEvents:UIControlEventTouchUpInside];
+	[searchComplementaryColorButton setTitle:@"Search »" forState:UIControlStateNormal];
+	searchComplementaryColorButton.enabled = NO;
+	[self.view addSubview:searchComplementaryColorButton];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+	searchSelectedColorButton.frame = CGRectMake((self.view.frame.size.width / 2.0 - 100)/2.0, self.view.frame.size.height - 54, 100, 44);
+	searchComplementaryColorButton.frame = CGRectMake(self.view.frame.size.width / 2.0 + (self.view.frame.size.width / 2.0 - 100)/2.0, self.view.frame.size.height - 54, 100, 44);
 }
 
 -(void)selectNewImage:(UIImagePickerControllerSourceType)sourceType{
@@ -64,6 +81,7 @@
 			break;
 	}
 }
+/*
 -(void)viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
 	
@@ -73,23 +91,40 @@
 	hasPresented = YES;
 	[self presentImageOptions];
 }
-
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(CGSize)maxSize{
+	return CGSizeMake(self.view.frame.size.width, 300);
+}
+-(UIImage *)scaledImage:(UIImage *)image{
+	return [RTHImageUtil scaleImage:image toSize:[self maxSize]];
+}
+
 -(void)useImage:(UIImage *)image{
 	if(imageView){ [imageView removeFromSuperview]; }
 	self.view.backgroundColor = [UIColor whiteColor];
 	
+	image = [self scaledImage:image];
+	
 	imageView = [[UIImageView alloc] initWithImage:image];
-	imageView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
-	imageView.contentMode = UIViewContentModeScaleAspectFit;
+//	CGSize wrapper = [self maxSize];
+	imageView.frame = CGRectMake((self.view.frame.size.width - image.size.width) / 2.0,
+								 (self.view.frame.size.height - image.size.height - 30) / 2.0,
+								 image.size.width,
+								 image.size.height);
+//	imageView.contentMode = UIViewContentModeScaleAspectFit;
 	[self.view addSubview:imageView];
-	imageView.layer.borderColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1].CGColor;
-	imageView.layer.borderWidth = 4;
+	imageView.layer.borderColor = [UIColor colorWithRed:103/255.0 green:103/255.0 blue:103/255.0 alpha:1].CGColor;
+	imageView.layer.borderWidth = 2;
+	imageView.layer.shadowColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1].CGColor;
+	imageView.layer.shadowOffset = CGSizeMake(1, 1);
+	imageView.layer.shadowRadius = 2;
+	imageView.layer.shadowOpacity = 0.5;
 	
 	UIPanGestureRecognizer *panRecog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
 	[imageView addGestureRecognizer:panRecog];
@@ -99,36 +134,23 @@
 	
 	imageView.userInteractionEnabled = YES;
 	
-	colorUtil = [[RTHColorUtil alloc] initWithImage:image];
+	searchSelectedColorButton.enabled = YES;
+	searchComplementaryColorButton.enabled = YES;
 	
-	/*
-	RTHColorUtil *colorUtil = [[RTHColorUtil alloc] initWithImage:image];
-	imageView.image = colorUtil.image;
-	UIColor *color = [colorUtil getDominantColor];
-	self.view.backgroundColor = color;
-//	[colorUtil parseColors];
-	 */
+
 }
 -(void)setCurrentColor:(UIColor *)color{
 	currentColor = color;
 	self.view.backgroundColor = currentColor;
 	self.navigationController.navigationBar.tintColor = currentColor;
 
+	[searchSelectedColorButton setTitleColor:currentColor forState:UIControlStateNormal];
+	[searchComplementaryColorButton setTitleColor:[RTHColorUtil inverseColorFromColor:currentColor] forState:UIControlStateNormal];
+
 }
 -(void)updateWithColorAtPoint:(CGPoint)point{
-//	NSLog(@"imageview: %@", NSStringFromCGSize(imageView.frame.size));
-//	NSLog(@"img size = %@", NSStringFromCGSize(colorUtil.image.size));
-//	NSLog(@"point = %@", NSStringFromCGPoint(point));
-	
-	CGFloat horizontalScale = colorUtil.image.size.width / imageView.frame.size.width;
-	CGFloat verticalScale = colorUtil.image.size.height / imageView.frame.size.height;
-//	NSLog(@"scale = %f, %f", horizontalScale, verticalScale);
-	
-//	CGFloat scale = MAX(horizontalScale, verticalScale);
-	point.x *= horizontalScale;
-	point.y *= verticalScale;
-//	NSLog(@"updated: %@", NSStringFromCGPoint(point));
-	[self setCurrentColor:[colorUtil getPixelColorAtLocation:point]];
+	UIColor *color = [RTHColorUtil colorAtPoint:point inView:imageView];
+	[self setCurrentColor:color];
 /*
 	if(!gradient){
 		gradient = [CAGradientLayer layer];
@@ -172,7 +194,15 @@
 	return [self colorWithOffsetPositive:YES];
 }
  */
--(void)searchForColor{
+-(void)searchForSelectedColor{
+	[self searchForColor:currentColor];
+}
+-(void)searchForComplementaryColor{
+	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
+	self.navigationController.navigationBar.tintColor = inverseColor;
+	[self searchForColor:inverseColor];
+}
+-(void)searchForColor:(UIColor *)color{
 //	UIColor *color = self.view.backgroundColor;
 	/*
 	UIColor *minColor = [self minimumColor];
@@ -182,7 +212,7 @@
 //	NSLog(@"hex = %@", hexString);
 	NSString *rangeString = [NSString stringWithFormat:@"#%@-#%@", minHexString, maxHexString];
 	 */
-	NSString *hex = [RTHColorUtil getHexStringForColor:currentColor];
+	NSString *hex = [RTHColorUtil getHexStringForColor:color];
 	RTHSearchViewController *vc = [[RTHSearchViewController alloc] initWithColorHex:hex];
 	[self.navigationController pushViewController:vc animated:YES];
 	
@@ -193,12 +223,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
 //	NSLog(@"info = %@", info);
 	UIImage *image = info[UIImagePickerControllerOriginalImage];
+	image = [RTHImageUtil fixOrientationForImage:image];
 	[self useImage:image];
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-	
+	[self dismissViewControllerAnimated:YES completion:nil];	
 }
 
 
@@ -209,11 +240,18 @@
 	[self presentViewController:nav animated:YES completion:nil];
 }
 
+-(void)presentAbout{
+	RTHAboutViewController *vc = [[RTHAboutViewController alloc] init];
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+	[self presentViewController:nav animated:YES completion:nil];	
+}
+
 #pragma mark color history delegate
 -(void)colorHistoryViewController:(RTHColorHistoryViewController *)viewController didSelectColor:(UIColor *)color{
+	[imageView removeFromSuperview];
 	[viewController dismissViewControllerAnimated:YES completion:nil];
 	[self setCurrentColor:color];
-	[self searchForColor];
+	[self searchForColor:color];
 }
 
 

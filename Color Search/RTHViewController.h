@@ -14,10 +14,12 @@
 @interface RTHViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, RTHColorHistoryViewControllerDelegate, UIActionSheetDelegate>{
 	BOOL hasPresented;
 	UIImageView *imageView;
-	RTHColorUtil *colorUtil;
 	
 	UIColor *currentColor;
 //	CAGradientLayer *gradient;
+	
+	UIButton *searchSelectedColorButton;
+	UIButton *searchComplementaryColorButton;
 }
 
 @end

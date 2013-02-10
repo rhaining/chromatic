@@ -70,7 +70,7 @@
 
 +(CGFloat)heightForText:(NSString *)text{
 	CGFloat height = [text sizeWithFont:TEXT_LBL_FONT constrainedToSize:CGSizeMake(300, 1000)].height;
-	height += MARGIN * 3;
+	height += MARGIN * 4;
 	height += IMG_HEIGHT;
 	return height;
 }
