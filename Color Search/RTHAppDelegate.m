@@ -8,7 +8,7 @@
 
 #import "RTHAppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "RTHViewController.h"
+#import "RTHColorSelectionViewController.h"
 
 @implementation RTHAppDelegate
 
@@ -17,9 +17,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    self.viewController = [[RTHViewController alloc] initWithNibName:@"RTHViewController_iPhone" bundle:nil];
+	    self.viewController = [[RTHColorSelectionViewController alloc] initWithNibName:@"RTHViewController_iPhone" bundle:nil];
 	} else {
-	    self.viewController = [[RTHViewController alloc] initWithNibName:@"RTHViewController_iPad" bundle:nil];
+	    self.viewController = [[RTHColorSelectionViewController alloc] initWithNibName:@"RTHViewController_iPad" bundle:nil];
 	}
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
 	self.window.rootViewController = nav;

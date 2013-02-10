@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 Robert Tolar Haining. All rights reserved.
 //
 
-#import "RTHViewController.h"
+#import "RTHColorSelectionViewController.h"
 #import "RTHSearchViewController.h"
 #import "RTHColorHistory.h"
 #import "RTHImageUtil.h"
 #import "RTHAboutViewController.h"
 
-@interface RTHViewController ()
+@interface RTHColorSelectionViewController ()
 
 @end
 
-@implementation RTHViewController
+@implementation RTHColorSelectionViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];

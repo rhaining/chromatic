@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class RTHViewController;
+@class RTHColorSelectionViewController;
 
 @interface RTHAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) RTHViewController *viewController;
+@property (strong, nonatomic) RTHColorSelectionViewController *viewController;
 
 @end

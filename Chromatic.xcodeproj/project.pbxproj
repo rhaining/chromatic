@@ -42,9 +42,9 @@
 		EFF7684F16BD9CB500265767 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7684E16BD9CB500265767 /* Default.png */; };
 		EFF7685116BD9CB500265767 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685016BD9CB500265767 /* Default@2x.png */; };
 		EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685216BD9CB500265767 /* Default-568h@2x.png */; };
-		EFF7685616BD9CB500265767 /* RTHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7685516BD9CB500265767 /* RTHViewController.m */; };
-		EFF7685916BD9CB500265767 /* RTHViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */; };
-		EFF7685C16BD9CB500265767 /* RTHViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */; };
+		EFF7685616BD9CB500265767 /* RTHColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */; };
+		EFF7685916BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685716BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib */; };
+		EFF7685C16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685A16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib */; };
 		EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7686316BDA0C800265767 /* RTHColorUtil.m */; };
 		EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7686516BDA6EE00265767 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
@@ -103,19 +103,19 @@
 		EFF7683C16BD9CB500265767 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFF7683E16BD9CB500265767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EFF7684016BD9CB500265767 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EFF7684416BD9CB500265767 /* Color Search-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Color Search-Info.plist"; sourceTree = "<group>"; };
+		EFF7684416BD9CB500265767 /* Chromatic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chromatic-Info.plist"; sourceTree = "<group>"; };
 		EFF7684616BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFF7684816BD9CB500265767 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EFF7684A16BD9CB500265767 /* Color Search-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color Search-Prefix.pch"; sourceTree = "<group>"; };
+		EFF7684A16BD9CB500265767 /* Chromatic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chromatic-Prefix.pch"; sourceTree = "<group>"; };
 		EFF7684B16BD9CB500265767 /* RTHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHAppDelegate.h; sourceTree = "<group>"; };
 		EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHAppDelegate.m; sourceTree = "<group>"; };
 		EFF7684E16BD9CB500265767 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EFF7685016BD9CB500265767 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EFF7685216BD9CB500265767 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EFF7685416BD9CB500265767 /* RTHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHViewController.h; sourceTree = "<group>"; };
-		EFF7685516BD9CB500265767 /* RTHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHViewController.m; sourceTree = "<group>"; };
-		EFF7685816BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHViewController_iPhone.xib; sourceTree = "<group>"; };
-		EFF7685B16BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHViewController_iPad.xib; sourceTree = "<group>"; };
+		EFF7685416BD9CB500265767 /* RTHColorSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHColorSelectionViewController.h; sourceTree = "<group>"; };
+		EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHColorSelectionViewController.m; sourceTree = "<group>"; };
+		EFF7685816BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHColorSelectionViewController_iPhone.xib; sourceTree = "<group>"; };
+		EFF7685B16BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHColorSelectionViewController_iPad.xib; sourceTree = "<group>"; };
 		EFF7686216BDA0C800265767 /* RTHColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorUtil.h; sourceTree = "<group>"; };
 		EFF7686316BDA0C800265767 /* RTHColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorUtil.m; sourceTree = "<group>"; };
 		EFF7686516BDA6EE00265767 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -168,8 +168,8 @@
 		EF5B58D616BDBA20008626BA /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */,
-				EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */,
+				EFF7685716BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib */,
+				EFF7685A16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib */,
 			);
 			name = xibs;
 			sourceTree = "<group>";
@@ -239,8 +239,8 @@
 		EF78EB6716BE0048006D8048 /* color selection */ = {
 			isa = PBXGroup;
 			children = (
-				EFF7685416BD9CB500265767 /* RTHViewController.h */,
-				EFF7685516BD9CB500265767 /* RTHViewController.m */,
+				EFF7685416BD9CB500265767 /* RTHColorSelectionViewController.h */,
+				EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */,
 				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
 				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
 				EF768EA516C8532200DCB1ED /* RTHImageUtil.h */,
@@ -306,11 +306,11 @@
 		EFF7684316BD9CB500265767 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EFF7684416BD9CB500265767 /* Color Search-Info.plist */,
+				EFF7684416BD9CB500265767 /* Chromatic-Info.plist */,
 				EFA6A6BD16BEAE4C0073D719 /* config.plist */,
 				EFF7684516BD9CB500265767 /* InfoPlist.strings */,
 				EFF7684816BD9CB500265767 /* main.m */,
-				EFF7684A16BD9CB500265767 /* Color Search-Prefix.pch */,
+				EFF7684A16BD9CB500265767 /* Chromatic-Prefix.pch */,
 				EFF7684E16BD9CB500265767 /* Default.png */,
 				EFF7685016BD9CB500265767 /* Default@2x.png */,
 				EFF7685216BD9CB500265767 /* Default-568h@2x.png */,
@@ -321,9 +321,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EFF7683716BD9CB500265767 /* Color Search */ = {
+		EFF7683716BD9CB500265767 /* Chromatic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Color Search" */;
+			buildConfigurationList = EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Chromatic" */;
 			buildPhases = (
 				EFF7683416BD9CB500265767 /* Sources */,
 				EFF7683516BD9CB500265767 /* Frameworks */,
@@ -333,7 +333,7 @@
 			);
 			dependencies = (
 			);
-			name = "Color Search";
+			name = Chromatic;
 			productName = "Color Search";
 			productReference = EFF7683816BD9CB500265767 /* Chromatic.app */;
 			productType = "com.apple.product-type.application";
@@ -348,7 +348,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Robert Tolar Haining";
 			};
-			buildConfigurationList = EFF7683216BD9CB500265767 /* Build configuration list for PBXProject "Color Search" */;
+			buildConfigurationList = EFF7683216BD9CB500265767 /* Build configuration list for PBXProject "Chromatic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -361,7 +361,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EFF7683716BD9CB500265767 /* Color Search */,
+				EFF7683716BD9CB500265767 /* Chromatic */,
 			);
 		};
 /* End PBXProject section */
@@ -375,8 +375,8 @@
 				EFF7684F16BD9CB500265767 /* Default.png in Resources */,
 				EFF7685116BD9CB500265767 /* Default@2x.png in Resources */,
 				EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */,
-				EFF7685916BD9CB500265767 /* RTHViewController_iPhone.xib in Resources */,
-				EFF7685C16BD9CB500265767 /* RTHViewController_iPad.xib in Resources */,
+				EFF7685916BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib in Resources */,
+				EFF7685C16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib in Resources */,
 				EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +390,7 @@
 			files = (
 				EFF7684916BD9CB500265767 /* main.m in Sources */,
 				EFF7684D16BD9CB500265767 /* RTHAppDelegate.m in Sources */,
-				EFF7685616BD9CB500265767 /* RTHViewController.m in Sources */,
+				EFF7685616BD9CB500265767 /* RTHColorSelectionViewController.m in Sources */,
 				EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */,
 				EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */,
 				EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */,
@@ -428,20 +428,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		EFF7685716BD9CB500265767 /* RTHViewController_iPhone.xib */ = {
+		EFF7685716BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EFF7685816BD9CB500265767 /* en */,
 			);
-			name = RTHViewController_iPhone.xib;
+			name = RTHColorSelectionViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		EFF7685A16BD9CB500265767 /* RTHViewController_iPad.xib */ = {
+		EFF7685A16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EFF7685B16BD9CB500265767 /* en */,
 			);
-			name = RTHViewController_iPad.xib;
+			name = RTHColorSelectionViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -507,8 +507,8 @@
 					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
-				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
+				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
+				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -523,8 +523,8 @@
 					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Color Search/Color Search-Prefix.pch";
-				INFOPLIST_FILE = "Color Search/Color Search-Info.plist";
+				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
+				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -534,7 +534,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EFF7683216BD9CB500265767 /* Build configuration list for PBXProject "Color Search" */ = {
+		EFF7683216BD9CB500265767 /* Build configuration list for PBXProject "Chromatic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFF7685D16BD9CB500265767 /* Debug */,
@@ -543,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Color Search" */ = {
+		EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Chromatic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EFF7686016BD9CB500265767 /* Debug */,
