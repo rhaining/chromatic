@@ -22,7 +22,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New Image" style:UIBarButtonItemStyleBordered target:self action:@selector(presentImageOptions)];
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select Image" style:UIBarButtonItemStyleBordered target:self action:@selector(presentImageOptions)];
 
 	self.navigationItem.rightBarButtonItems = @[
 											   [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleBordered target:self action:@selector(presentHistory)],
