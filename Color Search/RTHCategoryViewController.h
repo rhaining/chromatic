@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @protocol RTHCategoryViewControllerDelegate;
-@class RTHCategory;
+@class RTHCategory, RTHCategoryView;
 
-@interface RTHCategoryViewController : UITableViewController {
+@interface RTHCategoryViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
 	NSArray *_categories;
+	RTHCategoryView *categoryView;
 }
 
 @property (nonatomic, strong) RTHCategory *selectedCategory;
-
 @property (nonatomic, weak) id<RTHCategoryViewControllerDelegate> delegate;
+//@property (nonatomic, readonly) UIPickerView *pickerView;
 
 @end
 

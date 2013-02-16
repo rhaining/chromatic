@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RTHColorHistoryViewController.h"
 
-@interface RTHColorSelectionViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, RTHColorHistoryViewControllerDelegate, UIActionSheetDelegate>{
+@interface RTHColorSelectionViewController : UIViewController {
 	BOOL hasPresented;
 	UIImageView *imageView;
 	
@@ -20,6 +20,10 @@
 	
 	UIButton *searchSelectedColorButton;
 	UIButton *searchComplementaryColorButton;
+
+	UIImage *initialImage;
 }
+
+-(id)initWithImage:(UIImage *)image;
 
 @end

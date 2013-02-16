@@ -10,7 +10,7 @@
 #import "RTHSearchViewController.h"
 #import "RTHColorHistory.h"
 #import "RTHImageUtil.h"
-#import "RTHAboutViewController.h"
+#import "RTHButton.h"
 
 @interface RTHColorSelectionViewController ()
 
@@ -18,80 +18,47 @@
 
 @implementation RTHColorSelectionViewController
 
+-(id)initWithImage:(UIImage *)image{
+	if(self = [super init]){
+		initialImage = image;
+		
+		self.title = @"Select Color";
+	}
+	return self;
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-	
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select Image" style:UIBarButtonItemStyleBordered target:self action:@selector(presentImageOptions)];
 
-	self.navigationItem.rightBarButtonItems = @[
-											   [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleBordered target:self action:@selector(presentHistory)],
-											   [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStyleBordered target:self action:@selector(presentAbout)]]
-											   ;
-
-	searchSelectedColorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	searchSelectedColorButton = [RTHButton newRTHButton];
 	[searchSelectedColorButton addTarget:self action:@selector(searchForSelectedColor) forControlEvents:UIControlEventTouchUpInside];
-	[searchSelectedColorButton setTitle:@"Search »" forState:UIControlStateNormal];
+	[searchSelectedColorButton setTitle:@"Search\nSelected Color" forState:UIControlStateNormal];
 	searchSelectedColorButton.enabled = NO;
 	[self.view addSubview:searchSelectedColorButton];
 	
-	searchComplementaryColorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	searchComplementaryColorButton = [RTHButton newRTHButton];
 	[searchComplementaryColorButton addTarget:self action:@selector(searchForComplementaryColor) forControlEvents:UIControlEventTouchUpInside];
-	[searchComplementaryColorButton setTitle:@"Search »" forState:UIControlStateNormal];
+	[searchComplementaryColorButton setTitle:@"Search\nComplementary Color" forState:UIControlStateNormal];
 	searchComplementaryColorButton.enabled = NO;
 	[self.view addSubview:searchComplementaryColorButton];
+	
+	if(initialImage){
+		[self useImage:initialImage];
+	}
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
-	searchSelectedColorButton.frame = CGRectMake((self.view.frame.size.width / 2.0 - 100)/2.0, self.view.frame.size.height - 54, 100, 44);
-	searchComplementaryColorButton.frame = CGRectMake(self.view.frame.size.width / 2.0 + (self.view.frame.size.width / 2.0 - 100)/2.0, self.view.frame.size.height - 54, 100, 44);
+	CGFloat buttonWidth = 150;
+	CGFloat buttonHeight = 55;
+	searchSelectedColorButton.frame = CGRectMake((self.view.frame.size.width / 2.0 - buttonWidth)/2.0,
+												 self.view.frame.size.height - (buttonHeight+10), buttonWidth, buttonHeight);
+	searchComplementaryColorButton.frame = CGRectMake(self.view.frame.size.width / 2.0 + (self.view.frame.size.width / 2.0 - buttonWidth)/2.0,
+													  self.view.frame.size.height - (buttonHeight+10), buttonWidth, buttonHeight);
 }
 
--(void)selectNewImage:(UIImagePickerControllerSourceType)sourceType{
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	imagePicker.sourceType = sourceType;
-	imagePicker.delegate = self;
-	[self presentViewController:imagePicker animated:YES completion:nil];
-}
--(void)presentPhotoAlbum{
-	[self selectNewImage:UIImagePickerControllerSourceTypePhotoLibrary];
-}
--(void)presentCamera{
-	[self selectNewImage:UIImagePickerControllerSourceTypeCamera];
-}
--(void)presentImageOptions{
-	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-		UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Select your option" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Album", nil];
-		[sheet showInView:self.view];
-	}else{
-		[self presentPhotoAlbum];
-	}
-}
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-	switch (buttonIndex) {
-		case 0:
-			[self presentCamera];
-			break;
-		case 1:
-			[self presentPhotoAlbum];
-			break;
-		default:
-			[self presentImageOptions];
-			break;
-	}
-}
-/*
--(void)viewDidAppear:(BOOL)animated{
-	[super viewDidAppear:animated];
-	
-	if(hasPresented){
-		return;
-	}
-	hasPresented = YES;
-	[self presentImageOptions];
-}
-*/
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -114,7 +81,7 @@
 	imageView = [[UIImageView alloc] initWithImage:image];
 //	CGSize wrapper = [self maxSize];
 	imageView.frame = CGRectMake((self.view.frame.size.width - image.size.width) / 2.0,
-								 (self.view.frame.size.height - image.size.height - 30) / 2.0,
+								 (self.view.frame.size.height - image.size.height - 100) / 2.0,
 								 image.size.width,
 								 image.size.height);
 //	imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -219,40 +186,6 @@
 	[RTHColorHistory addColorHex:hex];
 }
 
-#pragma mark - uiimagepickercontrollerdelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-//	NSLog(@"info = %@", info);
-	UIImage *image = info[UIImagePickerControllerOriginalImage];
-	image = [RTHImageUtil fixOrientationForImage:image];
-	[self useImage:image];
-	[self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-	[self dismissViewControllerAnimated:YES completion:nil];	
-}
-
-
--(void)presentHistory{
-	RTHColorHistoryViewController *vc = [[RTHColorHistoryViewController alloc] initWithStyle:UITableViewStylePlain];
-	vc.delegate = self;
-	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-	[self presentViewController:nav animated:YES completion:nil];
-}
-
--(void)presentAbout{
-	RTHAboutViewController *vc = [[RTHAboutViewController alloc] init];
-	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-	[self presentViewController:nav animated:YES completion:nil];	
-}
-
-#pragma mark color history delegate
--(void)colorHistoryViewController:(RTHColorHistoryViewController *)viewController didSelectColor:(UIColor *)color{
-	[imageView removeFromSuperview];
-	[viewController dismissViewControllerAnimated:YES completion:nil];
-	[self setCurrentColor:color];
-	[self searchForColor:color];
-}
 
 
 @end

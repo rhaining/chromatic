@@ -9,6 +9,7 @@
 #import "RTHColorHistoryViewController.h"
 #import "RTHColorHistory.h"
 #import "RTHColorUtil.h"
+#import "RTHSearchViewController.h"
 
 @interface RTHColorHistoryViewController ()
 
@@ -24,20 +25,22 @@
 		dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+		
+		self.title = @"Color History";
     }
     return self;
 }
 
--(void)dismissSelf{
-	[self dismissViewControllerAnimated:YES completion:nil];
-}
+//-(void)dismissSelf{
+//	[self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
+//- (void)viewDidLoad{
+//    [super viewDidLoad];
 	
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissSelf)];
-}
+//	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissSelf)];
+//}
 
 
 #pragma mark - Table view data source
@@ -77,9 +80,18 @@
 	NSDictionary *attributes = [colors objectAtIndex:indexPath.row];
 	UIColor *color = attributes[@"color"];
 	
-	[self.delegate colorHistoryViewController:self didSelectColor:color];
-	[self dismissViewControllerAnimated:YES completion:nil];
-	
+	if(self.delegate){
+		[self.delegate colorHistoryViewController:self didSelectColor:color];
+		[self dismissViewControllerAnimated:YES completion:nil];
+	}else{
+		self.navigationController.navigationBar.tintColor = color;
+
+		NSString *hex = [RTHColorUtil getHexStringForColor:color];
+		RTHSearchViewController *vc = [[RTHSearchViewController alloc] initWithColorHex:hex];
+		[self.navigationController pushViewController:vc animated:YES];
+		
+		[RTHColorHistory addColorHex:hex];
+	}
 }
 
 @end

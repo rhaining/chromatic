@@ -13,11 +13,13 @@
 @interface RTHListing : NSObject
 
 @property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) NSURL *largeImageURL;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *listingId;
 @property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSString *currencyCode;
+@property (nonatomic, copy) NSString *itemDescription;
 
 
 + (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice withBlock:(void (^)(NSArray *posts, NSError *error))block ;

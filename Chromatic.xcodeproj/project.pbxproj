@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF5B57A816BDB09B008626BA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */; };
+		EF036A1B16D00FBB009AA728 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */; };
+		EF036A1C16D00FC4009AA728 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B58EA16BDBEA0008626BA /* MobileCoreServices.framework */; };
+		EF036A1F16D0166A009AA728 /* RTHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A1E16D0166A009AA728 /* RTHHomeViewController.m */; };
+		EF036A2316D016CB009AA728 /* RTHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2216D016CB009AA728 /* RTHButton.m */; };
+		EF036A2716D0173C009AA728 /* RTHHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2616D0173C009AA728 /* RTHHomeView.m */; };
+		EF036A2C16D02A11009AA728 /* RTHCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2B16D02A11009AA728 /* RTHCategoryView.m */; };
+		EF036A2F16D033AA009AA728 /* RTHSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */; };
 		EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */; };
 		EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */; };
 		EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */; };
@@ -20,7 +26,6 @@
 		EF5B58D916BDBA3D008626BA /* RTHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */; };
 		EF5B58E516BDBB6A008626BA /* RTHListing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E416BDBB6A008626BA /* RTHListing.m */; };
 		EF5B58E916BDBBCB008626BA /* RTHEtsyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E816BDBBCB008626BA /* RTHEtsyClient.m */; };
-		EF5B58EB16BDBEA0008626BA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B58EA16BDBEA0008626BA /* MobileCoreServices.framework */; };
 		EF5B58EE16BDC568008626BA /* RTHListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58ED16BDC568008626BA /* RTHListingCell.m */; };
 		EF5B58F116BDD8F0008626BA /* RTHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F016BDD8F0008626BA /* RTHCategory.m */; };
 		EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */; };
@@ -33,6 +38,8 @@
 		EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */; };
 		EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA6A6BD16BEAE4C0073D719 /* config.plist */; };
 		EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */; };
+		EFCF8D7C16D042EB00E14663 /* RTHListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCF8D7B16D042EB00E14663 /* RTHListingViewController.m */; };
+		EFCF8D7F16D0438300E14663 /* RTHListingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCF8D7E16D0438300E14663 /* RTHListingView.m */; };
 		EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683C16BD9CB500265767 /* UIKit.framework */; };
 		EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683E16BD9CB500265767 /* Foundation.framework */; };
 		EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7684016BD9CB500265767 /* CoreGraphics.framework */; };
@@ -43,13 +50,21 @@
 		EFF7685116BD9CB500265767 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685016BD9CB500265767 /* Default@2x.png */; };
 		EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685216BD9CB500265767 /* Default-568h@2x.png */; };
 		EFF7685616BD9CB500265767 /* RTHColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */; };
-		EFF7685916BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685716BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib */; };
-		EFF7685C16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685A16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib */; };
 		EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7686316BDA0C800265767 /* RTHColorUtil.m */; };
 		EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7686516BDA6EE00265767 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF036A1D16D0166A009AA728 /* RTHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHHomeViewController.h; sourceTree = "<group>"; };
+		EF036A1E16D0166A009AA728 /* RTHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHHomeViewController.m; sourceTree = "<group>"; };
+		EF036A2116D016CB009AA728 /* RTHButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHButton.h; sourceTree = "<group>"; };
+		EF036A2216D016CB009AA728 /* RTHButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHButton.m; sourceTree = "<group>"; };
+		EF036A2516D0173C009AA728 /* RTHHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHHomeView.h; sourceTree = "<group>"; };
+		EF036A2616D0173C009AA728 /* RTHHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHHomeView.m; sourceTree = "<group>"; };
+		EF036A2A16D02A11009AA728 /* RTHCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCategoryView.h; sourceTree = "<group>"; };
+		EF036A2B16D02A11009AA728 /* RTHCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCategoryView.m; sourceTree = "<group>"; };
+		EF036A2D16D033AA009AA728 /* RTHSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHSearchHeaderView.h; sourceTree = "<group>"; };
+		EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHSearchHeaderView.m; sourceTree = "<group>"; };
 		EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -99,6 +114,10 @@
 		EFA6A6BD16BEAE4C0073D719 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = SOURCE_ROOT; };
 		EFA6A6BF16BEAEBA0073D719 /* RTHEtsyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHEtsyConfig.h; sourceTree = "<group>"; };
 		EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHEtsyConfig.m; sourceTree = "<group>"; };
+		EFCF8D7A16D042EB00E14663 /* RTHListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListingViewController.h; sourceTree = "<group>"; };
+		EFCF8D7B16D042EB00E14663 /* RTHListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHListingViewController.m; sourceTree = "<group>"; };
+		EFCF8D7D16D0438300E14663 /* RTHListingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListingView.h; sourceTree = "<group>"; };
+		EFCF8D7E16D0438300E14663 /* RTHListingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHListingView.m; sourceTree = "<group>"; };
 		EFF7683816BD9CB500265767 /* Chromatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chromatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF7683C16BD9CB500265767 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EFF7683E16BD9CB500265767 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,8 +133,6 @@
 		EFF7685216BD9CB500265767 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EFF7685416BD9CB500265767 /* RTHColorSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHColorSelectionViewController.h; sourceTree = "<group>"; };
 		EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHColorSelectionViewController.m; sourceTree = "<group>"; };
-		EFF7685816BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHColorSelectionViewController_iPhone.xib; sourceTree = "<group>"; };
-		EFF7685B16BD9CB500265767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RTHColorSelectionViewController_iPad.xib; sourceTree = "<group>"; };
 		EFF7686216BDA0C800265767 /* RTHColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorUtil.h; sourceTree = "<group>"; };
 		EFF7686316BDA0C800265767 /* RTHColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorUtil.m; sourceTree = "<group>"; };
 		EFF7686516BDA6EE00265767 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -126,9 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF036A1C16D00FC4009AA728 /* MobileCoreServices.framework in Frameworks */,
+				EF036A1B16D00FBB009AA728 /* SystemConfiguration.framework in Frameworks */,
 				EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */,
-				EF5B58EB16BDBEA0008626BA /* MobileCoreServices.framework in Frameworks */,
-				EF5B57A816BDB09B008626BA /* SystemConfiguration.framework in Frameworks */,
 				EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */,
 				EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */,
 				EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */,
@@ -139,6 +156,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF036A2016D016BD009AA728 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				EF036A2516D0173C009AA728 /* RTHHomeView.h */,
+				EF036A2616D0173C009AA728 /* RTHHomeView.m */,
+				EF036A2116D016CB009AA728 /* RTHButton.h */,
+				EF036A2216D016CB009AA728 /* RTHButton.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		EF036A2416D0172F009AA728 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				EF036A1D16D0166A009AA728 /* RTHHomeViewController.h */,
+				EF036A1E16D0166A009AA728 /* RTHHomeViewController.m */,
+				EF78EB6C16BE9ED1006D8048 /* RTHColorHistoryViewController.h */,
+				EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */,
+			);
+			name = home;
+			sourceTree = "<group>";
+		};
+		EF036A2816D019AE009AA728 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EF768EA216C84BEC00DCB1ED /* RTHLocaleHelper.h */,
+				EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */,
+				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
+				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
+				EF768EA516C8532200DCB1ED /* RTHImageUtil.h */,
+				EF768EA616C8532200DCB1ED /* RTHImageUtil.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		EF036A2916D0247D009AA728 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				EF5B58B916BDBA18008626BA /* AFNetworking */,
+			);
+			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		EF036A3016D04257009AA728 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				EFCF8D7A16D042EB00E14663 /* RTHListingViewController.h */,
+				EFCF8D7B16D042EB00E14663 /* RTHListingViewController.m */,
+				EFCF8D7D16D0438300E14663 /* RTHListingView.h */,
+				EFCF8D7E16D0438300E14663 /* RTHListingView.m */,
+			);
+			name = Listing;
+			sourceTree = "<group>";
+		};
 		EF5B58B916BDBA18008626BA /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,15 +234,6 @@
 				EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		EF5B58D616BDBA20008626BA /* xibs */ = {
-			isa = PBXGroup;
-			children = (
-				EFF7685716BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib */,
-				EFF7685A16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib */,
-			);
-			name = xibs;
 			sourceTree = "<group>";
 		};
 		EF5B58E216BDBB58008626BA /* Model */ = {
@@ -201,6 +263,8 @@
 			children = (
 				EF5B58D716BDBA3D008626BA /* RTHSearchViewController.h */,
 				EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */,
+				EF036A2D16D033AA009AA728 /* RTHSearchHeaderView.h */,
+				EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */,
 				EF5B58EC16BDC567008626BA /* RTHListingCell.h */,
 				EF5B58ED16BDC568008626BA /* RTHListingCell.m */,
 				EF5B591216BDE073008626BA /* price */,
@@ -214,6 +278,8 @@
 			children = (
 				EF5B58F416BDD9B1008626BA /* RTHCategoryViewController.h */,
 				EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */,
+				EF036A2A16D02A11009AA728 /* RTHCategoryView.h */,
+				EF036A2B16D02A11009AA728 /* RTHCategoryView.m */,
 			);
 			name = categories;
 			sourceTree = "<group>";
@@ -241,12 +307,6 @@
 			children = (
 				EFF7685416BD9CB500265767 /* RTHColorSelectionViewController.h */,
 				EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */,
-				EFF7686216BDA0C800265767 /* RTHColorUtil.h */,
-				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
-				EF768EA516C8532200DCB1ED /* RTHImageUtil.h */,
-				EF768EA616C8532200DCB1ED /* RTHImageUtil.m */,
-				EF78EB6C16BE9ED1006D8048 /* RTHColorHistoryViewController.h */,
-				EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */,
 			);
 			name = "color selection";
 			sourceTree = "<group>";
@@ -289,15 +349,16 @@
 				EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */,
 				EF78EB6916BE9CAA006D8048 /* RTHColorHistory.h */,
 				EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */,
-				EF768EA216C84BEC00DCB1ED /* RTHLocaleHelper.h */,
-				EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */,
+				EF036A2816D019AE009AA728 /* Utilities */,
+				EF036A2416D0172F009AA728 /* home */,
+				EF036A2016D016BD009AA728 /* views */,
 				EF768EA816C855A700DCB1ED /* about */,
 				EF78EB6716BE0048006D8048 /* color selection */,
 				EF5B58F216BDD998008626BA /* search */,
+				EF036A3016D04257009AA728 /* Listing */,
 				EF5B58E616BDBBB4008626BA /* networking */,
 				EF5B58E216BDBB58008626BA /* Model */,
-				EF5B58B916BDBA18008626BA /* AFNetworking */,
-				EF5B58D616BDBA20008626BA /* xibs */,
+				EF036A2916D0247D009AA728 /* Third Party */,
 				EFF7684316BD9CB500265767 /* Supporting Files */,
 			);
 			path = "Color Search";
@@ -375,8 +436,6 @@
 				EFF7684F16BD9CB500265767 /* Default.png in Resources */,
 				EFF7685116BD9CB500265767 /* Default@2x.png in Resources */,
 				EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */,
-				EFF7685916BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib in Resources */,
-				EFF7685C16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib in Resources */,
 				EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +473,13 @@
 				EF768EA416C84BED00DCB1ED /* RTHLocaleHelper.m in Sources */,
 				EF768EA716C8532200DCB1ED /* RTHImageUtil.m in Sources */,
 				EF768EAB16C855B300DCB1ED /* RTHAboutViewController.m in Sources */,
+				EF036A1F16D0166A009AA728 /* RTHHomeViewController.m in Sources */,
+				EF036A2316D016CB009AA728 /* RTHButton.m in Sources */,
+				EF036A2716D0173C009AA728 /* RTHHomeView.m in Sources */,
+				EF036A2C16D02A11009AA728 /* RTHCategoryView.m in Sources */,
+				EF036A2F16D033AA009AA728 /* RTHSearchHeaderView.m in Sources */,
+				EFCF8D7C16D042EB00E14663 /* RTHListingViewController.m in Sources */,
+				EFCF8D7F16D0438300E14663 /* RTHListingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,22 +492,6 @@
 				EFF7684616BD9CB500265767 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		EFF7685716BD9CB500265767 /* RTHColorSelectionViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EFF7685816BD9CB500265767 /* en */,
-			);
-			name = RTHColorSelectionViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		EFF7685A16BD9CB500265767 /* RTHColorSelectionViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EFF7685B16BD9CB500265767 /* en */,
-			);
-			name = RTHColorSelectionViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

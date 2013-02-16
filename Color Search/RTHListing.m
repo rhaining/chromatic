@@ -28,12 +28,14 @@
 	NSArray *images = attributes[@"Images"];
 	if(images.count > 0){
 		NSDictionary *imgAttributes = images[0];
-		NSString *imageURLString = imgAttributes[@"url_170x135"];
-		self.imageURL = [NSURL URLWithString:imageURLString];
+		self.imageURL = [NSURL URLWithString:imgAttributes[@"url_170x135"]];
+		self.largeImageURL = [NSURL URLWithString:imgAttributes[@"url_570xN"]];
 	}
 
 	self.price = attributes[@"price"];
 	self.currencyCode = attributes[@"currency_code"];
+	
+	self.itemDescription = attributes[@"description"];
 	
 //	self.imageURL =
 //    _postID = [[attributes valueForKeyPath:@"id"] integerValue];

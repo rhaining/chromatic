@@ -12,20 +12,14 @@
 #import "RTHCategory.h"
 #import "RTHColorUtil.h"
 #import "RTHLocaleHelper.h"
-
-@interface RTHSearchViewController ()
-
-@end
+#import "RTHSearchHeaderView.h"
+#import "RTHListingViewController.h"
 
 @implementation RTHSearchViewController
 
 -(id)initWithColorHex:(NSString *)hexString{
 	if(self = [super init]){
 		self.hexString = hexString;
-		
-		[self search];
-		
-		self.tableView.rowHeight = 235;
 		
 		self.navigationItem.title = @"Results";
 				
@@ -41,6 +35,10 @@
 	
 	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:self.navigationController.navigationBar.tintColor];
 	[self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeTextColor : inverseColor}];
+
+	if(!_listings){
+		[self search];
+	}
 }
 
 -(void)search{
@@ -65,6 +63,26 @@
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 
+}
+
+-(UITableView *)tableView{
+	if(!_tableView){
+		_tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+		_tableView.dataSource = self;
+		_tableView.delegate = self;
+		_tableView.rowHeight = 235;
+		_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+		
+		searchHeaderView = [[RTHSearchHeaderView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 100) textFieldDelegate:self];
+		[self updateButtonTitles];
+		_tableView.tableHeaderView = searchHeaderView;
+		_tableView.contentOffset = CGPointMake(0, 40);
+	}
+	return _tableView;
+}
+-(void)loadView{
+	[super loadView];
+	[self.view addSubview:self.tableView];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -109,63 +127,29 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	RTHListing *listing = [_listings objectAtIndex:indexPath.row];
-	[[UIApplication sharedApplication] openURL:listing.url];
+	RTHListingViewController *vc = [[RTHListingViewController alloc] initWithListing:listing];
+	[self.navigationController pushViewController:vc animated:YES];
+//	[[UIApplication sharedApplication] openURL:listing.url];
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)updateButtonTitles{
-	NSString *title = _category ? _category.shortName : @"Category";
-	[categoryButton setTitle:title forState:UIControlStateNormal];
-
-	title = _keyword ? [NSString stringWithFormat:@"“%@”", _keyword] : @"Keyword";
-	[keywordButton setTitle:title forState:UIControlStateNormal];
-
-	title = _maximumPrice ? [NSString stringWithFormat:@"$%d-%d", _minimumPrice, _maximumPrice] : @"Price";
-	[priceButton setTitle:title forState:UIControlStateNormal];
-
+	[searchHeaderView setCategoryName:_category ? _category.shortName : @"Category"];
+//	[searchHeaderView setKeyword:_keyword && _keyword.length > 0 ? [NSString stringWithFormat:@"“%@”", _keyword] : @"Keyword"];
+	[searchHeaderView setPrice:_maximumPrice ? [NSString stringWithFormat:@"$%d-%d", _minimumPrice, _maximumPrice] : @"Price"];
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 50)];
-	header.backgroundColor = [UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1];
-	
-	if(!categoryButton){
-		categoryButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		categoryButton.frame = CGRectMake(0, 3, 106, 44);
-		[categoryButton addTarget:self action:@selector(presentCategories) forControlEvents:UIControlEventTouchUpInside];
-	}
-	[header addSubview:categoryButton];
-
-	if(!keywordButton){
-		keywordButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		keywordButton.frame = CGRectMake(107, 3, 106, 44);
-		[keywordButton addTarget:self action:@selector(presentKeyword) forControlEvents:UIControlEventTouchUpInside];
-	}
-	[header addSubview:keywordButton];
-	
-	if(!priceButton){
-		priceButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		priceButton.frame = CGRectMake(214, 3, 106, 44);
-		[priceButton addTarget:self action:@selector(presentPriceOptions) forControlEvents:UIControlEventTouchUpInside];
-	}
-	[header addSubview:priceButton];
-	
-//	if(!updateButton){
-//		updateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//		[updateButton setTitle:@"Update" forState:UIControlStateNormal];
-//		updateButton.frame = CGRectMake(260, 3, 60, 44);
-//		[updateButton addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
-//		updateButton.enabled = NO;
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//	if(!searchHeaderView){
+//		CGFloat height = [tableView.delegate tableView:tableView heightForHeaderInSection:section];
+//		searchHeaderView = [[RTHSearchHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, height) textFieldDelegate:self];
 //	}
-//	[header addSubview:updateButton];
-	
-	[self updateButtonTitles];
-	
-	return header;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-	return 50;
-}
+//	[self updateButtonTitles];
+//	return searchHeaderView;
+//}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//	return 80;
+//}
 
 -(void)presentPriceOptions{
 	RTHPriceViewController *vc = [[RTHPriceViewController alloc] init];
@@ -177,31 +161,43 @@
 	vc.minimumPrice = _minimumPrice;
 }
 
--(void)presentKeyword{
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Keyword" message:@"Enter a keyword" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
-	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-	[alert textFieldAtIndex:0].text = _keyword;
-	[alert show];
-}
+//-(void)presentKeyword{
+//	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Keyword" message:@"Enter a keyword" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+//	alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+//	[alert textFieldAtIndex:0].text = _keyword;
+//	[alert show];
+//}
 
 -(void)presentCategories{
-	RTHCategoryViewController *vc = [[RTHCategoryViewController alloc] init];
-	vc.delegate = self;
-	vc.selectedCategory = _category;
-	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-	nav.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
-	[self presentViewController:nav animated:YES completion:nil];
+	categoryViewController = [[RTHCategoryViewController alloc] init];
+	categoryViewController.delegate = self;
+	categoryViewController.selectedCategory = _category;
+//	vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+	
+//	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//	nav.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
+//	[self presentViewController:nav animated:YES completion:nil];
+
+	[self addChildViewController:categoryViewController];
+	
+	categoryViewController.view.frame = self.view.bounds;
+	categoryViewController.view.transform = CGAffineTransformMakeTranslation(0, categoryViewController.view.frame.size.height);
+	[self.view addSubview:categoryViewController.view];
+	[UIView animateWithDuration:0.3 animations:^{
+		categoryViewController.view.transform = CGAffineTransformIdentity;
+	}];
 }
 
-#pragma mark - uialertviewdelegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if(buttonIndex != alertView.cancelButtonIndex){
-		_keyword = [alertView textFieldAtIndex:0].text;
-		[self updateButtonTitles];
-//		updateButton.enabled = YES;
-		[self search];
-	}
-}
+//#pragma mark - uialertviewdelegate
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//	if(buttonIndex != alertView.cancelButtonIndex){
+//		UITextField *textField = [alertView textFieldAtIndex:0];
+//		_keyword = [textField hasText] ? textField.text : nil;
+//		[self updateButtonTitles];
+////		updateButton.enabled = YES;
+//		[self search];
+//	}
+//}
 
 #pragma mark - category delegate
 -(void)categoryViewController:(RTHCategoryViewController *)viewController didSelectCategory:(RTHCategory *)category{
@@ -209,6 +205,14 @@
 	[self updateButtonTitles];
 //	updateButton.enabled = YES;
 	[self search];
+	[UIView animateWithDuration:0.3 animations:^{
+		categoryViewController.view.transform = CGAffineTransformMakeTranslation(0, categoryViewController.view.frame.size.height);
+		categoryViewController.view.alpha = 0;
+	} completion:^(BOOL finished) {
+		[categoryViewController removeFromParentViewController];
+		[categoryViewController.view removeFromSuperview];
+		categoryViewController = nil;
+	}];
 }
 
 #pragma mark - price delegate
@@ -223,5 +227,19 @@
 	_minimumPrice = _maximumPrice = 0;
 	[self updateButtonTitles];
 	[self search];
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+//	[searchHeaderView expandKeywordField];
+	[self.tableView setContentOffset:CGPointZero animated:YES];
+	return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+	_keyword = [textField hasText] ? textField.text : nil;
+//	[searchHeaderView restoreTheBalance];
+	[textField resignFirstResponder];
+	[self search];
+	return YES;
 }
 @end

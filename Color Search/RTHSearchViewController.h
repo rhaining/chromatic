@@ -10,23 +10,22 @@
 #import "RTHCategoryViewController.h"
 #import "RTHPriceViewController.h"
 
-@class RTHCategory;
+@class RTHCategory, RTHCategoryViewController, RTHSearchHeaderView;
 
-@interface RTHSearchViewController : UITableViewController <RTHCategoryViewControllerDelegate, UIAlertViewDelegate, RTHPriceViewControllerDelegate> {
+@interface RTHSearchViewController : UIViewController <RTHCategoryViewControllerDelegate, UIAlertViewDelegate, RTHPriceViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
 	NSArray *_listings;
 	RTHCategory *_category;
 	NSString *_keyword;
 	NSInteger _minimumPrice;
 	NSInteger _maximumPrice;
 	
-	UIButton *categoryButton;
-	UIButton *keywordButton;
-	UIButton *priceButton;
-//	UIButton *updateButton;
+	RTHSearchHeaderView *searchHeaderView;
 	
 	NSNumberFormatter *numberFormatter;
+	
+	RTHCategoryViewController *categoryViewController;
 }
-
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSString *hexString;
 
 -(id)initWithColorHex:(NSString *)hexString;

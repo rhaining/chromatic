@@ -18,7 +18,7 @@
     if (!self) {
         return nil;
     }
-    NSLog(@"attributes = %@", attributes);
+//    NSLog(@"attributes = %@", attributes);
 	
 	self.name = attributes[@"name"];
 	self.displayName = attributes[@"long_name"];
