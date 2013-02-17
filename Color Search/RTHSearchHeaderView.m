@@ -28,12 +28,12 @@
 
 		keywordField = [[UITextField alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(categoryButton.frame) + 10, frame.size.width - 20, 40)];
 		keywordField.placeholder = @"Keyword";
-		keywordField.textColor = [categoryButton titleColorForState:UIControlStateNormal];
+		keywordField.textColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1];
 		keywordField.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
 		keywordField.delegate = textFieldDelegate;
 		keywordField.borderStyle = UITextBorderStyleBezel;
 		keywordField.clearButtonMode = UITextFieldViewModeAlways;
-		keywordField.backgroundColor = categoryButton.backgroundColor;
+		keywordField.backgroundColor = [UIColor whiteColor];
 		keywordField.returnKeyType = UIReturnKeySearch;
 		[self addSubview:keywordField];
 		

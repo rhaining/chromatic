@@ -25,6 +25,7 @@
 				
 		numberFormatter = [[NSNumberFormatter alloc] init];
 		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+		[numberFormatter setMaximumFractionDigits:0];
 
 	}
 	return self;
@@ -107,6 +108,7 @@
 	
 	cell.textLabel.text = listing.title;
 	cell.detailTextLabel.text = priceValue;
+//	cell.detailTextLabel.text = @"$45,502";
 	
 	cell.imageURL = listing.imageURL;
 	/*

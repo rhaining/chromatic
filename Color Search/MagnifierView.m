@@ -26,8 +26,7 @@
 	touchPoint = pt;
 	// whenever touchPoint is set,
 	// update the position of the magnifier (to just above what's being magnified)
-//	self.center = CGPointMake(pt.x, pt.y-60);
-	self.center = touchPoint;
+	self.center = CGPointMake(pt.x, pt.y-40);
 }
 
 - (void)drawRect:(CGRect)rect {

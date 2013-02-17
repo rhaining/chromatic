@@ -12,7 +12,7 @@
 #define TEXT_LBL_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:14]
 #define MARGIN 10
 #define IMG_HEIGHT 135
-#define PRICE_WIDTH 50
+#define PRICE_WIDTH 60
 
 @implementation RTHListingCell
 
@@ -20,10 +20,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-		self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//		self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		self.textLabel.numberOfLines = 0;
 		self.textLabel.font = TEXT_LBL_FONT;
-		
 		
 		self.selectionStyle = UITableViewCellSelectionStyleGray;
 		
@@ -73,7 +72,7 @@
 }
 
 +(CGFloat)heightForText:(NSString *)text{
-	CGFloat width = 320 - PRICE_WIDTH - MARGIN * 3 - 20; //20 = arrow width
+	CGFloat width = 320 - PRICE_WIDTH - MARGIN * 3;//20 = arrow width
 	CGFloat height = [text sizeWithFont:TEXT_LBL_FONT constrainedToSize:CGSizeMake(width, 1000)].height;
 	height += MARGIN * 4;
 	height += IMG_HEIGHT;
