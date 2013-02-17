@@ -11,6 +11,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RTHColorHistoryViewController.h"
 
+@class MagnifierView;
+
 @interface RTHColorSelectionViewController : UIViewController {
 	BOOL hasPresented;
 	UIImageView *imageView;
@@ -22,6 +24,8 @@
 	UIButton *searchComplementaryColorButton;
 
 	UIImage *initialImage;
+	
+	MagnifierView *magnifierView;
 }
 
 -(id)initWithImage:(UIImage *)image;

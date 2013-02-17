@@ -11,10 +11,8 @@
 #import "RTHColorHistory.h"
 #import "RTHImageUtil.h"
 #import "RTHButton.h"
+#import "MagnifierView.h"
 
-@interface RTHColorSelectionViewController ()
-
-@end
 
 @implementation RTHColorSelectionViewController
 
@@ -23,6 +21,8 @@
 		initialImage = image;
 		
 		self.title = @"Select Color";
+		
+		magnifierView = [[MagnifierView alloc] init];
 	}
 	return self;
 }
@@ -45,6 +45,7 @@
 	if(initialImage){
 		[self useImage:initialImage];
 	}
+	
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -104,6 +105,7 @@
 	searchSelectedColorButton.enabled = YES;
 	searchComplementaryColorButton.enabled = YES;
 	
+	magnifierView.viewToMagnify = self.view;
 
 }
 -(void)setCurrentColor:(UIColor *)color{
@@ -137,10 +139,26 @@
 -(void)didPan:(UIPanGestureRecognizer *)recog{
 	switch (recog.state) {
 		case UIGestureRecognizerStateBegan:
+			[self.view addSubview:magnifierView];
 		case UIGestureRecognizerStateChanged:
+		{
+			CGPoint point = [recog locationInView:imageView];
+			if(point.x < 0 || point.y < 0 || point.x > CGRectGetWidth(imageView.frame) || point.y > CGRectGetHeight(imageView.frame)){
+				magnifierView.hidden = YES;
+				break;
+			}
+		}
+			magnifierView.hidden = NO;
+			magnifierView.touchPoint = [recog locationInView:self.view];
+			[magnifierView setNeedsDisplay];
+			
 			[self updateWithColorAtPoint:[recog locationInView:imageView]];
 			break;
-			
+		case UIGestureRecognizerStateEnded:
+		case UIGestureRecognizerStateCancelled:
+		case UIGestureRecognizerStateFailed:
+			[magnifierView removeFromSuperview];
+			break;
 		default:
 			break;
 	}
