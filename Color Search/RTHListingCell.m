@@ -12,6 +12,7 @@
 #define TEXT_LBL_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:14]
 #define MARGIN 10
 #define IMG_HEIGHT 135
+#define PRICE_WIDTH 50
 
 @implementation RTHListingCell
 
@@ -56,8 +57,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    self.textLabel.frame = CGRectMake(MARGIN, MARGIN, self.contentView.frame.size.width - MARGIN * 2, 100);
+	
+	self.detailTextLabel.frame = CGRectMake(self.contentView.frame.size.width - MARGIN - PRICE_WIDTH, MARGIN, PRICE_WIDTH, 14);
+    self.detailTextLabel.textAlignment = UITextAlignmentRight;
+	
+    self.textLabel.frame = CGRectMake(MARGIN, MARGIN, self.detailTextLabel.frame.origin.x - MARGIN * 2, 100);
 	[self.textLabel sizeToFit];
 	
     self.listingImageView.frame = CGRectMake(MARGIN, CGRectGetMaxY(self.textLabel.frame) + MARGIN,
@@ -69,7 +73,8 @@
 }
 
 +(CGFloat)heightForText:(NSString *)text{
-	CGFloat height = [text sizeWithFont:TEXT_LBL_FONT constrainedToSize:CGSizeMake(300, 1000)].height;
+	CGFloat width = 320 - PRICE_WIDTH - MARGIN * 3 - 20; //20 = arrow width
+	CGFloat height = [text sizeWithFont:TEXT_LBL_FONT constrainedToSize:CGSizeMake(width, 1000)].height;
 	height += MARGIN * 4;
 	height += IMG_HEIGHT;
 	return height;
