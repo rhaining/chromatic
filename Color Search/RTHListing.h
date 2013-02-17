@@ -20,6 +20,8 @@
 @property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSString *currencyCode;
 @property (nonatomic, copy) NSString *itemDescription;
+@property (nonatomic, copy) NSString *shopURL;
+@property (nonatomic, copy) NSString *shopName;
 
 
 + (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice withBlock:(void (^)(NSArray *posts, NSError *error))block ;

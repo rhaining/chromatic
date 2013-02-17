@@ -10,6 +10,7 @@
 #import "RTHListing.h"
 #import "RTHListingView.h"
 #import "UIImageView+AFNetworking.h"
+#import "RTHLocaleHelper.h"
 
 @implementation RTHListingViewController
 
@@ -36,6 +37,13 @@
 		});
 	}
 	listingView.descriptionLabel.text = self.listing.itemDescription;
+
+	NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+	[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[numberFormatter setLocale:[RTHLocaleHelper findLocaleByCurrencyCode:self.listing.currencyCode]];
+	listingView.priceLabel.text = [numberFormatter stringFromNumber:@(self.listing.price.floatValue)];
+	
+	listingView.bylineLabel.text = [NSString stringWithFormat:@"%@", self.listing.shopName];
 }
 
 

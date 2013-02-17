@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) UILabel *titleLabel;
 @property (nonatomic, readonly) UILabel *priceLabel;
 @property (nonatomic, readonly) UIImageView *imageView;
+@property (nonatomic, readonly) UILabel *bylineLabel;
 @property (nonatomic, readonly) UILabel *descriptionLabel;
 
 @end

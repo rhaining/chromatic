@@ -37,6 +37,12 @@
 	
 	self.itemDescription = attributes[@"description"];
 	
+	NSDictionary *shop = attributes[@"Shop"];
+	if(shop && shop.count > 0){
+		self.shopName = shop[@"title"];
+		self.shopURL = [NSURL URLWithString:shop[@"url"]];
+	}
+	
 //	self.imageURL =
 //    _postID = [[attributes valueForKeyPath:@"id"] integerValue];
 //    _text = [attributes valueForKeyPath:@"text"];
@@ -55,7 +61,7 @@
 								   @"color" : hexColor,
 								   @"color_accuracy" : @"30",
 								   @"api_key" : [RTHEtsyConfig etsyAPIKey],
-								   @"includes" : @"Images"
+								   @"includes" : @"Images:1:0,Shop"
 								   } mutableCopy];
 	if(category){
 		params[@"category"] = category.name;
