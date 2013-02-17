@@ -11,10 +11,26 @@
 
 @implementation RTHButton
 
++(UIImage *)imageWithColor:(UIColor *)color cornerRadius:(CGFloat)cornerRadius{
+	CGRect rect = CGRectMake(0, 0, 10, 10);
+	CALayer *layer = [CALayer new];
+	layer.backgroundColor = color.CGColor;
+	layer.cornerRadius = cornerRadius;
+	layer.frame = rect;
+	UIGraphicsBeginImageContextWithOptions([layer frame].size, NO, 0);
+	[layer renderInContext:UIGraphicsGetCurrentContext()];
+	UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	return [img stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+}
+
 +(id)newRTHButton{
 	CGFloat onePixel = 1 / [UIScreen mainScreen].scale;
 	RTHButton *searchButton = [self buttonWithType:UIButtonTypeCustom];
-	searchButton.backgroundColor = [UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1];
+	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1] cornerRadius:5] forState:UIControlStateNormal];
+	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] cornerRadius:5] forState:UIControlStateHighlighted];
+	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] cornerRadius:5] forState:UIControlStateSelected];
+//	searchButton.backgroundColor = [UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1];
 	searchButton.layer.borderColor = [UIColor colorWithRed:103/255.0 green:103/255.0 blue:103/255.0 alpha:1].CGColor;
 	searchButton.layer.borderWidth = onePixel;
 	searchButton.layer.cornerRadius = 5;
