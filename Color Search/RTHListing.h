@@ -24,7 +24,7 @@
 @property (nonatomic, copy) NSString *shopName;
 
 
-+ (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice withBlock:(void (^)(NSArray *posts, NSError *error))block ;
++ (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice offset:(NSInteger)offset withBlock:(void (^)(NSArray *posts, NSInteger nextSearchOffset, NSError *error))block ;
 //- (void)imageWithBlock:(void (^)(NSURL *imageURL, NSError *error))block;
 
 @end

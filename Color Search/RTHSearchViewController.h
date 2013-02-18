@@ -10,7 +10,7 @@
 #import "RTHCategoryViewController.h"
 #import "RTHPriceViewController.h"
 
-@class RTHCategory, RTHCategoryViewController, RTHSearchHeaderView;
+@class RTHCategory, RTHCategoryViewController, RTHSearchHeaderView, RTHButton;
 
 @interface RTHSearchViewController : UIViewController <RTHCategoryViewControllerDelegate, UIAlertViewDelegate, RTHPriceViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
 	NSArray *_listings;
@@ -24,6 +24,10 @@
 	NSNumberFormatter *numberFormatter;
 	
 	RTHCategoryViewController *categoryViewController;
+	
+	NSInteger _nextSearchOffset;
+	
+	RTHButton *loadMoreButton;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSString *hexString;

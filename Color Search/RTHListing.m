@@ -55,7 +55,7 @@
 
 #pragma mark -
 
-+ (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice withBlock:(void (^)(NSArray *listings, NSError *error))block {
++ (void)listingsForHexColor:(NSString *)hexColor category:(RTHCategory *)category keyword:(NSString *)keyword minimumPrice:(NSInteger)minimumPrice maximumPrice:(NSInteger)maximumPrice offset:(NSInteger)offset withBlock:(void (^)(NSArray *listings, NSInteger nextSearchOffset, NSError *error))block {
 	NSMutableDictionary *params = [@{
 								   @"sort_on" : @"created",
 								   @"sort_order" : @"down",
@@ -75,6 +75,9 @@
 		params[@"min_price"] = [NSString stringWithFormat:@"%d", minimumPrice];
 		params[@"max_price"] = [NSString stringWithFormat:@"%d", maximumPrice];
 	}
+	if(offset > 0){
+		params[@"offset"] = [NSString stringWithFormat:@"%d", offset];
+	}
 	
 	
     [[RTHEtsyClient sharedClient] getPath:@"v2/private/listings/active" parameters:params success:^(AFHTTPRequestOperation *operation, id JSON) {
@@ -84,13 +87,19 @@
             RTHListing *listing = [[RTHListing alloc] initWithAttributes:attributes];
             [mutableListings addObject:listing];
         }
-        
+		
+		NSDictionary *pagination = [JSON valueForKeyPath:@"pagination"];
+		NSInteger nextSearchOffset = -1;
+		if(pagination[@"next_offset"] != [NSNull null]){
+			nextSearchOffset = [pagination[@"next_offset"] intValue];
+        }
+		
         if (block) {
-            block([NSArray arrayWithArray:mutableListings], nil);
+            block([NSArray arrayWithArray:mutableListings], nextSearchOffset, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (block) {
-            block([NSArray array], error);
+            block([NSArray array], -1, error);
         }
     }];
 }

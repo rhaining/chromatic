@@ -15,6 +15,7 @@
 #import "RTHSearchHeaderView.h"
 #import "RTHListingViewController.h"
 #import "RTHAnalytics.h"
+#import "RTHButton.h"
 
 @implementation RTHSearchViewController
 
@@ -45,11 +46,13 @@
 }
 
 -(void)search{
+	loadMoreButton.enabled = NO;
+	
 	_listings = nil;
 	[self.tableView reloadData];
 //	updateButton.enabled = NO;
 
-	[RTHListing listingsForHexColor:self.hexString category:_category keyword:_keyword minimumPrice:_minimumPrice maximumPrice:_maximumPrice withBlock:^(NSArray *listings, NSError *error) {
+	[RTHListing listingsForHexColor:self.hexString category:_category keyword:_keyword minimumPrice:_minimumPrice maximumPrice:_maximumPrice offset:0 withBlock:^(NSArray *listings, NSInteger nextSearchOffset, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
         } else {
@@ -61,11 +64,39 @@
 			[self.tableView beginUpdates];
 			[self.tableView endUpdates];
         }
-        
+		
+		_nextSearchOffset = nextSearchOffset;
+		loadMoreButton.enabled = (_nextSearchOffset > 0);
+
 //        [_activityIndicatorView stopAnimating];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
+}
+-(void)loadMoreListings{
+	loadMoreButton.enabled = NO;
+	
+	[RTHListing listingsForHexColor:self.hexString category:_category keyword:_keyword minimumPrice:_minimumPrice maximumPrice:_maximumPrice offset:_nextSearchOffset withBlock:^(NSArray *listings, NSInteger nextSearchOffset, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+        } else {
+			NSMutableArray *combinedListings = [NSMutableArray arrayWithCapacity:_listings.count+listings.count];
+			[combinedListings addObjectsFromArray:_listings];
+			[combinedListings addObjectsFromArray:listings];
+			_listings = [NSArray arrayWithArray:combinedListings];
 
+			if(!_listings || _listings.count == 0){
+				[[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"No results found" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil] show];
+			}
+            [self.tableView reloadData];
+			[self.tableView beginUpdates];
+			[self.tableView endUpdates];
+        }
+		_nextSearchOffset = nextSearchOffset;
+		loadMoreButton.enabled = (_nextSearchOffset > 0);
+
+		//        [_activityIndicatorView stopAnimating];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }];
 }
 
 -(UITableView *)tableView{
@@ -80,6 +111,15 @@
 		[self updateButtonTitles];
 		_tableView.tableHeaderView = searchHeaderView;
 		_tableView.contentOffset = CGPointMake(0, 40);
+		
+		UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 88)];
+		loadMoreButton = [RTHButton newRTHButton];
+		[loadMoreButton setTitle:@"Load More Listings" forState:UIControlStateNormal];
+		[loadMoreButton addTarget:self action:@selector(loadMoreListings) forControlEvents:UIControlEventTouchUpInside];
+		loadMoreButton.frame = CGRectMake(50, 22, _tableView.frame.size.width - 100, 44);
+		[footer addSubview:loadMoreButton];
+		loadMoreButton.enabled = NO;
+		_tableView.tableFooterView = footer;
 	}
 	return _tableView;
 }

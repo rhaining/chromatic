@@ -30,6 +30,7 @@
 	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1] cornerRadius:5] forState:UIControlStateNormal];
 	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] cornerRadius:5] forState:UIControlStateHighlighted];
 	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] cornerRadius:5] forState:UIControlStateSelected];
+	[searchButton setTitleColor:[UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1] forState:UIControlStateDisabled];
 //	searchButton.backgroundColor = [UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1];
 	searchButton.layer.borderColor = [UIColor colorWithRed:103/255.0 green:103/255.0 blue:103/255.0 alpha:1].CGColor;
 	searchButton.layer.borderWidth = onePixel;
