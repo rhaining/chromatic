@@ -13,6 +13,7 @@
 #import "RTHSearchViewController.h"
 #import "RTHColorHistory.h"
 #import "RTHImageUtil.h"
+#import "RTHAnalytics.h"
 
 @interface RTHHomeViewController ()
 
@@ -49,6 +50,7 @@
 -(void)presentAbout{
 	RTHAboutViewController *vc = [[RTHAboutViewController alloc] init];
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+	[RTHAnalytics addNavigationController:nav];
 	nav.navigationBar.barStyle = self.navigationController.navigationBar.barStyle;
 	nav.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
 	[self presentViewController:nav animated:YES completion:nil];
@@ -56,6 +58,7 @@
 
 -(void)selectNewImage:(UIImagePickerControllerSourceType)sourceType{
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//	[RTHAnalytics addNavigationController:imagePicker];
 	imagePicker.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
 	imagePicker.navigationBar.barStyle = self.navigationController.navigationBar.barStyle;
 	imagePicker.sourceType = sourceType;
@@ -64,9 +67,11 @@
 }
 -(void)presentPhotoAlbum{
 	[self selectNewImage:UIImagePickerControllerSourceTypePhotoLibrary];
+	[RTHAnalytics logPhotoAlbumView];
 }
 -(void)presentCamera{
 	[self selectNewImage:UIImagePickerControllerSourceTypeCamera];
+	[RTHAnalytics logCameraView];
 }
 
 -(void)presentHistory{
@@ -99,12 +104,29 @@
 
 #pragma mark - uiimagepickercontrollerdelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-	//	NSLog(@"info = %@", info);
+//	NSLog(@"info = %@", info);
 	UIImage *image = info[UIImagePickerControllerOriginalImage];
 	image = [RTHImageUtil fixOrientationForImage:image];
 	RTHColorSelectionViewController *vc = [[RTHColorSelectionViewController alloc] initWithImage:image];
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[self.navigationController pushViewController:vc animated:YES];
+	NSString *source = nil;
+	switch (picker.sourceType) {
+		case UIImagePickerControllerSourceTypeCamera:
+			source = @"camera";
+			break;
+		case UIImagePickerControllerSourceTypePhotoLibrary:
+			source = @"photo library";
+			break;
+		case UIImagePickerControllerSourceTypeSavedPhotosAlbum:
+			source = @"saved photos album";
+			break;
+		default:
+			break;
+	}
+	if(source){
+		[RTHAnalytics logImageSelectionFromSource:source];
+	}
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

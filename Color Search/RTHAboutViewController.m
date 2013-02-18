@@ -7,6 +7,7 @@
 //
 
 #import "RTHAboutViewController.h"
+#import "RTHAnalytics.h"
 
 @interface RTHAboutViewController ()
 
@@ -18,6 +19,7 @@
     if (self = [super init]) {
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissSelf)];
 		self.title = @"About";
+		[RTHAnalytics logAboutView];
     }
     return self;
 }

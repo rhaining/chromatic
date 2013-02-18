@@ -14,6 +14,7 @@
 #import "RTHLocaleHelper.h"
 #import "RTHSearchHeaderView.h"
 #import "RTHListingViewController.h"
+#import "RTHAnalytics.h"
 
 @implementation RTHSearchViewController
 
@@ -27,6 +28,7 @@
 		[numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 		[numberFormatter setMaximumFractionDigits:0];
 
+		[RTHAnalytics logResultsView];
 	}
 	return self;
 }
@@ -157,6 +159,7 @@
 	RTHPriceViewController *vc = [[RTHPriceViewController alloc] init];
 	vc.delegate = self;
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+	[RTHAnalytics addNavigationController:nav];
 	nav.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
 	[self presentViewController:nav animated:YES completion:nil];
 	vc.maximumPrice = _maximumPrice;
@@ -203,6 +206,9 @@
 
 #pragma mark - category delegate
 -(void)categoryViewController:(RTHCategoryViewController *)viewController didSelectCategory:(RTHCategory *)category{
+	if([category.name isEqualToString:_category.name]){
+		return;
+	}
 	_category = category;
 	[self updateButtonTitles];
 //	updateButton.enabled = YES;
@@ -215,20 +221,29 @@
 		[categoryViewController.view removeFromSuperview];
 		categoryViewController = nil;
 	}];
+	[RTHAnalytics logDidModifyCategory];
 }
 
 #pragma mark - price delegate
 -(void)priceViewControllerDidUpdatePrice:(RTHPriceViewController *)viewController{
+	if(_minimumPrice == viewController.minimumPrice && _maximumPrice == viewController.maximumPrice){
+		return;
+	}
 	_minimumPrice = viewController.minimumPrice;
 	_maximumPrice = viewController.maximumPrice;
 	[self updateButtonTitles];
 //	updateButton.enabled = YES;
 	[self search];
+	[RTHAnalytics logDidModifyPrice];
 }
 -(void)priceViewControllerDidClearPrice:(RTHPriceViewController *)viewController{
+	if(_minimumPrice == 0 && _maximumPrice == 0){
+		return;
+	}
 	_minimumPrice = _maximumPrice = 0;
 	[self updateButtonTitles];
 	[self search];
+	[RTHAnalytics logDidModifyPrice];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -238,10 +253,15 @@
 	return YES;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-	_keyword = [textField hasText] ? textField.text : nil;
+	NSString *newKeyword = [textField hasText] ? textField.text : nil;
 //	[searchHeaderView restoreTheBalance];
 	[textField resignFirstResponder];
+	if([newKeyword isEqualToString:_keyword]){
+		return YES;
+	}
+	_keyword = newKeyword;
 	[self search];
+	[RTHAnalytics logDidModifyKeyword];
 	return YES;
 }
 @end

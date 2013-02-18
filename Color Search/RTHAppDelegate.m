@@ -9,14 +9,18 @@
 #import "RTHAppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "RTHHomeViewController.h"
+#import "RTHAnalytics.h"
 
 @implementation RTHAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	self.viewController = [[RTHHomeViewController alloc] init];
-	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+	
+	[RTHAnalytics start];
+
+	RTHHomeViewController *viewController = [[RTHHomeViewController alloc] init];
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+	[RTHAnalytics addNavigationController:nav];
 	nav.navigationBar.tintColor = [UIColor blackColor];
 	nav.navigationBar.barStyle = UIBarStyleBlack;
 	self.window.rootViewController = nav;
@@ -26,7 +30,6 @@
 	NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
 	[NSURLCache setSharedURLCache:URLCache];
 	
-
     return YES;
 }
 

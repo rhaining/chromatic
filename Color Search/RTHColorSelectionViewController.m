@@ -12,7 +12,7 @@
 #import "RTHImageUtil.h"
 #import "RTHButton.h"
 #import "MagnifierView.h"
-
+#import "RTHAnalytics.h"
 
 @implementation RTHColorSelectionViewController
 
@@ -181,11 +181,13 @@
  */
 -(void)searchForSelectedColor{
 	[self searchForColor:currentColor];
+	[RTHAnalytics logSearchSelectedColor];
 }
 -(void)searchForComplementaryColor{
 	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
 	self.navigationController.navigationBar.tintColor = inverseColor;
 	[self searchForColor:inverseColor];
+	[RTHAnalytics logSearchComplementaryColor];
 }
 -(void)searchForColor:(UIColor *)color{
 //	UIColor *color = self.view.backgroundColor;

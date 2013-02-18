@@ -10,6 +10,7 @@
 #import "RTHColorHistory.h"
 #import "RTHColorUtil.h"
 #import "RTHSearchViewController.h"
+#import "RTHAnalytics.h"
 
 @interface RTHColorHistoryViewController ()
 
@@ -27,6 +28,8 @@
 		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 		
 		self.title = @"Color History";
+		
+		[RTHAnalytics logColorHistoryView];
     }
     return self;
 }

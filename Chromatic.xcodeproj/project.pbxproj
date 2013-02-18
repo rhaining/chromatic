@@ -16,6 +16,8 @@
 		EF036A2F16D033AA009AA728 /* RTHSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */; };
 		EF3A87CB16D0686600D91D39 /* etsy_badge.gif in Resources */ = {isa = PBXBuildFile; fileRef = EF3A87CA16D0686600D91D39 /* etsy_badge.gif */; };
 		EF3A87CF16D06B5A00D91D39 /* MagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */; };
+		EF4783BC16D2DCD200A612E5 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4783BB16D2DCD200A612E5 /* libFlurry.a */; };
+		EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */; };
 		EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */; };
 		EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */; };
 		EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */; };
@@ -70,6 +72,10 @@
 		EF3A87CA16D0686600D91D39 /* etsy_badge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = etsy_badge.gif; sourceTree = "<group>"; };
 		EF3A87CD16D06B5A00D91D39 /* MagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnifierView.h; sourceTree = "<group>"; };
 		EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnifierView.m; sourceTree = "<group>"; };
+		EF4783BA16D2DCD200A612E5 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		EF4783BB16D2DCD200A612E5 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		EF4783BD16D2DCF000A612E5 /* RTHAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHAnalytics.h; sourceTree = "<group>"; };
+		EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHAnalytics.m; sourceTree = "<group>"; };
 		EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 				EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */,
 				EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */,
 				EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */,
+				EF4783BC16D2DCD200A612E5 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +199,8 @@
 				EFF7686316BDA0C800265767 /* RTHColorUtil.m */,
 				EF768EA516C8532200DCB1ED /* RTHImageUtil.h */,
 				EF768EA616C8532200DCB1ED /* RTHImageUtil.m */,
+				EF4783BD16D2DCF000A612E5 /* RTHAnalytics.h */,
+				EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -199,6 +208,7 @@
 		EF036A2916D0247D009AA728 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				EF4783B916D2DCD200A612E5 /* Flurry */,
 				EF3A87CC16D06B4500D91D39 /* Mangifier */,
 				EF5B58B916BDBA18008626BA /* AFNetworking */,
 			);
@@ -234,6 +244,15 @@
 				EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */,
 			);
 			name = Mangifier;
+			sourceTree = "<group>";
+		};
+		EF4783B916D2DCD200A612E5 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				EF4783BA16D2DCD200A612E5 /* Flurry.h */,
+				EF4783BB16D2DCD200A612E5 /* libFlurry.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 		EF5B58B916BDBA18008626BA /* AFNetworking */ = {
@@ -506,6 +525,7 @@
 				EFCF8D7C16D042EB00E14663 /* RTHListingViewController.m in Sources */,
 				EFCF8D7F16D0438300E14663 /* RTHListingView.m in Sources */,
 				EF3A87CF16D06B5A00D91D39 /* MagnifierView.m in Sources */,
+				EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +605,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Color Search/Flurry\"",
+				);
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -601,6 +625,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Color Search/Flurry\"",
+				);
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

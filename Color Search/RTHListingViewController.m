@@ -11,6 +11,7 @@
 #import "RTHListingView.h"
 #import "UIImageView+AFNetworking.h"
 #import "RTHLocaleHelper.h"
+#import "RTHAnalytics.h"
 
 @implementation RTHListingViewController
 
@@ -18,6 +19,8 @@
 	if(self = [super init]){
 		self.listing = listing;
 		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Buy on Etsy" style:UIBarButtonItemStyleBordered target:self action:@selector(buyOnEtsy)];
+		
+		[RTHAnalytics logListingView];
 	}
 	return self;
 }
@@ -54,6 +57,7 @@
 
 
 -(void)buyOnEtsy{
+	[RTHAnalytics logEtsyView];
 	[[UIApplication sharedApplication] openURL:self.listing.url];
 }
 
