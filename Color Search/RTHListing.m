@@ -11,6 +11,7 @@
 #import "AFImageRequestOperation.h"
 #import "RTHCategory.h"
 #import "RTHEtsyConfig.h"
+#import "NSString+HTML.h"
 
 @implementation RTHListing
 
@@ -21,7 +22,7 @@
     }
 //    NSLog(@"attributes = %@", attributes);
 	
-	self.title = attributes[@"title"];
+	self.title = [attributes[@"title"] stringByDecodingHTMLEntities];
 	self.listingId = attributes[@"listing_id"];
 	self.url = [NSURL URLWithString:attributes[@"url"]];
 	
@@ -35,11 +36,11 @@
 	self.price = attributes[@"price"];
 	self.currencyCode = attributes[@"currency_code"];
 	
-	self.itemDescription = attributes[@"description"];
+	self.itemDescription = [attributes[@"description"] stringByDecodingHTMLEntities];
 	
 	NSDictionary *shop = attributes[@"Shop"];
 	if(shop && shop.count > 0){
-		self.shopName = shop[@"title"];
+		self.shopName = [shop[@"title"] stringByDecodingHTMLEntities];
 		self.shopURL = [NSURL URLWithString:shop[@"url"]];
 	}
 	

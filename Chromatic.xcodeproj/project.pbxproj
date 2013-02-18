@@ -18,6 +18,8 @@
 		EF3A87CF16D06B5A00D91D39 /* MagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */; };
 		EF4783BC16D2DCD200A612E5 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4783BB16D2DCD200A612E5 /* libFlurry.a */; };
 		EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */; };
+		EF4783C316D2E93700A612E5 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783C216D2E93700A612E5 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF4783C616D2E97200A612E5 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */; };
 		EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */; };
 		EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */; };
@@ -76,6 +78,10 @@
 		EF4783BB16D2DCD200A612E5 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		EF4783BD16D2DCF000A612E5 /* RTHAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHAnalytics.h; sourceTree = "<group>"; };
 		EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHAnalytics.m; sourceTree = "<group>"; };
+		EF4783C116D2E93700A612E5 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		EF4783C216D2E93700A612E5 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		EF4783C416D2E97200A612E5 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		EF5B57A716BDB09B008626BA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 		EF036A2916D0247D009AA728 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				EF4783C016D2E91C00A612E5 /* NSString+HTML */,
 				EF4783B916D2DCD200A612E5 /* Flurry */,
 				EF3A87CC16D06B4500D91D39 /* Mangifier */,
 				EF5B58B916BDBA18008626BA /* AFNetworking */,
@@ -253,6 +260,17 @@
 				EF4783BB16D2DCD200A612E5 /* libFlurry.a */,
 			);
 			path = Flurry;
+			sourceTree = "<group>";
+		};
+		EF4783C016D2E91C00A612E5 /* NSString+HTML */ = {
+			isa = PBXGroup;
+			children = (
+				EF4783C116D2E93700A612E5 /* NSString+HTML.h */,
+				EF4783C216D2E93700A612E5 /* NSString+HTML.m */,
+				EF4783C416D2E97200A612E5 /* GTMNSString+HTML.h */,
+				EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */,
+			);
+			name = "NSString+HTML";
 			sourceTree = "<group>";
 		};
 		EF5B58B916BDBA18008626BA /* AFNetworking */ = {
@@ -526,6 +544,8 @@
 				EFCF8D7F16D0438300E14663 /* RTHListingView.m in Sources */,
 				EF3A87CF16D06B5A00D91D39 /* MagnifierView.m in Sources */,
 				EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */,
+				EF4783C316D2E93700A612E5 /* NSString+HTML.m in Sources */,
+				EF4783C616D2E97200A612E5 /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
