@@ -11,5 +11,6 @@
 @interface RTHButton : UIButton
 
 +(id)newRTHButton;
+-(void)updateRTHTitleColor:(UIColor *)color;
 
 @end

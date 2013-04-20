@@ -113,8 +113,10 @@
 	self.view.backgroundColor = currentColor;
 	self.navigationController.navigationBar.tintColor = currentColor;
 
-	[searchSelectedColorButton setTitleColor:currentColor forState:UIControlStateNormal];
-	[searchComplementaryColorButton setTitleColor:[RTHColorUtil inverseColorFromColor:currentColor] forState:UIControlStateNormal];
+	[searchSelectedColorButton updateRTHTitleColor:currentColor];
+	[searchComplementaryColorButton updateRTHTitleColor:[RTHColorUtil inverseColorFromColor:currentColor]];
+//	[searchSelectedColorButton setTitleColor:currentColor forState:UIControlStateNormal];
+//	[searchComplementaryColorButton setTitleColor:[RTHColorUtil inverseColorFromColor:currentColor] forState:UIControlStateNormal];
 
 }
 -(void)updateWithColorAtPoint:(CGPoint)point{

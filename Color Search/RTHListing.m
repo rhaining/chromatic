@@ -24,7 +24,7 @@
 	
 	self.title = [attributes[@"title"] stringByDecodingHTMLEntities];
 	self.listingId = attributes[@"listing_id"];
-	self.url = [NSURL URLWithString:attributes[@"url"]];
+	self.etsyWebURL = [NSURL URLWithString:attributes[@"url"]];
 	
 	NSArray *images = attributes[@"Images"];
 	if(images.count > 0){
@@ -51,6 +51,10 @@
 //    _user = [[User alloc] initWithAttributes:[attributes valueForKeyPath:@"user"]];
     
     return self;
+}
+
+-(NSURL *)etsyAppURL{
+	return [NSURL URLWithString:[NSString stringWithFormat:@"etsy://listing/%@", self.listingId]];
 }
 
 #pragma mark -

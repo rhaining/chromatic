@@ -30,6 +30,9 @@
 	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1] cornerRadius:5] forState:UIControlStateNormal];
 	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] cornerRadius:5] forState:UIControlStateHighlighted];
 	[searchButton setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1] cornerRadius:5] forState:UIControlStateSelected];
+	searchButton.titleLabel.shadowColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1];
+	searchButton.titleLabel.shadowOffset = CGSizeMake(0, onePixel);
+
 	[searchButton setTitleColor:[UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1] forState:UIControlStateDisabled];
 //	searchButton.backgroundColor = [UIColor colorWithRed:203/255.0 green:203/255.0 blue:203/255.0 alpha:1];
 	searchButton.layer.borderColor = [UIColor colorWithRed:103/255.0 green:103/255.0 blue:103/255.0 alpha:1].CGColor;
@@ -43,8 +46,23 @@
 	searchButton.titleLabel.numberOfLines = 2;
 	//	searchButton.titleLabel.shadowOffset = CGSizeMake(onePixel, onePixel);
 	//	searchButton.titleLabel.shadowColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1];
-	searchButton.titleLabel.textAlignment = UITextAlignmentCenter;
+	searchButton.titleLabel.textAlignment = NSTextAlignmentCenter;
 	return searchButton;
+}
+
+-(void)updateRTHTitleColor:(UIColor *)color{
+	[self setTitleColor:color forState:UIControlStateNormal];
+	
+	CGFloat red,green,blue,alpha;
+	[color getRed:&red green:&green blue:&blue alpha:&alpha];
+	CGFloat offset = 0.3;
+	red -= offset;
+	green -= offset;
+	blue -= offset;
+	red = MAX(0,red);
+	green = MAX(0,green);
+	blue = MAX(0,blue);
+	self.titleLabel.shadowColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
 @end

@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RTHColorHistoryViewController.h"
 
-@class MagnifierView;
+@class MagnifierView, RTHButton;
 
 @interface RTHColorSelectionViewController : UIViewController {
 	BOOL hasPresented;
@@ -20,8 +20,8 @@
 	UIColor *currentColor;
 //	CAGradientLayer *gradient;
 	
-	UIButton *searchSelectedColorButton;
-	UIButton *searchComplementaryColorButton;
+	RTHButton *searchSelectedColorButton;
+	RTHButton *searchComplementaryColorButton;
 
 	UIImage *initialImage;
 	
