@@ -13,7 +13,8 @@
 
 - (id)initWithFrame:(CGRect)frame cameraAvailable:(BOOL)cameraAvailable{
     if (self = [super initWithFrame:frame]) {
-		self.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1];
+//		self.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1];
+		self.backgroundColor = [UIColor colorWithRed:107/255.0 green:209/255.0 blue:196/255.0 alpha:1];
 		
 		CGFloat buttonWidth = 200;
 		CGFloat buttonHeight = 75;

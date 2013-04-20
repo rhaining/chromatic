@@ -33,6 +33,8 @@
 	BOOL cameraAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 	RTHHomeView *homeView = [[RTHHomeView alloc] initWithFrame:self.view.bounds cameraAvailable:cameraAvailable];
 	[self.view addSubview:homeView];
+	
+	self.navigationController.navigationBar.tintColor = homeView.backgroundColor;
 }
 
 - (void)viewDidLoad{
