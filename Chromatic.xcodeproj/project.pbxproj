@@ -37,6 +37,13 @@
 		EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */; };
 		EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B591016BDE06E008626BA /* RTHPriceViewController.m */; };
 		EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B591716BDE456008626BA /* QuartzCore.framework */; };
+		EF724A7A17232057008DDA58 /* icon_16.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7317232057008DDA58 /* icon_16.png */; };
+		EF724A7B17232057008DDA58 /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7417232057008DDA58 /* icon_29.png */; };
+		EF724A7C17232057008DDA58 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7517232057008DDA58 /* icon_57.png */; };
+		EF724A7D17232057008DDA58 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7617232057008DDA58 /* icon_72.png */; };
+		EF724A7E17232057008DDA58 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7717232057008DDA58 /* icon_114.png */; };
+		EF724A7F17232057008DDA58 /* icon_512.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7817232057008DDA58 /* icon_512.png */; };
+		EF724A8017232057008DDA58 /* icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7917232057008DDA58 /* icon_1024.png */; };
 		EF768EA416C84BED00DCB1ED /* RTHLocaleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */; };
 		EF768EA716C8532200DCB1ED /* RTHImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EA616C8532200DCB1ED /* RTHImageUtil.m */; };
 		EF768EAB16C855B300DCB1ED /* RTHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EAA16C855B300DCB1ED /* RTHAboutViewController.m */; };
@@ -118,6 +125,13 @@
 		EF5B590F16BDE06E008626BA /* RTHPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHPriceViewController.h; sourceTree = "<group>"; };
 		EF5B591016BDE06E008626BA /* RTHPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHPriceViewController.m; sourceTree = "<group>"; };
 		EF5B591716BDE456008626BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EF724A7317232057008DDA58 /* icon_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16.png; sourceTree = "<group>"; };
+		EF724A7417232057008DDA58 /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = "<group>"; };
+		EF724A7517232057008DDA58 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		EF724A7617232057008DDA58 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
+		EF724A7717232057008DDA58 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
+		EF724A7817232057008DDA58 /* icon_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_512.png; sourceTree = "<group>"; };
+		EF724A7917232057008DDA58 /* icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_1024.png; sourceTree = "<group>"; };
 		EF768EA216C84BEC00DCB1ED /* RTHLocaleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHLocaleHelper.h; sourceTree = "<group>"; };
 		EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHLocaleHelper.m; sourceTree = "<group>"; };
 		EF768EA516C8532200DCB1ED /* RTHImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHImageUtil.h; sourceTree = "<group>"; };
@@ -237,9 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				EF3A87CA16D0686600D91D39 /* etsy_badge.gif */,
-				EFF7684E16BD9CB500265767 /* Default.png */,
-				EFF7685016BD9CB500265767 /* Default@2x.png */,
-				EFF7685216BD9CB500265767 /* Default-568h@2x.png */,
+				EF724A721723204A008DDA58 /* icons */,
+				EF724A7117232044008DDA58 /* defaults */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -354,6 +367,30 @@
 				EF5B591016BDE06E008626BA /* RTHPriceViewController.m */,
 			);
 			name = price;
+			sourceTree = "<group>";
+		};
+		EF724A7117232044008DDA58 /* defaults */ = {
+			isa = PBXGroup;
+			children = (
+				EFF7684E16BD9CB500265767 /* Default.png */,
+				EFF7685016BD9CB500265767 /* Default@2x.png */,
+				EFF7685216BD9CB500265767 /* Default-568h@2x.png */,
+			);
+			name = defaults;
+			sourceTree = "<group>";
+		};
+		EF724A721723204A008DDA58 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				EF724A7317232057008DDA58 /* icon_16.png */,
+				EF724A7417232057008DDA58 /* icon_29.png */,
+				EF724A7517232057008DDA58 /* icon_57.png */,
+				EF724A7617232057008DDA58 /* icon_72.png */,
+				EF724A7717232057008DDA58 /* icon_114.png */,
+				EF724A7817232057008DDA58 /* icon_512.png */,
+				EF724A7917232057008DDA58 /* icon_1024.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 		EF768EA816C855A700DCB1ED /* about */ = {
@@ -499,6 +536,13 @@
 				EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */,
 				EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */,
 				EF3A87CB16D0686600D91D39 /* etsy_badge.gif in Resources */,
+				EF724A7A17232057008DDA58 /* icon_16.png in Resources */,
+				EF724A7B17232057008DDA58 /* icon_29.png in Resources */,
+				EF724A7C17232057008DDA58 /* icon_57.png in Resources */,
+				EF724A7D17232057008DDA58 /* icon_72.png in Resources */,
+				EF724A7E17232057008DDA58 /* icon_114.png in Resources */,
+				EF724A7F17232057008DDA58 /* icon_512.png in Resources */,
+				EF724A8017232057008DDA58 /* icon_1024.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

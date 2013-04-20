@@ -17,7 +17,7 @@
 
 - (id)init{
     if (self = [super init]) {
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissSelf)];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissSelf)];
 		self.title = @"About";
 		[RTHAnalytics logAboutView];
     }
