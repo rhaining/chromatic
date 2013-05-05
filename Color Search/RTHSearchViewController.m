@@ -297,12 +297,31 @@
 	[self search];
 	[RTHAnalytics logDidModifyPrice];
 }
-
+-(void)didTapTable:(UITapGestureRecognizer *)recog{
+	[searchHeaderView dismissKeyboard];
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
 //	[searchHeaderView expandKeywordField];
 	[self.tableView setContentOffset:CGPointZero animated:YES];
 	return YES;
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+	if(!overlay){
+		overlay = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(searchHeaderView.frame), CGRectGetWidth(self.tableView.frame), 500)];
+		overlay.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:0.7];
+	}
+	[self.view addSubview:overlay];
+	self.tableView.allowsSelection = NO;
+	if(!tapRecog){
+		tapRecog = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapTable:)];
+	}
+	[overlay addGestureRecognizer:tapRecog];
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+	[overlay removeFromSuperview];
+	self.tableView.allowsSelection = YES;
+	[overlay removeGestureRecognizer:tapRecog];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 	NSString *newKeyword = [textField hasText] ? textField.text : nil;

@@ -23,5 +23,7 @@
 //-(void)expandKeywordField;
 //-(void)restoreTheBalance;
 
+-(void)dismissKeyboard;
+
 
 @end

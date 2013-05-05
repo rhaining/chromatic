@@ -30,6 +30,9 @@
 	RTHButton *loadMoreButton;
 	
 	UIActivityIndicatorView *activityIndicator;
+	
+	UIView *overlay;
+	UITapGestureRecognizer *tapRecog;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSString *hexString;

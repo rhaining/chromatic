@@ -43,6 +43,10 @@
     return self;
 }
 
+-(void)dismissKeyboard{
+	[keywordField resignFirstResponder];
+}
+
 -(void)setCategoryName:(NSString *)categoryName{
 	[categoryButton setTitle:categoryName forState:UIControlStateNormal];
 }
