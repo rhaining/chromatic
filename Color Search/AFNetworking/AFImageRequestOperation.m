@@ -22,11 +22,12 @@
 
 #import "AFImageRequestOperation.h"
 
-static dispatch_queue_t af_image_request_operation_processing_queue;
 static dispatch_queue_t image_request_operation_processing_queue() {
-    if (af_image_request_operation_processing_queue == NULL) {
-        af_image_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.image-request.processing", 0);
-    }
+    static dispatch_queue_t af_image_request_operation_processing_queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        af_image_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.image-request.processing", DISPATCH_QUEUE_CONCURRENT);
+    });
 
     return af_image_request_operation_processing_queue;
 }
@@ -74,7 +75,7 @@ static dispatch_queue_t image_request_operation_processing_queue() {
 										 success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
 										 failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
 {
-    AFImageRequestOperation *requestOperation = [[AFImageRequestOperation alloc] initWithRequest:urlRequest];
+    AFImageRequestOperation *requestOperation = [(AFImageRequestOperation *)[self alloc] initWithRequest:urlRequest];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             UIImage *image = responseObject;
@@ -105,7 +106,7 @@ static dispatch_queue_t image_request_operation_processing_queue() {
 										 success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSImage *image))success
 										 failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
 {
-    AFImageRequestOperation *requestOperation = [[AFImageRequestOperation alloc] initWithRequest:urlRequest];
+    AFImageRequestOperation *requestOperation = [(AFImageRequestOperation *)[self alloc] initWithRequest:urlRequest];
     [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
             NSImage *image = responseObject;

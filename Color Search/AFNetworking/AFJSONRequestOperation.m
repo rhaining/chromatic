@@ -22,11 +22,12 @@
 
 #import "AFJSONRequestOperation.h"
 
-static dispatch_queue_t af_json_request_operation_processing_queue;
 static dispatch_queue_t json_request_operation_processing_queue() {
-    if (af_json_request_operation_processing_queue == NULL) {
-        af_json_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.json-request.processing", 0);
-    }
+    static dispatch_queue_t af_json_request_operation_processing_queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        af_json_request_operation_processing_queue = dispatch_queue_create("com.alamofire.networking.json-request.processing", DISPATCH_QUEUE_CONCURRENT);
+    });
 
     return af_json_request_operation_processing_queue;
 }
@@ -74,7 +75,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
         } else {
             // Workaround for a bug in NSJSONSerialization when Unicode character escape codes are used instead of the actual character
             // See http://stackoverflow.com/a/12843465/157142
-            NSData *JSONData = [self.responseString dataUsingEncoding:self.responseStringEncoding];
+            NSData *JSONData = [self.responseString dataUsingEncoding:NSUTF8StringEncoding];
             self.responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:self.JSONReadingOptions error:&error];
         }
 
@@ -119,7 +120,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
             dispatch_async(json_request_operation_processing_queue(), ^{
                 id JSON = self.responseJSON;
 
-                if (self.JSONError) {
+                if (self.error) {
                     if (failure) {
                         dispatch_async(self.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
                             failure(self, self.error);
