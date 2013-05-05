@@ -50,15 +50,15 @@
 	return searchButton;
 }
 
--(void)updateRTHTitleColor:(UIColor *)color{
-	[self setTitleColor:color forState:UIControlStateNormal];
+-(void)setTitleColor:(UIColor *)color forState:(UIControlState)state{
+	[super setTitleColor:color forState:state];
 	
 	CGFloat red,green,blue,alpha;
 	[color getRed:&red green:&green blue:&blue alpha:&alpha];
-	CGFloat offset = 0.3;
-	red -= offset;
-	green -= offset;
-	blue -= offset;
+	CGFloat offset = -0.4;
+	red += offset;
+	green += offset;
+	blue += offset;
 	red = MAX(0,red);
 	green = MAX(0,green);
 	blue = MAX(0,blue);

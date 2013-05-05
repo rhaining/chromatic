@@ -38,7 +38,7 @@
 	label.text = @"made with love in new york city\nat the fashion hackathon\n\ngabriela anastasio\nrobert tolar haining\nphillip huynh\nmara isip\nrob van wyen";
 	label.textColor = [UIColor colorWithRed:103/255.0 green:103/255.0 blue:103/255.0 alpha:1.0];
 	label.font = [UIFont fontWithName:@"Georgia" size:18];
-	label.textAlignment = UITextAlignmentCenter;
+	label.textAlignment = NSTextAlignmentCenter;
 	label.numberOfLines = 0;
 	label.backgroundColor = self.view.backgroundColor;
 	[self.view addSubview:label];

@@ -27,5 +27,6 @@
 
 @required
 -(void)categoryViewController:(RTHCategoryViewController *)viewController didSelectCategory:(RTHCategory *)category;
+-(void)categoryViewControllerDidCancel:(RTHCategoryViewController *)viewController;
 
 @end

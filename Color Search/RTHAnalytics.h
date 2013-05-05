@@ -25,6 +25,6 @@
 +(void)logDidModifyPrice;
 +(void)logDidModifyKeyword;
 +(void)logListingView;
-+(void)logEtsyView;
++(void)logEtsyView:(BOOL)app;
 
 @end

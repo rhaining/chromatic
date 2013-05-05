@@ -16,20 +16,22 @@
 		self.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:0.9];
 		
 		categoryButton = [RTHButton newRTHButton];
-		categoryButton.frame = CGRectMake(10, 5, frame.size.width / 2.0 - 20, 35);
+		categoryButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
+		categoryButton.frame = CGRectMake(10, 5, frame.size.width / 2.0 - 20, 20);
 		[categoryButton addTarget:nil action:@selector(presentCategories) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:categoryButton];
 		
 		priceButton = [RTHButton newRTHButton];
+		priceButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
 		priceButton.frame = CGRectMake(CGRectGetMaxX(categoryButton.frame) + 20, CGRectGetMinY(categoryButton.frame),
 									   CGRectGetWidth(categoryButton.frame), CGRectGetHeight(categoryButton.frame));
 		[priceButton addTarget:nil action:@selector(presentPriceOptions) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:priceButton];
 
-		keywordField = [[UITextField alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(categoryButton.frame) + 10, frame.size.width - 20, 40)];
+		keywordField = [[UITextField alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(categoryButton.frame) + 5, frame.size.width - 20, 25)];
 		keywordField.placeholder = @"Keyword";
 		keywordField.textColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:1];
-		keywordField.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
+		keywordField.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
 		keywordField.delegate = textFieldDelegate;
 		keywordField.borderStyle = UITextBorderStyleBezel;
 		keywordField.clearButtonMode = UITextFieldViewModeAlways;

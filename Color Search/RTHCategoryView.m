@@ -13,8 +13,14 @@
 @synthesize pickerView=_pickerView;
 -(id)initWithFrame:(CGRect)frame pickerDelegateAndDataSource:(id<UIPickerViewDelegate, UIPickerViewDataSource>)delegate{
     if (self = [super initWithFrame:frame]) {
+		self.backgroundColor = [UIColor clearColor];
 		
-		self.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:0.7];
+		UIView *background = [[UIView alloc] initWithFrame:self.bounds];
+		background.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+		background.backgroundColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:53/255.0 alpha:0.7];
+		UITapGestureRecognizer *tapRecog = [[UITapGestureRecognizer alloc] initWithTarget:delegate action:@selector(closeCategoryView:)];
+		[background addGestureRecognizer:tapRecog];
+		[self addSubview:background];
 
 		_pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, frame.size.height-270, frame.size.width, 216)];
 		self.pickerView.delegate = delegate;

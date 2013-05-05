@@ -63,8 +63,9 @@
 +(void)logListingView{
 	[self logEvent:@"Listing"];
 }
-+(void)logEtsyView{
-	[self logEvent:@"Etsy"];
++(void)logEtsyView:(BOOL)app{
+	NSString *target = app ? @"app" : @"web";
+	[self logEvent:@"Etsy" parameters:@{@"target" : target}];
 }
 
 @end

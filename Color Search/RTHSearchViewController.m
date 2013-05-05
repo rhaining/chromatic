@@ -46,12 +46,13 @@
 }
 
 -(void)search{
-	loadMoreButton.enabled = NO;
+	loadMoreButton.hidden = YES;
 	
 	_listings = nil;
 	[self.tableView reloadData];
 //	updateButton.enabled = NO;
 
+	[activityIndicator startAnimating];
 	[RTHListing listingsForHexColor:self.hexString category:_category keyword:_keyword minimumPrice:_minimumPrice maximumPrice:_maximumPrice offset:0 withBlock:^(NSArray *listings, NSInteger nextSearchOffset, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
@@ -66,15 +67,16 @@
         }
 		
 		_nextSearchOffset = nextSearchOffset;
-		loadMoreButton.enabled = (_nextSearchOffset > 0);
+		loadMoreButton.hidden = (_nextSearchOffset <= 0);
 
-//        [_activityIndicatorView stopAnimating];
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+        [activityIndicator stopAnimating];
+//        self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }
 -(void)loadMoreListings{
-	loadMoreButton.enabled = NO;
+	loadMoreButton.hidden = YES;
 	
+	[activityIndicator startAnimating];
 	[RTHListing listingsForHexColor:self.hexString category:_category keyword:_keyword minimumPrice:_minimumPrice maximumPrice:_maximumPrice offset:_nextSearchOffset withBlock:^(NSArray *listings, NSInteger nextSearchOffset, NSError *error) {
         if (error) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
@@ -92,9 +94,9 @@
 			[self.tableView endUpdates];
         }
 		_nextSearchOffset = nextSearchOffset;
-		loadMoreButton.enabled = (_nextSearchOffset > 0);
+		loadMoreButton.hidden = (_nextSearchOffset <= 0);
 
-		//        [_activityIndicatorView stopAnimating];
+		[activityIndicator stopAnimating];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }
@@ -107,7 +109,7 @@
 		_tableView.rowHeight = 235;
 		_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		
-		searchHeaderView = [[RTHSearchHeaderView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 100) textFieldDelegate:self];
+		searchHeaderView = [[RTHSearchHeaderView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 60) textFieldDelegate:self];
 		[self updateButtonTitles];
 		_tableView.tableHeaderView = searchHeaderView;
 		_tableView.contentOffset = CGPointMake(0, 40);
@@ -118,7 +120,7 @@
 		[loadMoreButton addTarget:self action:@selector(loadMoreListings) forControlEvents:UIControlEventTouchUpInside];
 		loadMoreButton.frame = CGRectMake(50, 22, _tableView.frame.size.width - 100, 44);
 		[footer addSubview:loadMoreButton];
-		loadMoreButton.enabled = NO;
+		loadMoreButton.hidden = YES;
 		_tableView.tableFooterView = footer;
 	}
 	return _tableView;
@@ -126,6 +128,10 @@
 -(void)loadView{
 	[super loadView];
 	[self.view addSubview:self.tableView];
+	
+	activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	activityIndicator.hidesWhenStopped = YES;
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -244,15 +250,7 @@
 //	}
 //}
 
-#pragma mark - category delegate
--(void)categoryViewController:(RTHCategoryViewController *)viewController didSelectCategory:(RTHCategory *)category{
-	if([category.name isEqualToString:_category.name]){
-		return;
-	}
-	_category = category;
-	[self updateButtonTitles];
-//	updateButton.enabled = YES;
-	[self search];
+-(void)closeCategoryView{
 	[UIView animateWithDuration:0.3 animations:^{
 		categoryViewController.view.transform = CGAffineTransformMakeTranslation(0, categoryViewController.view.frame.size.height);
 		categoryViewController.view.alpha = 0;
@@ -261,7 +259,21 @@
 		[categoryViewController.view removeFromSuperview];
 		categoryViewController = nil;
 	}];
-	[RTHAnalytics logDidModifyCategory];
+}
+
+#pragma mark - category delegate
+-(void)categoryViewControllerDidCancel:(RTHCategoryViewController *)viewController{
+	[self closeCategoryView];
+}
+-(void)categoryViewController:(RTHCategoryViewController *)viewController didSelectCategory:(RTHCategory *)category{
+	if(![category.name isEqualToString:_category.name]){
+		_category = category;
+		[self updateButtonTitles];
+		//	updateButton.enabled = YES;
+		[self search];
+		[RTHAnalytics logDidModifyCategory];
+	}
+	[self closeCategoryView];
 }
 
 #pragma mark - price delegate

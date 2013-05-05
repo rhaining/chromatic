@@ -28,6 +28,8 @@
 	NSInteger _nextSearchOffset;
 	
 	RTHButton *loadMoreButton;
+	
+	UIActivityIndicatorView *activityIndicator;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSString *hexString;

@@ -47,6 +47,10 @@
 	[self.view addSubview:categoryView];
 }
 
+-(void)closeCategoryView:(UITapGestureRecognizer *)tapRecog{
+	[self.delegate categoryViewControllerDidCancel:self];
+}
+
 //-(UIPickerView *)pickerView{
 //	if(!_pickerView){
 //		_pickerView = [[UIPickerView alloc] init];

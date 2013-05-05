@@ -57,10 +57,11 @@
 
 
 -(void)buyOnEtsy{
-	[RTHAnalytics logEtsyView];
 	if([[UIApplication sharedApplication] canOpenURL:self.listing.etsyAppURL]){
+		[RTHAnalytics logEtsyView:YES];
 		[[UIApplication sharedApplication] openURL:self.listing.etsyAppURL];
 	}else{
+		[RTHAnalytics logEtsyView:NO];
 		[[UIApplication sharedApplication] openURL:self.listing.etsyWebURL];
 	}
 }
