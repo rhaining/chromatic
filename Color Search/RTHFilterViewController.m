@@ -53,6 +53,9 @@ static NSString *CellID = @"kRTHFilterCell";
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)done{
+    if([self.searchField isFirstResponder]){
+        self.keyword = self.searchField.text;
+    }
     [self.delegate filterViewController:self
               didUpdateWithMinimumPrice:priceView.minimumPrice
                            maximumPrice:priceView.maximumPrice
