@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RTHCategoryViewController.h"
-#import "RTHPriceViewController.h"
 
-@class RTHCategory, RTHCategoryViewController, RTHSearchHeaderView, RTHButton;
+@class RTHCategory, RTHSearchHeaderView, RTHButton;
 
-@interface RTHSearchViewController : UIViewController <RTHCategoryViewControllerDelegate, UIAlertViewDelegate, RTHPriceViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+@interface RTHSearchViewController : UIViewController <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
 	NSArray *_listings;
 	RTHCategory *_category;
 	NSString *_keyword;
@@ -22,12 +20,10 @@
 	RTHSearchHeaderView *searchHeaderView;
 	
 	NSNumberFormatter *numberFormatter;
-	
-	RTHCategoryViewController *categoryViewController;
-	
+
 	NSInteger _nextSearchOffset;
 	
-	RTHButton *loadMoreButton;
+	UIButton *loadMoreButton;
 	
 	UIActivityIndicatorView *activityIndicator;
 	

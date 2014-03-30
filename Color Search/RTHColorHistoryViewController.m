@@ -39,11 +39,11 @@
 //}
 
 
-//- (void)viewDidLoad{
-//    [super viewDidLoad];
-	
-//	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissSelf)];
-//}
+- (void)viewDidLoad{
+    [super viewDidLoad];
+
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
 
 
 #pragma mark - Table view data source

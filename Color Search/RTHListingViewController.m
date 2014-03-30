@@ -12,13 +12,21 @@
 #import "UIImageView+AFNetworking.h"
 #import "RTHLocaleHelper.h"
 #import "RTHAnalytics.h"
+#import "RTHCustomButton.h"
 
 @implementation RTHListingViewController
 
 -(id)initWithListing:(RTHListing *)listing{
 	if(self = [super init]){
 		self.listing = listing;
-		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Buy on Etsy" style:UIBarButtonItemStyleBordered target:self action:@selector(buyOnEtsy)];
+        
+        RTHCustomButton *button = [RTHCustomButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"Buy on Etsy" forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"external_link_icon.png"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buyOnEtsy) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitleColor:[UIColor colorWithWhite:100/255.0 alpha:1] forState:UIControlStateNormal];
+        button.frame = CGRectMake(0, 0, 130, 45);
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 		
 		[RTHAnalytics logListingView];
 	}
@@ -66,5 +74,5 @@
 	}
 }
 
-
 @end
+

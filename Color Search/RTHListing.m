@@ -40,7 +40,11 @@
 	
 	NSDictionary *shop = attributes[@"Shop"];
 	if(shop && shop.count > 0){
-		self.shopName = [shop[@"title"] stringByDecodingHTMLEntities];
+        if([shop[@"title"] isKindOfClass:[NSString class]]){
+            self.shopName = [shop[@"title"] stringByDecodingHTMLEntities];
+        }else if([shop[@"shop_name"] isKindOfClass:[NSString class]]){
+            self.shopName = [shop[@"shop_name"] stringByDecodingHTMLEntities];
+        }
 		self.shopURL = [NSURL URLWithString:shop[@"url"]];
 	}
 	
@@ -76,11 +80,11 @@
 		params[@"sort_on"] = @"score";
 	}
 	if(maximumPrice){
-		params[@"min_price"] = [NSString stringWithFormat:@"%d", minimumPrice];
-		params[@"max_price"] = [NSString stringWithFormat:@"%d", maximumPrice];
+		params[@"min_price"] = [NSString stringWithFormat:@"%ld", (long)minimumPrice];
+		params[@"max_price"] = [NSString stringWithFormat:@"%ld", (long)maximumPrice];
 	}
 	if(offset > 0){
-		params[@"offset"] = [NSString stringWithFormat:@"%d", offset];
+		params[@"offset"] = [NSString stringWithFormat:@"%ld", (long)offset];
 	}
 	
 	

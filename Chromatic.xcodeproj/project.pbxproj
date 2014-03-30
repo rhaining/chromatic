@@ -10,48 +10,39 @@
 		EF036A1F16D0166A009AA728 /* RTHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A1E16D0166A009AA728 /* RTHHomeViewController.m */; };
 		EF036A2316D016CB009AA728 /* RTHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2216D016CB009AA728 /* RTHButton.m */; };
 		EF036A2716D0173C009AA728 /* RTHHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2616D0173C009AA728 /* RTHHomeView.m */; };
-		EF036A2C16D02A11009AA728 /* RTHCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2B16D02A11009AA728 /* RTHCategoryView.m */; };
-		EF036A2F16D033AA009AA728 /* RTHSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */; };
+		EF0B95DA17ED2FC30087ADC4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0B95D917ED2FC30087ADC4 /* Images.xcassets */; };
+		EF0B95DD17ED30810087ADC4 /* RTHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0B95DC17ED30810087ADC4 /* RTHConstants.m */; };
+		EF0B95E017ED39E20087ADC4 /* RTHFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0B95DF17ED39E20087ADC4 /* RTHFilterViewController.m */; };
+		EF0B95E717ED45A50087ADC4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0B95E617ED45A50087ADC4 /* Security.framework */; };
+		EF0B95E817ED45B00087ADC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDAC8BA1736CFF700C884B4 /* SystemConfiguration.framework */; };
 		EF3A87CB16D0686600D91D39 /* etsy_badge.gif in Resources */ = {isa = PBXBuildFile; fileRef = EF3A87CA16D0686600D91D39 /* etsy_badge.gif */; };
 		EF3A87CF16D06B5A00D91D39 /* MagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */; };
-		EF4783BC16D2DCD200A612E5 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4783BB16D2DCD200A612E5 /* libFlurry.a */; };
 		EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */; };
 		EF4783C316D2E93700A612E5 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783C216D2E93700A612E5 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF4783C616D2E97200A612E5 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */; };
-		EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */; };
-		EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */; };
-		EF5B58D016BDBA18008626BA /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C116BDBA18008626BA /* AFJSONRequestOperation.m */; };
-		EF5B58D116BDBA18008626BA /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C316BDBA18008626BA /* AFNetworkActivityIndicatorManager.m */; };
-		EF5B58D216BDBA18008626BA /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C616BDBA18008626BA /* AFPropertyListRequestOperation.m */; };
-		EF5B58D316BDBA18008626BA /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58C816BDBA18008626BA /* AFURLConnectionOperation.m */; };
-		EF5B58D416BDBA18008626BA /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58CA16BDBA18008626BA /* AFXMLRequestOperation.m */; };
-		EF5B58D516BDBA18008626BA /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */; };
 		EF5B58D916BDBA3D008626BA /* RTHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */; };
 		EF5B58E516BDBB6A008626BA /* RTHListing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E416BDBB6A008626BA /* RTHListing.m */; };
 		EF5B58E916BDBBCB008626BA /* RTHEtsyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E816BDBBCB008626BA /* RTHEtsyClient.m */; };
 		EF5B58EE16BDC568008626BA /* RTHListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58ED16BDC568008626BA /* RTHListingCell.m */; };
 		EF5B58F116BDD8F0008626BA /* RTHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F016BDD8F0008626BA /* RTHCategory.m */; };
-		EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */; };
-		EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B591016BDE06E008626BA /* RTHPriceViewController.m */; };
 		EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5B591716BDE456008626BA /* QuartzCore.framework */; };
-		EF724A7A17232057008DDA58 /* icon_16.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7317232057008DDA58 /* icon_16.png */; };
-		EF724A7B17232057008DDA58 /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7417232057008DDA58 /* icon_29.png */; };
-		EF724A7C17232057008DDA58 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7517232057008DDA58 /* icon_57.png */; };
-		EF724A7D17232057008DDA58 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7617232057008DDA58 /* icon_72.png */; };
-		EF724A7E17232057008DDA58 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7717232057008DDA58 /* icon_114.png */; };
-		EF724A7F17232057008DDA58 /* icon_512.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7817232057008DDA58 /* icon_512.png */; };
-		EF724A8017232057008DDA58 /* icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EF724A7917232057008DDA58 /* icon_1024.png */; };
 		EF768EA416C84BED00DCB1ED /* RTHLocaleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */; };
 		EF768EA716C8532200DCB1ED /* RTHImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EA616C8532200DCB1ED /* RTHImageUtil.m */; };
 		EF768EAB16C855B300DCB1ED /* RTHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF768EAA16C855B300DCB1ED /* RTHAboutViewController.m */; };
 		EF78EB6B16BE9CAA006D8048 /* RTHColorHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */; };
 		EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */; };
+		EF957E0B18E8C19E006943D3 /* RTHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF957E0A18E8C19E006943D3 /* RTHWebViewController.m */; };
+		EF957E1218E8C4A3006943D3 /* credits.html in Resources */ = {isa = PBXBuildFile; fileRef = EF957E1118E8C4A3006943D3 /* credits.html */; };
+		EF957E1518E8C5C1006943D3 /* RTHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF957E1418E8C5C1006943D3 /* RTHNavigationController.m */; };
+		EF957E1818E8C6B2006943D3 /* external_link_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF957E1618E8C6B2006943D3 /* external_link_icon.png */; };
+		EF957E1918E8C6B2006943D3 /* external_link_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF957E1718E8C6B2006943D3 /* external_link_icon@2x.png */; };
+		EF957E1C18E8C998006943D3 /* RTHCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF957E1B18E8C998006943D3 /* RTHCustomButton.m */; };
 		EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA6A6BD16BEAE4C0073D719 /* config.plist */; };
 		EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */; };
+		EFBFBC6918E8A39D004C844D /* RTHPriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBFBC6818E8A39D004C844D /* RTHPriceView.m */; };
+		EFBFBC6D18E8A6E0004C844D /* RTHColorSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBFBC6C18E8A6E0004C844D /* RTHColorSelectionView.m */; };
 		EFCF8D7C16D042EB00E14663 /* RTHListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCF8D7B16D042EB00E14663 /* RTHListingViewController.m */; };
 		EFCF8D7F16D0438300E14663 /* RTHListingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCF8D7E16D0438300E14663 /* RTHListingView.m */; };
-		EFDAC8BB1736CFF700C884B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDAC8BA1736CFF700C884B4 /* SystemConfiguration.framework */; };
 		EFDAC8BD1736CFFC00C884B4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDAC8BC1736CFFC00C884B4 /* MobileCoreServices.framework */; };
 		EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683C16BD9CB500265767 /* UIKit.framework */; };
 		EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7683E16BD9CB500265767 /* Foundation.framework */; };
@@ -59,55 +50,36 @@
 		EFF7684716BD9CB500265767 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFF7684516BD9CB500265767 /* InfoPlist.strings */; };
 		EFF7684916BD9CB500265767 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7684816BD9CB500265767 /* main.m */; };
 		EFF7684D16BD9CB500265767 /* RTHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */; };
-		EFF7684F16BD9CB500265767 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7684E16BD9CB500265767 /* Default.png */; };
-		EFF7685116BD9CB500265767 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685016BD9CB500265767 /* Default@2x.png */; };
-		EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF7685216BD9CB500265767 /* Default-568h@2x.png */; };
 		EFF7685616BD9CB500265767 /* RTHColorSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */; };
 		EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF7686316BDA0C800265767 /* RTHColorUtil.m */; };
 		EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF7686516BDA6EE00265767 /* CoreImage.framework */; };
+		F8017B6174FC4FEB9CDD1927 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7222FC65AF9642DE9460EA47 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7222FC65AF9642DE9460EA47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACCD81A8745A4DE9A32786EB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EF036A1D16D0166A009AA728 /* RTHHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHHomeViewController.h; sourceTree = "<group>"; };
 		EF036A1E16D0166A009AA728 /* RTHHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHHomeViewController.m; sourceTree = "<group>"; };
 		EF036A2116D016CB009AA728 /* RTHButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHButton.h; sourceTree = "<group>"; };
 		EF036A2216D016CB009AA728 /* RTHButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHButton.m; sourceTree = "<group>"; };
 		EF036A2516D0173C009AA728 /* RTHHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHHomeView.h; sourceTree = "<group>"; };
 		EF036A2616D0173C009AA728 /* RTHHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHHomeView.m; sourceTree = "<group>"; };
-		EF036A2A16D02A11009AA728 /* RTHCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCategoryView.h; sourceTree = "<group>"; };
-		EF036A2B16D02A11009AA728 /* RTHCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCategoryView.m; sourceTree = "<group>"; };
-		EF036A2D16D033AA009AA728 /* RTHSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHSearchHeaderView.h; sourceTree = "<group>"; };
-		EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHSearchHeaderView.m; sourceTree = "<group>"; };
+		EF0B95D917ED2FC30087ADC4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Chromatic/Images.xcassets; sourceTree = "<group>"; };
+		EF0B95DB17ED30810087ADC4 /* RTHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHConstants.h; sourceTree = "<group>"; };
+		EF0B95DC17ED30810087ADC4 /* RTHConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHConstants.m; sourceTree = "<group>"; };
+		EF0B95DE17ED39E20087ADC4 /* RTHFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHFilterViewController.h; sourceTree = "<group>"; };
+		EF0B95DF17ED39E20087ADC4 /* RTHFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHFilterViewController.m; sourceTree = "<group>"; };
+		EF0B95E617ED45A50087ADC4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EF3A87CA16D0686600D91D39 /* etsy_badge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = etsy_badge.gif; sourceTree = "<group>"; };
 		EF3A87CD16D06B5A00D91D39 /* MagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnifierView.h; sourceTree = "<group>"; };
 		EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnifierView.m; sourceTree = "<group>"; };
-		EF4783BA16D2DCD200A612E5 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		EF4783BB16D2DCD200A612E5 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		EF4783BD16D2DCF000A612E5 /* RTHAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHAnalytics.h; sourceTree = "<group>"; };
 		EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHAnalytics.m; sourceTree = "<group>"; };
 		EF4783C116D2E93700A612E5 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		EF4783C216D2E93700A612E5 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		EF4783C416D2E97200A612E5 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
-		EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
-		EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
-		EF5B58BC16BDBA18008626BA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		EF5B58BE16BDBA18008626BA /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
-		EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
-		EF5B58C016BDBA18008626BA /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
-		EF5B58C116BDBA18008626BA /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
-		EF5B58C216BDBA18008626BA /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		EF5B58C316BDBA18008626BA /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		EF5B58C416BDBA18008626BA /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		EF5B58C516BDBA18008626BA /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
-		EF5B58C616BDBA18008626BA /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
-		EF5B58C716BDBA18008626BA /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		EF5B58C816BDBA18008626BA /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		EF5B58C916BDBA18008626BA /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
-		EF5B58CA16BDBA18008626BA /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
-		EF5B58CB16BDBA18008626BA /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		EF5B58D716BDBA3D008626BA /* RTHSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHSearchViewController.h; sourceTree = "<group>"; };
 		EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHSearchViewController.m; sourceTree = "<group>"; };
 		EF5B58E316BDBB6A008626BA /* RTHListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListing.h; sourceTree = "<group>"; };
@@ -118,18 +90,7 @@
 		EF5B58ED16BDC568008626BA /* RTHListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHListingCell.m; sourceTree = "<group>"; };
 		EF5B58EF16BDD8F0008626BA /* RTHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCategory.h; sourceTree = "<group>"; };
 		EF5B58F016BDD8F0008626BA /* RTHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCategory.m; sourceTree = "<group>"; };
-		EF5B58F416BDD9B1008626BA /* RTHCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCategoryViewController.h; sourceTree = "<group>"; };
-		EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCategoryViewController.m; sourceTree = "<group>"; };
-		EF5B590F16BDE06E008626BA /* RTHPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHPriceViewController.h; sourceTree = "<group>"; };
-		EF5B591016BDE06E008626BA /* RTHPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHPriceViewController.m; sourceTree = "<group>"; };
 		EF5B591716BDE456008626BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		EF724A7317232057008DDA58 /* icon_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16.png; sourceTree = "<group>"; };
-		EF724A7417232057008DDA58 /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = "<group>"; };
-		EF724A7517232057008DDA58 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
-		EF724A7617232057008DDA58 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
-		EF724A7717232057008DDA58 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
-		EF724A7817232057008DDA58 /* icon_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_512.png; sourceTree = "<group>"; };
-		EF724A7917232057008DDA58 /* icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_1024.png; sourceTree = "<group>"; };
 		EF768EA216C84BEC00DCB1ED /* RTHLocaleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHLocaleHelper.h; sourceTree = "<group>"; };
 		EF768EA316C84BED00DCB1ED /* RTHLocaleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHLocaleHelper.m; sourceTree = "<group>"; };
 		EF768EA516C8532200DCB1ED /* RTHImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHImageUtil.h; sourceTree = "<group>"; };
@@ -140,9 +101,22 @@
 		EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorHistory.m; sourceTree = "<group>"; };
 		EF78EB6C16BE9ED1006D8048 /* RTHColorHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorHistoryViewController.h; sourceTree = "<group>"; };
 		EF78EB6D16BE9ED1006D8048 /* RTHColorHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorHistoryViewController.m; sourceTree = "<group>"; };
+		EF957E0918E8C19E006943D3 /* RTHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHWebViewController.h; sourceTree = "<group>"; };
+		EF957E0A18E8C19E006943D3 /* RTHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHWebViewController.m; sourceTree = "<group>"; };
+		EF957E1118E8C4A3006943D3 /* credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = credits.html; sourceTree = "<group>"; };
+		EF957E1318E8C5C1006943D3 /* RTHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHNavigationController.h; sourceTree = "<group>"; };
+		EF957E1418E8C5C1006943D3 /* RTHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHNavigationController.m; sourceTree = "<group>"; };
+		EF957E1618E8C6B2006943D3 /* external_link_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = external_link_icon.png; sourceTree = "<group>"; };
+		EF957E1718E8C6B2006943D3 /* external_link_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "external_link_icon@2x.png"; sourceTree = "<group>"; };
+		EF957E1A18E8C998006943D3 /* RTHCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCustomButton.h; sourceTree = "<group>"; };
+		EF957E1B18E8C998006943D3 /* RTHCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCustomButton.m; sourceTree = "<group>"; };
 		EFA6A6BD16BEAE4C0073D719 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = SOURCE_ROOT; };
 		EFA6A6BF16BEAEBA0073D719 /* RTHEtsyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHEtsyConfig.h; sourceTree = "<group>"; };
 		EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHEtsyConfig.m; sourceTree = "<group>"; };
+		EFBFBC6718E8A39D004C844D /* RTHPriceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHPriceView.h; sourceTree = "<group>"; };
+		EFBFBC6818E8A39D004C844D /* RTHPriceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHPriceView.m; sourceTree = "<group>"; };
+		EFBFBC6B18E8A6E0004C844D /* RTHColorSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorSelectionView.h; sourceTree = "<group>"; };
+		EFBFBC6C18E8A6E0004C844D /* RTHColorSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHColorSelectionView.m; sourceTree = "<group>"; };
 		EFCF8D7A16D042EB00E14663 /* RTHListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListingViewController.h; sourceTree = "<group>"; };
 		EFCF8D7B16D042EB00E14663 /* RTHListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHListingViewController.m; sourceTree = "<group>"; };
 		EFCF8D7D16D0438300E14663 /* RTHListingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListingView.h; sourceTree = "<group>"; };
@@ -159,9 +133,6 @@
 		EFF7684A16BD9CB500265767 /* Chromatic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chromatic-Prefix.pch"; sourceTree = "<group>"; };
 		EFF7684B16BD9CB500265767 /* RTHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHAppDelegate.h; sourceTree = "<group>"; };
 		EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHAppDelegate.m; sourceTree = "<group>"; };
-		EFF7684E16BD9CB500265767 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EFF7685016BD9CB500265767 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		EFF7685216BD9CB500265767 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EFF7685416BD9CB500265767 /* RTHColorSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTHColorSelectionViewController.h; sourceTree = "<group>"; };
 		EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTHColorSelectionViewController.m; sourceTree = "<group>"; };
 		EFF7686216BDA0C800265767 /* RTHColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHColorUtil.h; sourceTree = "<group>"; };
@@ -174,14 +145,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0B95E817ED45B00087ADC4 /* SystemConfiguration.framework in Frameworks */,
+				EF0B95E717ED45A50087ADC4 /* Security.framework in Frameworks */,
 				EFDAC8BD1736CFFC00C884B4 /* MobileCoreServices.framework in Frameworks */,
-				EFDAC8BB1736CFF700C884B4 /* SystemConfiguration.framework in Frameworks */,
 				EF5B591816BDE456008626BA /* QuartzCore.framework in Frameworks */,
 				EFF7686616BDA6EE00265767 /* CoreImage.framework in Frameworks */,
 				EFF7683D16BD9CB500265767 /* UIKit.framework in Frameworks */,
 				EFF7683F16BD9CB500265767 /* Foundation.framework in Frameworks */,
 				EFF7684116BD9CB500265767 /* CoreGraphics.framework in Frameworks */,
-				EF4783BC16D2DCD200A612E5 /* libFlurry.a in Frameworks */,
+				F8017B6174FC4FEB9CDD1927 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,9 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4783C016D2E91C00A612E5 /* NSString+HTML */,
-				EF4783B916D2DCD200A612E5 /* Flurry */,
-				EF3A87CC16D06B4500D91D39 /* Mangifier */,
-				EF5B58B916BDBA18008626BA /* AFNetworking */,
+				EF3A87CC16D06B4500D91D39 /* Magnifier */,
 			);
 			name = "Third Party";
 			sourceTree = "<group>";
@@ -243,6 +213,8 @@
 				EFCF8D7B16D042EB00E14663 /* RTHListingViewController.m */,
 				EFCF8D7D16D0438300E14663 /* RTHListingView.h */,
 				EFCF8D7E16D0438300E14663 /* RTHListingView.m */,
+				EF957E1A18E8C998006943D3 /* RTHCustomButton.h */,
+				EF957E1B18E8C998006943D3 /* RTHCustomButton.m */,
 			);
 			name = Listing;
 			sourceTree = "<group>";
@@ -250,29 +222,20 @@
 		EF3A87C916D0685A00D91D39 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EF957E1618E8C6B2006943D3 /* external_link_icon.png */,
+				EF957E1718E8C6B2006943D3 /* external_link_icon@2x.png */,
 				EF3A87CA16D0686600D91D39 /* etsy_badge.gif */,
-				EF724A721723204A008DDA58 /* icons */,
-				EF724A7117232044008DDA58 /* defaults */,
 			);
 			name = images;
 			sourceTree = "<group>";
 		};
-		EF3A87CC16D06B4500D91D39 /* Mangifier */ = {
+		EF3A87CC16D06B4500D91D39 /* Magnifier */ = {
 			isa = PBXGroup;
 			children = (
 				EF3A87CD16D06B5A00D91D39 /* MagnifierView.h */,
 				EF3A87CE16D06B5A00D91D39 /* MagnifierView.m */,
 			);
-			name = Mangifier;
-			sourceTree = "<group>";
-		};
-		EF4783B916D2DCD200A612E5 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				EF4783BA16D2DCD200A612E5 /* Flurry.h */,
-				EF4783BB16D2DCD200A612E5 /* libFlurry.a */,
-			);
-			path = Flurry;
+			name = Magnifier;
 			sourceTree = "<group>";
 		};
 		EF4783C016D2E91C00A612E5 /* NSString+HTML */ = {
@@ -284,32 +247,6 @@
 				EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */,
 			);
 			name = "NSString+HTML";
-			sourceTree = "<group>";
-		};
-		EF5B58B916BDBA18008626BA /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				EF5B58BA16BDBA18008626BA /* AFHTTPClient.h */,
-				EF5B58BB16BDBA18008626BA /* AFHTTPClient.m */,
-				EF5B58BC16BDBA18008626BA /* AFHTTPRequestOperation.h */,
-				EF5B58BD16BDBA18008626BA /* AFHTTPRequestOperation.m */,
-				EF5B58BE16BDBA18008626BA /* AFImageRequestOperation.h */,
-				EF5B58BF16BDBA18008626BA /* AFImageRequestOperation.m */,
-				EF5B58C016BDBA18008626BA /* AFJSONRequestOperation.h */,
-				EF5B58C116BDBA18008626BA /* AFJSONRequestOperation.m */,
-				EF5B58C216BDBA18008626BA /* AFNetworkActivityIndicatorManager.h */,
-				EF5B58C316BDBA18008626BA /* AFNetworkActivityIndicatorManager.m */,
-				EF5B58C416BDBA18008626BA /* AFNetworking.h */,
-				EF5B58C516BDBA18008626BA /* AFPropertyListRequestOperation.h */,
-				EF5B58C616BDBA18008626BA /* AFPropertyListRequestOperation.m */,
-				EF5B58C716BDBA18008626BA /* AFURLConnectionOperation.h */,
-				EF5B58C816BDBA18008626BA /* AFURLConnectionOperation.m */,
-				EF5B58C916BDBA18008626BA /* AFXMLRequestOperation.h */,
-				EF5B58CA16BDBA18008626BA /* AFXMLRequestOperation.m */,
-				EF5B58CB16BDBA18008626BA /* UIImageView+AFNetworking.h */,
-				EF5B58CC16BDBA18008626BA /* UIImageView+AFNetworking.m */,
-			);
-			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		EF5B58E216BDBB58008626BA /* Model */ = {
@@ -339,58 +276,11 @@
 			children = (
 				EF5B58D716BDBA3D008626BA /* RTHSearchViewController.h */,
 				EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */,
-				EF036A2D16D033AA009AA728 /* RTHSearchHeaderView.h */,
-				EF036A2E16D033AA009AA728 /* RTHSearchHeaderView.m */,
 				EF5B58EC16BDC567008626BA /* RTHListingCell.h */,
 				EF5B58ED16BDC568008626BA /* RTHListingCell.m */,
-				EF5B591216BDE073008626BA /* price */,
-				EF5B58F316BDD9A0008626BA /* categories */,
+				EFBFBC6A18E8A3A0004C844D /* filter */,
 			);
 			name = search;
-			sourceTree = "<group>";
-		};
-		EF5B58F316BDD9A0008626BA /* categories */ = {
-			isa = PBXGroup;
-			children = (
-				EF5B58F416BDD9B1008626BA /* RTHCategoryViewController.h */,
-				EF5B58F516BDD9B1008626BA /* RTHCategoryViewController.m */,
-				EF036A2A16D02A11009AA728 /* RTHCategoryView.h */,
-				EF036A2B16D02A11009AA728 /* RTHCategoryView.m */,
-			);
-			name = categories;
-			sourceTree = "<group>";
-		};
-		EF5B591216BDE073008626BA /* price */ = {
-			isa = PBXGroup;
-			children = (
-				EF5B590F16BDE06E008626BA /* RTHPriceViewController.h */,
-				EF5B591016BDE06E008626BA /* RTHPriceViewController.m */,
-			);
-			name = price;
-			sourceTree = "<group>";
-		};
-		EF724A7117232044008DDA58 /* defaults */ = {
-			isa = PBXGroup;
-			children = (
-				EFF7684E16BD9CB500265767 /* Default.png */,
-				EFF7685016BD9CB500265767 /* Default@2x.png */,
-				EFF7685216BD9CB500265767 /* Default-568h@2x.png */,
-			);
-			name = defaults;
-			sourceTree = "<group>";
-		};
-		EF724A721723204A008DDA58 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				EF724A7317232057008DDA58 /* icon_16.png */,
-				EF724A7417232057008DDA58 /* icon_29.png */,
-				EF724A7517232057008DDA58 /* icon_57.png */,
-				EF724A7617232057008DDA58 /* icon_72.png */,
-				EF724A7717232057008DDA58 /* icon_114.png */,
-				EF724A7817232057008DDA58 /* icon_512.png */,
-				EF724A7917232057008DDA58 /* icon_1024.png */,
-			);
-			name = icons;
 			sourceTree = "<group>";
 		};
 		EF768EA816C855A700DCB1ED /* about */ = {
@@ -398,6 +288,8 @@
 			children = (
 				EF768EA916C855B300DCB1ED /* RTHAboutViewController.h */,
 				EF768EAA16C855B300DCB1ED /* RTHAboutViewController.m */,
+				EF957E0918E8C19E006943D3 /* RTHWebViewController.h */,
+				EF957E0A18E8C19E006943D3 /* RTHWebViewController.m */,
 			);
 			name = about;
 			sourceTree = "<group>";
@@ -407,8 +299,29 @@
 			children = (
 				EFF7685416BD9CB500265767 /* RTHColorSelectionViewController.h */,
 				EFF7685516BD9CB500265767 /* RTHColorSelectionViewController.m */,
+				EFBFBC6B18E8A6E0004C844D /* RTHColorSelectionView.h */,
+				EFBFBC6C18E8A6E0004C844D /* RTHColorSelectionView.m */,
 			);
 			name = "color selection";
+			sourceTree = "<group>";
+		};
+		EF957E0C18E8C305006943D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF957E1118E8C4A3006943D3 /* credits.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EFBFBC6A18E8A3A0004C844D /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				EF0B95DE17ED39E20087ADC4 /* RTHFilterViewController.h */,
+				EF0B95DF17ED39E20087ADC4 /* RTHFilterViewController.m */,
+				EFBFBC6718E8A39D004C844D /* RTHPriceView.h */,
+				EFBFBC6818E8A39D004C844D /* RTHPriceView.m */,
+			);
+			name = filter;
 			sourceTree = "<group>";
 		};
 		EFF7682D16BD9CB500265767 = {
@@ -417,6 +330,7 @@
 				EFF7684216BD9CB500265767 /* Color Search */,
 				EFF7683B16BD9CB500265767 /* Frameworks */,
 				EFF7683916BD9CB500265767 /* Products */,
+				ACCD81A8745A4DE9A32786EB /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,6 +345,7 @@
 		EFF7683B16BD9CB500265767 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF0B95E617ED45A50087ADC4 /* Security.framework */,
 				EFDAC8BC1736CFFC00C884B4 /* MobileCoreServices.framework */,
 				EFDAC8BA1736CFF700C884B4 /* SystemConfiguration.framework */,
 				EF5B591716BDE456008626BA /* QuartzCore.framework */,
@@ -438,6 +353,7 @@
 				EFF7683C16BD9CB500265767 /* UIKit.framework */,
 				EFF7683E16BD9CB500265767 /* Foundation.framework */,
 				EFF7684016BD9CB500265767 /* CoreGraphics.framework */,
+				7222FC65AF9642DE9460EA47 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -449,6 +365,10 @@
 				EFF7684C16BD9CB500265767 /* RTHAppDelegate.m */,
 				EF78EB6916BE9CAA006D8048 /* RTHColorHistory.h */,
 				EF78EB6A16BE9CAA006D8048 /* RTHColorHistory.m */,
+				EF0B95DB17ED30810087ADC4 /* RTHConstants.h */,
+				EF0B95DC17ED30810087ADC4 /* RTHConstants.m */,
+				EF957E1318E8C5C1006943D3 /* RTHNavigationController.h */,
+				EF957E1418E8C5C1006943D3 /* RTHNavigationController.m */,
 				EF036A2816D019AE009AA728 /* Utilities */,
 				EF036A2416D0172F009AA728 /* home */,
 				EF036A2016D016BD009AA728 /* views */,
@@ -467,6 +387,8 @@
 		EFF7684316BD9CB500265767 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF957E0C18E8C305006943D3 /* Resources */,
+				EF0B95D917ED2FC30087ADC4 /* Images.xcassets */,
 				EFF7684416BD9CB500265767 /* Chromatic-Info.plist */,
 				EFA6A6BD16BEAE4C0073D719 /* config.plist */,
 				EFF7684516BD9CB500265767 /* InfoPlist.strings */,
@@ -484,9 +406,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFF7685F16BD9CB500265767 /* Build configuration list for PBXNativeTarget "Chromatic" */;
 			buildPhases = (
+				F4681CCAC4BC4B7DB8C84218 /* Check Pods Manifest.lock */,
 				EFF7683416BD9CB500265767 /* Sources */,
 				EFF7683516BD9CB500265767 /* Frameworks */,
 				EFF7683616BD9CB500265767 /* Resources */,
+				6A517DA2BE01486A8FD557D7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -530,23 +454,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF957E1218E8C4A3006943D3 /* credits.html in Resources */,
 				EFF7684716BD9CB500265767 /* InfoPlist.strings in Resources */,
-				EFF7684F16BD9CB500265767 /* Default.png in Resources */,
-				EFF7685116BD9CB500265767 /* Default@2x.png in Resources */,
-				EFF7685316BD9CB500265767 /* Default-568h@2x.png in Resources */,
 				EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */,
 				EF3A87CB16D0686600D91D39 /* etsy_badge.gif in Resources */,
-				EF724A7A17232057008DDA58 /* icon_16.png in Resources */,
-				EF724A7B17232057008DDA58 /* icon_29.png in Resources */,
-				EF724A7C17232057008DDA58 /* icon_57.png in Resources */,
-				EF724A7D17232057008DDA58 /* icon_72.png in Resources */,
-				EF724A7E17232057008DDA58 /* icon_114.png in Resources */,
-				EF724A7F17232057008DDA58 /* icon_512.png in Resources */,
-				EF724A8017232057008DDA58 /* icon_1024.png in Resources */,
+				EF957E1918E8C6B2006943D3 /* external_link_icon@2x.png in Resources */,
+				EF0B95DA17ED2FC30087ADC4 /* Images.xcassets in Resources */,
+				EF957E1818E8C6B2006943D3 /* external_link_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A517DA2BE01486A8FD557D7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4681CCAC4BC4B7DB8C84218 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFF7683416BD9CB500265767 /* Sources */ = {
@@ -555,24 +506,15 @@
 			files = (
 				EFF7684916BD9CB500265767 /* main.m in Sources */,
 				EFF7684D16BD9CB500265767 /* RTHAppDelegate.m in Sources */,
+				EF957E1518E8C5C1006943D3 /* RTHNavigationController.m in Sources */,
 				EFF7685616BD9CB500265767 /* RTHColorSelectionViewController.m in Sources */,
 				EFF7686416BDA0C800265767 /* RTHColorUtil.m in Sources */,
-				EF5B58CD16BDBA18008626BA /* AFHTTPClient.m in Sources */,
-				EF5B58CE16BDBA18008626BA /* AFHTTPRequestOperation.m in Sources */,
-				EF5B58CF16BDBA18008626BA /* AFImageRequestOperation.m in Sources */,
-				EF5B58D016BDBA18008626BA /* AFJSONRequestOperation.m in Sources */,
-				EF5B58D116BDBA18008626BA /* AFNetworkActivityIndicatorManager.m in Sources */,
-				EF5B58D216BDBA18008626BA /* AFPropertyListRequestOperation.m in Sources */,
-				EF5B58D316BDBA18008626BA /* AFURLConnectionOperation.m in Sources */,
-				EF5B58D416BDBA18008626BA /* AFXMLRequestOperation.m in Sources */,
-				EF5B58D516BDBA18008626BA /* UIImageView+AFNetworking.m in Sources */,
+				EF0B95E017ED39E20087ADC4 /* RTHFilterViewController.m in Sources */,
 				EF5B58D916BDBA3D008626BA /* RTHSearchViewController.m in Sources */,
 				EF5B58E516BDBB6A008626BA /* RTHListing.m in Sources */,
 				EF5B58E916BDBBCB008626BA /* RTHEtsyClient.m in Sources */,
 				EF5B58EE16BDC568008626BA /* RTHListingCell.m in Sources */,
 				EF5B58F116BDD8F0008626BA /* RTHCategory.m in Sources */,
-				EF5B58F616BDD9B1008626BA /* RTHCategoryViewController.m in Sources */,
-				EF5B591116BDE06F008626BA /* RTHPriceViewController.m in Sources */,
 				EF78EB6B16BE9CAA006D8048 /* RTHColorHistory.m in Sources */,
 				EF78EB6E16BE9ED1006D8048 /* RTHColorHistoryViewController.m in Sources */,
 				EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */,
@@ -582,13 +524,16 @@
 				EF036A1F16D0166A009AA728 /* RTHHomeViewController.m in Sources */,
 				EF036A2316D016CB009AA728 /* RTHButton.m in Sources */,
 				EF036A2716D0173C009AA728 /* RTHHomeView.m in Sources */,
-				EF036A2C16D02A11009AA728 /* RTHCategoryView.m in Sources */,
-				EF036A2F16D033AA009AA728 /* RTHSearchHeaderView.m in Sources */,
+				EF0B95DD17ED30810087ADC4 /* RTHConstants.m in Sources */,
+				EFBFBC6D18E8A6E0004C844D /* RTHColorSelectionView.m in Sources */,
 				EFCF8D7C16D042EB00E14663 /* RTHListingViewController.m in Sources */,
 				EFCF8D7F16D0438300E14663 /* RTHListingView.m in Sources */,
+				EF957E1C18E8C998006943D3 /* RTHCustomButton.m in Sources */,
 				EF3A87CF16D06B5A00D91D39 /* MagnifierView.m in Sources */,
+				EF957E0B18E8C19E006943D3 /* RTHWebViewController.m in Sources */,
 				EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */,
 				EF4783C316D2E93700A612E5 /* NSString+HTML.m in Sources */,
+				EFBFBC6918E8A39D004C844D /* RTHPriceView.m in Sources */,
 				EF4783C616D2E97200A612E5 /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,7 +580,10 @@
 		};
 		EFE145B81736E71F00F2C48D /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACCD81A8745A4DE9A32786EB /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
@@ -643,9 +591,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Color Search/Flurry\"",
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-lFlurry_4.4.0",
 				);
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -707,7 +667,10 @@
 		};
 		EFF7686016BD9CB500265767 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACCD81A8745A4DE9A32786EB /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
@@ -715,9 +678,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Color Search/Flurry\"",
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-lFlurry_4.4.0",
 				);
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -727,7 +702,10 @@
 		};
 		EFF7686116BD9CB500265767 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACCD81A8745A4DE9A32786EB /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Color Search/layout/System/Library/Frameworks\"",
@@ -735,9 +713,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Color Search/Chromatic-Prefix.pch";
 				INFOPLIST_FILE = "Color Search/Chromatic-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Color Search/Flurry\"",
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-lFlurry_4.4.0",
 				);
 				PRODUCT_NAME = Chromatic;
 				TARGETED_DEVICE_FAMILY = 1;

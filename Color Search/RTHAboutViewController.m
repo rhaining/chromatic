@@ -8,6 +8,7 @@
 
 #import "RTHAboutViewController.h"
 #import "RTHAnalytics.h"
+#import "RTHWebViewController.h"
 
 @interface RTHAboutViewController ()
 
@@ -18,6 +19,7 @@
 - (id)init{
     if (self = [super init]) {
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissSelf)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Credits" style:UIBarButtonItemStylePlain target:self action:@selector(presentCredits)];
 		self.title = @"About";
 		[RTHAnalytics logAboutView];
     }
@@ -28,13 +30,19 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)presentCredits{
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"credits" ofType:@"html"];
+    RTHWebViewController *vc = [[RTHWebViewController alloc] initWithFile:filepath];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
 	self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
 
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 250)];
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 250)];
 	label.text = @"made with love in new york city\nat the fashion hackathon\n\ngabriela anastasio\nrobert tolar haining\nphillip huynh\nmara isip\nrob van wyen";
 	label.textColor = [UIColor colorWithRed:103/255.0 green:103/255.0 blue:103/255.0 alpha:1.0];
 	label.font = [UIFont fontWithName:@"Georgia" size:18];

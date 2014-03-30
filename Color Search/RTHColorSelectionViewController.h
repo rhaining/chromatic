@@ -15,13 +15,8 @@
 
 @interface RTHColorSelectionViewController : UIViewController {
 	BOOL hasPresented;
-	UIImageView *imageView;
 	
 	UIColor *currentColor;
-//	CAGradientLayer *gradient;
-	
-	RTHButton *searchSelectedColorButton;
-	RTHButton *searchComplementaryColorButton;
 
 	UIImage *initialImage;
 	

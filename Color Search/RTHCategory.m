@@ -27,6 +27,23 @@
     return self;
 }
 
+-(NSUInteger)hash{
+    return [self.shortName hash];
+}
+
+-(BOOL)isEqual:(id)object{
+    if(self == object){
+        return YES;
+    }else if([super isEqual:object]){
+        return YES;
+    }else if([object isKindOfClass:[RTHCategory class]]){
+        RTHCategory *otherCategory = (RTHCategory *)object;
+        return self.hash == otherCategory.hash;
+    }else{
+        return NO;
+    }
+}
+
 #pragma mark -
 
 + (void)categoriesWithBlock:(void (^)(NSArray *categories, NSError *error))block{

@@ -24,7 +24,7 @@
 		self.titleLabel.numberOfLines = 0;
 		[self addSubview:self.titleLabel];
 		
-		_priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(kNMSidePadding, kNMSidePadding, frame.size.width - kNMSidePadding*2, 20)];
+		_priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(kNMSidePadding, kNMSidePadding+2, frame.size.width - kNMSidePadding*2, 20)];
 		self.priceLabel.backgroundColor = self.backgroundColor;
 		self.priceLabel.font = [UIFont fontWithName:@"Georgia-Bold" size:15];
 		self.priceLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1];

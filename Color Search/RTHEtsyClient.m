@@ -24,7 +24,7 @@
 
 #import "AFJSONRequestOperation.h"
 
-static NSString * const kAFAppDotNetAPIBaseURLString = @"http://openapi.etsy.com/";
+static NSString * const kAFAppDotNetAPIBaseURLString = @"https://openapi.etsy.com/";
 
 @implementation RTHEtsyClient
 
