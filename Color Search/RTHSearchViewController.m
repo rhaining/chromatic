@@ -19,7 +19,7 @@
 #import "RTHNavigationController.h"
 
 @interface RTHSearchViewController() <RTHFilterDelegate>
-
+@property (nonatomic, strong) UIAlertView *alertView;
 @end
 
 @implementation RTHSearchViewController
@@ -50,6 +50,15 @@
 	}
 }
 
+-(void)showAlert{
+    if(!self.alertView){
+        self.alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"No results found" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+    }
+    if(![self.alertView isVisible]){
+        [self.alertView show];
+    }
+}
+
 -(void)search{
 	loadMoreButton.hidden = YES;
 	
@@ -63,7 +72,7 @@
         } else {
             _listings = listings;
 			if(!_listings || _listings.count == 0){
-				[[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"No results found" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil] show];
+                [self showAlert];
 			}
             [self.tableView reloadData];
 			[self.tableView beginUpdates];
@@ -90,7 +99,7 @@
 			_listings = [NSArray arrayWithArray:combinedListings];
 
 			if(!_listings || _listings.count == 0){
-				[[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"No results found" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil] show];
+                [self showAlert];
 			}
             [self.tableView reloadData];
 			[self.tableView beginUpdates];
