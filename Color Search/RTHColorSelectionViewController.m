@@ -66,7 +66,7 @@
 -(void)setCurrentColor:(UIColor *)color{
 	currentColor = color;
 	self.colorSelectionView.selectedColorSwatch.backgroundColor = currentColor;
-	self.navigationController.navigationBar.tintColor = currentColor;
+	self.navigationController.navigationBar.barTintColor = currentColor;
 	
 	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
 //	CGFloat red,green,blue,alpha;
@@ -74,6 +74,7 @@
 //	CGFloat averageColor = (red+green+alpha)/3.0;
 //	UIColor *monochromeCurrentColor = [UIColor colorWithWhite:averageColor alpha:1];
 
+	self.navigationController.navigationBar.tintColor = inverseColor;
     self.colorSelectionView.complementaryColorSwatch.backgroundColor = inverseColor;
 //	[self.colorSelectionView.searchSelectedColorButton setTitleColor:monochromeCurrentColor forState:UIControlStateNormal];
 //	[self.colorSelectionView.searchComplementaryColorButton setTitleColor:inverseColor forState:UIControlStateNormal];
@@ -124,7 +125,8 @@
 -(void)searchForComplementaryColor{
 	if(currentColor){
         UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
-        self.navigationController.navigationBar.tintColor = inverseColor;
+        self.navigationController.navigationBar.barTintColor = inverseColor;
+        self.navigationController.navigationBar.tintColor = currentColor;
         [self searchForColor:inverseColor];
         [RTHAnalytics logSearchComplementaryColor];
     }else{

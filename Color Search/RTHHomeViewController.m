@@ -55,11 +55,13 @@
 	[RTHAnalytics addNavigationController:nav];
 	nav.navigationBar.barStyle = self.navigationController.navigationBar.barStyle;
 	nav.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
+	nav.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
 	[self presentViewController:nav animated:YES completion:nil];
 }
 
 -(void)selectNewImage:(UIImagePickerControllerSourceType)sourceType{
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
 	imagePicker.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
 	imagePicker.navigationBar.barStyle = self.navigationController.navigationBar.barStyle;
 	imagePicker.sourceType = sourceType;

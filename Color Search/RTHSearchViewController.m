@@ -42,8 +42,9 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	
-	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:self.navigationController.navigationBar.tintColor];
-	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : inverseColor}];
+//	UIColor *tintColor = [RTHColorUtil inverseColorFromColor:self.navigationController.navigationBar.tintColor];
+    UIColor *tintColor = self.navigationController.navigationBar.tintColor;
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : tintColor}];
 
 	if(!_listings){
 		[self search];
