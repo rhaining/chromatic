@@ -45,8 +45,6 @@
     if(self.navigationController.navigationBar.barTintColor){
         self.homeView.backgroundColor = self.navigationController.navigationBar.barTintColor;
     }
-//    self.homeView
-//    self.navigationController.navigationBar.tintColor = [RTHColorUtil inverseColorFromColor:color];
 }
 
 - (void)viewDidLoad{

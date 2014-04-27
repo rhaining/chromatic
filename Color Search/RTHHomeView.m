@@ -16,7 +16,7 @@
     if (self = [super initWithFrame:frame]) {
 		self.backgroundColor = [RTHConstants chromaticYellow];
 		
-		CGFloat buttonWidth = 320;
+		CGFloat buttonWidth = CGRectGetWidth(frame) - 40;
 		CGFloat buttonHeight = 100;
 		CGFloat margin = 50;
         
@@ -24,7 +24,7 @@
 		
 		CGFloat originX = (frame.size.width - buttonWidth) / 2.0;
 		CGFloat contentHeight = (buttonHeight * numButtons) + (margin * (numButtons-1));
-		CGFloat originY = (CGRectGetHeight(frame) - contentHeight) / 2.0;
+		CGFloat originY = 32+ (CGRectGetHeight(frame) - contentHeight) / 2.0;
 		
         _cameraButton = [UIButton buttonWithType:UIButtonTypeSystem];
 		if(cameraAvailable){
@@ -53,6 +53,14 @@
         }
 	}
     return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self.cameraButton sizeToFit];
+    [self.albumButton sizeToFit];
+    [self.historyButton sizeToFit];
 }
 
 
