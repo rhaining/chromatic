@@ -34,11 +34,6 @@
     return self;
 }
 
-//-(void)dismissSelf{
-//	[self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-
 - (void)viewDidLoad{
     [super viewDidLoad];
 
@@ -89,6 +84,7 @@
 	}else{
 		self.navigationController.navigationBar.barTintColor = color;
 		self.navigationController.navigationBar.tintColor = [RTHColorUtil inverseColorFromColor:color];
+        [[UIApplication sharedApplication] keyWindow].tintColor = [RTHColorUtil inverseColorFromColor:color];
 
 		NSString *hex = [RTHColorUtil getHexStringForColor:color];
 		RTHSearchViewController *vc = [[RTHSearchViewController alloc] initWithColorHex:hex];

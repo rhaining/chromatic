@@ -20,6 +20,7 @@
 		EF4783BF16D2DCF000A612E5 /* RTHAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783BE16D2DCF000A612E5 /* RTHAnalytics.m */; };
 		EF4783C316D2E93700A612E5 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783C216D2E93700A612E5 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF4783C616D2E97200A612E5 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EF531AAA190DB19E00D9A45B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF531AA9190DB19E00D9A45B /* Media.xcassets */; };
 		EF5B58D916BDBA3D008626BA /* RTHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */; };
 		EF5B58E516BDBB6A008626BA /* RTHListing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E416BDBB6A008626BA /* RTHListing.m */; };
 		EF5B58E916BDBBCB008626BA /* RTHEtsyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5B58E816BDBBCB008626BA /* RTHEtsyClient.m */; };
@@ -34,8 +35,6 @@
 		EF957E0B18E8C19E006943D3 /* RTHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF957E0A18E8C19E006943D3 /* RTHWebViewController.m */; };
 		EF957E1218E8C4A3006943D3 /* credits.html in Resources */ = {isa = PBXBuildFile; fileRef = EF957E1118E8C4A3006943D3 /* credits.html */; };
 		EF957E1518E8C5C1006943D3 /* RTHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF957E1418E8C5C1006943D3 /* RTHNavigationController.m */; };
-		EF957E1818E8C6B2006943D3 /* external_link_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF957E1618E8C6B2006943D3 /* external_link_icon.png */; };
-		EF957E1918E8C6B2006943D3 /* external_link_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF957E1718E8C6B2006943D3 /* external_link_icon@2x.png */; };
 		EF957E1C18E8C998006943D3 /* RTHCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF957E1B18E8C998006943D3 /* RTHCustomButton.m */; };
 		EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFA6A6BD16BEAE4C0073D719 /* config.plist */; };
 		EFA6A6C116BEAEBB0073D719 /* RTHEtsyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6A6C016BEAEBB0073D719 /* RTHEtsyConfig.m */; };
@@ -80,6 +79,7 @@
 		EF4783C216D2E93700A612E5 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		EF4783C416D2E97200A612E5 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		EF4783C516D2E97200A612E5 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		EF531AA9190DB19E00D9A45B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		EF5B58D716BDBA3D008626BA /* RTHSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHSearchViewController.h; sourceTree = "<group>"; };
 		EF5B58D816BDBA3D008626BA /* RTHSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHSearchViewController.m; sourceTree = "<group>"; };
 		EF5B58E316BDBB6A008626BA /* RTHListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHListing.h; sourceTree = "<group>"; };
@@ -106,8 +106,6 @@
 		EF957E1118E8C4A3006943D3 /* credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = credits.html; sourceTree = "<group>"; };
 		EF957E1318E8C5C1006943D3 /* RTHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHNavigationController.h; sourceTree = "<group>"; };
 		EF957E1418E8C5C1006943D3 /* RTHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHNavigationController.m; sourceTree = "<group>"; };
-		EF957E1618E8C6B2006943D3 /* external_link_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = external_link_icon.png; sourceTree = "<group>"; };
-		EF957E1718E8C6B2006943D3 /* external_link_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "external_link_icon@2x.png"; sourceTree = "<group>"; };
 		EF957E1A18E8C998006943D3 /* RTHCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHCustomButton.h; sourceTree = "<group>"; };
 		EF957E1B18E8C998006943D3 /* RTHCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTHCustomButton.m; sourceTree = "<group>"; };
 		EFA6A6BD16BEAE4C0073D719 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = SOURCE_ROOT; };
@@ -222,9 +220,8 @@
 		EF3A87C916D0685A00D91D39 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				EF957E1618E8C6B2006943D3 /* external_link_icon.png */,
-				EF957E1718E8C6B2006943D3 /* external_link_icon@2x.png */,
 				EF3A87CA16D0686600D91D39 /* etsy_badge.gif */,
+				EF531AA9190DB19E00D9A45B /* Media.xcassets */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -456,11 +453,10 @@
 			files = (
 				EF957E1218E8C4A3006943D3 /* credits.html in Resources */,
 				EFF7684716BD9CB500265767 /* InfoPlist.strings in Resources */,
+				EF531AAA190DB19E00D9A45B /* Media.xcassets in Resources */,
 				EFA6A6BE16BEAE4C0073D719 /* config.plist in Resources */,
 				EF3A87CB16D0686600D91D39 /* etsy_badge.gif in Resources */,
-				EF957E1918E8C6B2006943D3 /* external_link_icon@2x.png in Resources */,
 				EF0B95DA17ED2FC30087ADC4 /* Images.xcassets in Resources */,
-				EF957E1818E8C6B2006943D3 /* external_link_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,10 +28,14 @@
 	}
 	
 	/* For some codes that locale cannot be found, init it different way. */
-	if (locale == nil) {
-		NSDictionary *components = @{NSLocaleCurrencyCode : currencyCode};
-		localeId = [NSLocale localeIdentifierFromComponents:components];
-		locale = [[NSLocale alloc] initWithLocaleIdentifier:localeId];
+	if (!locale) {
+        if(currencyCode){
+            NSDictionary *components = @{NSLocaleCurrencyCode : currencyCode};
+            localeId = [NSLocale localeIdentifierFromComponents:components];
+            locale = [[NSLocale alloc] initWithLocaleIdentifier:localeId];
+        }else if(locales.count > 0){
+            locale = locales[0];
+        }
 	}
 	return locale;
 }

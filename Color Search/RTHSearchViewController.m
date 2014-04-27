@@ -142,7 +142,8 @@
 -(void)loadView{
 	[super loadView];
 	[self.view addSubview:self.tableView];
-	
+	self.view.backgroundColor = self.tableView.backgroundColor = self.navigationController.navigationBar.barTintColor;
+    
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(filterSearch)];
 }
 
@@ -169,11 +170,17 @@
 	
 	RTHListing *listing = [_listings objectAtIndex:indexPath.row];
 	
-	[numberFormatter setLocale:[RTHLocaleHelper findLocaleByCurrencyCode:listing.currencyCode]];
-	NSString *priceValue = [numberFormatter stringFromNumber:@(listing.price.floatValue)];
+    if(listing.price){
+        if(listing.currencyCode){
+            [numberFormatter setLocale:[RTHLocaleHelper findLocaleByCurrencyCode:listing.currencyCode]];
+        }
+        cell.detailTextLabel.text = [numberFormatter stringFromNumber:@(listing.price.floatValue)];
+    }else{
+        cell.detailTextLabel.text = nil;
+    }
+        
 	
 	cell.textLabel.text = listing.title;
-	cell.detailTextLabel.text = priceValue;
 	cell.imageURL = listing.imageURL;
 	
 	return cell;

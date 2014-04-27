@@ -17,7 +17,7 @@
 		self.backgroundColor = [RTHConstants chromaticYellow];
 		
 		CGFloat buttonWidth = 320;
-		CGFloat buttonHeight = 75;
+		CGFloat buttonHeight = 100;
 		CGFloat margin = 50;
         
         NSUInteger numButtons = cameraAvailable ? 3 : 2;
@@ -26,29 +26,29 @@
 		CGFloat contentHeight = (buttonHeight * numButtons) + (margin * (numButtons-1));
 		CGFloat originY = (CGRectGetHeight(frame) - contentHeight) / 2.0;
 		
-        UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _cameraButton = [UIButton buttonWithType:UIButtonTypeSystem];
 		if(cameraAvailable){
-			[cameraButton setTitle:@"Take a Photo" forState:UIControlStateNormal];
-			[cameraButton addTarget:nil action:@selector(presentCamera) forControlEvents:UIControlEventTouchUpInside];
-			cameraButton.frame = CGRectMake(originX, originY, buttonWidth, buttonHeight);
-			[self addSubview:cameraButton];
+			[self.cameraButton setTitle:@"Take a Photo" forState:UIControlStateNormal];
+            [self.cameraButton setImage:[UIImage imageNamed:@"camera_icon.png"] forState:UIControlStateNormal];
+			self.cameraButton.frame = CGRectMake(originX, originY, buttonWidth, buttonHeight);
+			[self addSubview:self.cameraButton];
 			
-			originY = CGRectGetMaxY(cameraButton.frame) + margin;
+			originY = CGRectGetMaxY(self.cameraButton.frame) + margin;
 		}
 		
-		UIButton *albumButton = [UIButton buttonWithType:UIButtonTypeSystem];
-		[albumButton setTitle:@"Browse your Photo Album" forState:UIControlStateNormal];
-		[albumButton addTarget:nil action:@selector(presentPhotoAlbum) forControlEvents:UIControlEventTouchUpInside];
-		albumButton.frame = CGRectMake(originX, originY, buttonWidth, buttonHeight);
-		[self addSubview:albumButton];
+		_albumButton = [UIButton buttonWithType:UIButtonTypeSystem];
+		[self.albumButton setTitle:@"Browse Photos" forState:UIControlStateNormal];
+        [self.albumButton setImage:[UIImage imageNamed:@"photos_icon.png"] forState:UIControlStateNormal];
+		self.albumButton.frame = CGRectMake(originX, originY, buttonWidth, buttonHeight);
+		[self addSubview:self.albumButton];
 	
-		UIButton *historyButton = [UIButton buttonWithType:UIButtonTypeSystem];
-		[historyButton setTitle:@"Browse Color History" forState:UIControlStateNormal];
-		[historyButton addTarget:nil action:@selector(presentHistory) forControlEvents:UIControlEventTouchUpInside];
-		historyButton.frame = CGRectMake(originX, CGRectGetMaxY(albumButton.frame) + margin, buttonWidth, buttonHeight);
-		[self addSubview:historyButton];
+		_historyButton = [UIButton buttonWithType:UIButtonTypeSystem];
+		[self.historyButton setTitle:@" Color History" forState:UIControlStateNormal];
+        [self.historyButton setImage:[UIImage imageNamed:@"colors_icon.png"] forState:UIControlStateNormal];
+		self.historyButton.frame = CGRectMake(originX, CGRectGetMaxY(self.albumButton.frame) + margin, buttonWidth, buttonHeight);
+		[self addSubview:self.historyButton];
         
-        for(UIButton *button in @[cameraButton, albumButton, historyButton]){
+        for(UIButton *button in @[self.cameraButton, self.albumButton, self.historyButton]){
             button.titleLabel.font = [UIFont boldSystemFontOfSize:25];
         }
 	}

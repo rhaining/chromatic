@@ -17,7 +17,7 @@
 #import "RTHNavigationController.h"
 
 @interface RTHHomeViewController ()
-
+@property (nonatomic, strong) RTHHomeView *homeView;
 @end
 
 @implementation RTHHomeViewController
@@ -33,8 +33,20 @@
 	[super loadView];
 	
 	BOOL cameraAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-	RTHHomeView *homeView = [[RTHHomeView alloc] initWithFrame:self.view.bounds cameraAvailable:cameraAvailable];
-	[self.view addSubview:homeView];
+	self.homeView = [[RTHHomeView alloc] initWithFrame:self.view.bounds cameraAvailable:cameraAvailable];
+    [self.homeView.cameraButton addTarget:self action:@selector(presentCamera) forControlEvents:UIControlEventTouchUpInside];
+    [self.homeView.albumButton addTarget:self action:@selector(presentPhotoAlbum) forControlEvents:UIControlEventTouchUpInside];
+    [self.homeView.historyButton addTarget:self action:@selector(presentHistory) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:self.homeView];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if(self.navigationController.navigationBar.barTintColor){
+        self.homeView.backgroundColor = self.navigationController.navigationBar.barTintColor;
+    }
+//    self.homeView
+//    self.navigationController.navigationBar.tintColor = [RTHColorUtil inverseColorFromColor:color];
 }
 
 - (void)viewDidLoad{

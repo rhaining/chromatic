@@ -69,15 +69,9 @@
 	self.navigationController.navigationBar.barTintColor = currentColor;
 	
 	UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
-//	CGFloat red,green,blue,alpha;
-//	[inverseColor getRed:&red green:&green blue:&blue alpha:&alpha];
-//	CGFloat averageColor = (red+green+alpha)/3.0;
-//	UIColor *monochromeCurrentColor = [UIColor colorWithWhite:averageColor alpha:1];
 
-	self.navigationController.navigationBar.tintColor = inverseColor;
+    self.navigationController.navigationBar.tintColor = inverseColor;
     self.colorSelectionView.complementaryColorSwatch.backgroundColor = inverseColor;
-//	[self.colorSelectionView.searchSelectedColorButton setTitleColor:monochromeCurrentColor forState:UIControlStateNormal];
-//	[self.colorSelectionView.searchComplementaryColorButton setTitleColor:inverseColor forState:UIControlStateNormal];
 }
 -(void)updateWithColorAtPoint:(CGPoint)point{
 	UIColor *color = [RTHColorUtil colorAtPoint:point inView:self.colorSelectionView.imageView];
@@ -117,6 +111,8 @@
 -(void)searchForSelectedColor{
 	if(currentColor){
 		[self searchForColor:currentColor];
+        UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
+        [[UIApplication sharedApplication] keyWindow].tintColor = inverseColor;
 		[RTHAnalytics logSearchSelectedColor];
 	}else{
 		[[[UIAlertView alloc] initWithTitle:nil message:@"Please select a color." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"okay", nil] show];
@@ -127,6 +123,8 @@
         UIColor *inverseColor = [RTHColorUtil inverseColorFromColor:currentColor];
         self.navigationController.navigationBar.barTintColor = inverseColor;
         self.navigationController.navigationBar.tintColor = currentColor;
+        [[UIApplication sharedApplication] keyWindow].tintColor = currentColor;
+
         [self searchForColor:inverseColor];
         [RTHAnalytics logSearchComplementaryColor];
     }else{

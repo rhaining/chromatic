@@ -10,6 +10,10 @@
 
 @interface RTHHomeView : UIView
 
+@property (nonatomic, readonly) UIButton *cameraButton;
+@property (nonatomic, readonly) UIButton *albumButton;
+@property (nonatomic, readonly) UIButton *historyButton;
+
 - (id)initWithFrame:(CGRect)frame cameraAvailable:(BOOL)cameraAvailable;
 
 @end
